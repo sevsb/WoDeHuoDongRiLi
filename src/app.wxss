@@ -1,0 +1,137 @@
+/**app.wxss**/
+
+/*全体页面样式*/
+
+page {
+  background-color: #f2f2f2;
+  height: 100%;
+  font-size: 11pt;
+  line-height: 1.6;
+}
+
+/*
+我的活动日历，页面样式
+*/
+
+.page_mycalendar {
+  padding: 40rpx 30rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/*
+我的活动日历，板块样式
+*/
+
+.plate_mycalendar {
+   width: 100%;
+   padding: 0 15rpx 25rpx 15rpx;
+}
+/*
+我的活动日历，输入框样式
+*/
+
+.input_mycalendar{
+  font-size: 13pt;
+  height:110rpx;
+  margin: 2px 0;
+  padding: 0 5px;
+  border-bottom:solid 1px;
+  border-bottom-color: #cccccc;
+
+}
+
+/*
+我的活动日历，提示样式
+*/
+
+.tip_mycalendar {
+  font-size: 9pt;
+  color: #b4aebd;
+  width: 100%;
+  padding: 0 10px;
+}
+/*
+我的活动日历，表单提交按钮样式
+*/
+
+.form_submit_mycalendar{
+  margin:50rpx 30rpx;
+background-color: #1aae18;
+color: #fff;
+
+border-color: #fff;
+}
+
+/*
+我的活动日历，警告提示样式
+*/
+
+.warning_notice_mycalendar{
+height:70rpx;
+font-size: 11pt;
+  display: flex; 
+  align-items: center;
+  color:#ff0000;
+}
+
+/*基础样式*/
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.align_center{
+  height: 100%;
+  display: flex; 
+  align-items: center;
+}
+
+.left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.right {
+  justify-content: flex-end;
+  text-align: right;
+}
+.small_icon{
+  height:50rpx;
+  width:50rpx;
+}
+
+
+
+/*
+去除按钮边框
+*/
+button::after {
+  border: none;
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}

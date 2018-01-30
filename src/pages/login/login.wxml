@@ -1,0 +1,39 @@
+<!--pages/login/login.wxml-->
+<view class="page_mycalendar">
+  <view class="plate_login">
+    <!--登录/注册表单  -->
+    <form class='register_form_login ' bindsubmit="register_request">
+    <!--表单部分  -->
+      <view>
+        <!--提示  -->
+        <view class="tip_mycalendar tip_login">
+          使用手机号登陆注册，用于绑定微信账号
+        </view>
+
+        <!--手机号  -->
+        <view class='input_mycalendar row'>
+          <view class='align_center' style='margin-right:5px;color:#1c2023;'>+86</view>
+          <input class='input_login'placeholder-style="color:#999;" bindblur="phonenumber_format_check" type='number' placeholder="手机号码" maxlength='11'></input>
+        </view>
+        <!--验证码  -->
+        <view class='input_mycalendar row'>
+
+          <input placeholder-style="color:#999;"  class='input_login' type='number' placeholder="短信验证码" maxlength='4'></input>
+          <view class="align_center">
+      
+         <button bindtap="verify_code_request" disabled="{{verify_internal}}" class="get_verify_code_button_login  align_center">获取验证码{{time}}</button>
+          </view>
+          
+        </view>
+        <view class='warning_notice_mycalendar '>
+       
+          <image wx:if="{{phonenumber_prompt&&!phonenumber_format}}" class='small_icon' style='margin:10rpx 5rpx;' src='../../image/warning-icon.png'></image>
+          <view wx:if="{{phonenumber_prompt&&!phonenumber_format}}" class='align_center' >手机号码格式不正确</view>
+      
+        </view>
+      </view>
+    <!--按钮部分  -->
+      <button    formType="submit" class="form_submit_login form_submit_mycalendar " >登录/注册</button>
+    </form>
+  </view>
+</view>
