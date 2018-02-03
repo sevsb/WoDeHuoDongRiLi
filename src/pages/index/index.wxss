@@ -1,21 +1,185 @@
 /**index.wxss**/
-.userinfo {
+
+/*
+首页 头部样式。
+*/
+
+.head_home_index {
+  background-color: #f2f2f2;
+  height: 100rpx;
+  width: 100%;
+  justify-content: space-around;
+}
+
+/*
+首页 搜索框样式。
+*/
+
+.searchbox_home_index {
+  width: 80%;
+  min-height: 68rpx; /*为了和站内信对齐*/
+  border: solid 1px #d7d7d7;
+  border-radius: 10rpx;
+  color: #99a6c4;
   display: flex;
+  flex-direction: row;
+  font-size: 11pt;
+}
+
+/*
+首页 日历样式。
+*/
+
+.calendar_home_index {
+  background-color: #f2f2f2;
+  height: 100%;
+  width: 100%;
+}
+
+
+/*
+首页 日历头样式。
+*/
+
+.calendar_head_home_index {
+  background-color: #fff;
+  height: 140rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*
+首页 时间选择器样式。
+*/
+
+.time_picker_home_index {
+  margin-left: 20rpx;
+}
+
+.month_time_picker {
+  font-size: 15pt;
+  font-weight: 500;
+  margin: 0 5rpx;
+}
+
+.year_time_piker {
+  font-size: 13pt;
+  margin: 0 5rpx;
+  font-weight: 300;
+}
+
+/*
+首页 日期滑动条样式。
+*/
+
+.schedule_swiper_home_index {
+  background-color: #fff;
+
+}
+
+.swiper_item_schedule_swiper {
+  /* white-space: nowrap; *//* height: 180rpx; */
+  display: flex;
+  justify-content: space-around;
+  align-self: flex-start;
+  
+}
+swiper {
+display:block;
+height:170rpx;
+
+}
+
+.item_swiper_item {
+  /* height: 180rpx; */
+  display: flex;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  flex-grow: 1;
+  align-self: flex-start;
+   height: 100%;
+
+}
+
+.day_box_swiper_item {
+  padding-top: 10rpx;
+  display: flex;
+  font-size: 11pt;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.date_swiper_item {
+  font-size: 13pt;
+  margin-top: 5rpx;
+  display: flex;
+  height: 60rpx;
+  width: 60rpx;
+  justify-content: center;
   align-items: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.event_reminded_swiper_item {
+  margin-top: 5rpx;
+  height: 30rpx;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #59caa4;
+  color: #f5fff0;
+  font-size: 7pt;
+  border-radius: 13rpx;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.before {
+  color: #999;
 }
 
-.usermotto {
-  margin-top: 200px;
+.after {
+  color: #000;
+}
+
+.chooseday {
+  flex-grow: 0;
+  border-radius: 100%;
+  background-color: #444;
+  color: #fff;
+}
+
+.unchooseday {
+  flex-grow: 0;
+  border-radius: 100%;
+  background-color: #eee;
+}
+
+.month {
+  font-size: 17pt;
+}
+
+/*
+首页 添加活动按钮样式。
+*/
+
+.add_activity_home_index {
+  position: fixed;
+  z-index: 1000;
+  border-radius: 45rpx;
+  bottom: 20rpx;
+  color: #fff;
+  right: 5rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  background: #093;
+  width: 150rpx;
+  height: 100rpx;
+  font-size: 11pt;
+  line-height: 1;
 }

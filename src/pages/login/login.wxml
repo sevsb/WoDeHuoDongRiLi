@@ -1,5 +1,5 @@
 <!--pages/login/login.wxml-->
-<view class="page_mycalendar">
+<view class="page_mycalendar page_login">
   <view class="plate_login">
     <!--登录/注册表单  -->
     <form class='register_form_login ' bindsubmit="register_request">

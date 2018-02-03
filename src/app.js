@@ -1,39 +1,72 @@
 //app.js
+var user_js = require('/utils/user.js')
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    var that = this;
+    var timeout = wx.getStorageSync('timeout');
+    var token = wx.getStorageSync('token');
+    var yuyue_session = wx.getStorageSync('yuyue_session');
+    var now_stamp = Date.parse(new Date()) / 1000;
+    //timeout = 1;
+    console.log("now_stamp:" + now_stamp);
+    console.log("timeout:" + timeout);
+    console.log("yuyue_session:" + yuyue_session);
+    console.log("token:" + token);
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
+    // 模拟器切换手机的时候，手机有缓存不更新，注释掉判断
+    /*
+    //已经登陆，需要刷新
+        if (yuyue_session == '' || token == '' || timeout == '' || timeout < now_stamp) {
+          console.log('Now Refresh Token...');
+          user_js.refresh_token(yuyue_session, token);
+          return;
         }
+    //已经登陆，无需刷新
+        if (yuyue_session != '' && token != '' && timeout != '' && timeout > now_stamp){
+          console.log('User Login is ok...');
+          return;
+        }
+    */
+    //登录
+    console.log('Now Do Login...');
+    wx.getUserInfo({
+      withCredentials: false,
+      success: function (res) {
+        that.globalData.userInfo = res.userInfo
+        console.log(that.globalData.userInfo);
+        var nick = that.globalData.userInfo.nickName;
+        var avatar = that.globalData.userInfo.avatarUrl;
+        typeof cb == "function" && cb(that.globalData.userInfo)
+        user_js.do_login('weapp', yuyue_session, nick, avatar);
+        return;
       }
     })
   },
+
+  getUserInfo: function (cb) {
+    var that = this
+    if (this.globalData.userInfo) {
+      typeof cb == "function" && cb(this.globalData.userInfo)
+    } else {
+      //调用登录接口
+      wx.getUserInfo({
+        withCredentials: false,
+        success: function (res) {
+          that.globalData.userInfo = res.userInfo
+          typeof cb == "function" && cb(that.globalData.userInfo)
+        }
+      })
+    }
+  },
+
   globalData: {
-    userInfo: null
+    userInfo: null,
+    peoplenumber: 5,
+    oganizationnumber: 3,
+    createnumber: 1,
+
+    default_url: 'https://www.xiaoningmengkeji.com',
+    //default_url: 'http://127.0.0.1',
+    debug: 0,
   }
 })

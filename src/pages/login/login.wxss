@@ -1,5 +1,13 @@
 /* pages/login/login.wxss */
 /*
+登录页面，页面样式
+*/
+
+.page_login{
+padding: 40rpx 30rpx; 
+}
+
+/*
 登录页面，板块样式
 */
 

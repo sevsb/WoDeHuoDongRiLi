@@ -1,13 +1,127 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class='page_mycalendar'>
+  <!--顶部  -->
+  <view class='head_home_index align_center'>
+    <!--搜索框  -->
+    <view class='searchbox_home_index align_center center'>
+      <!--图标  -->
+      <view class='align_center'>
+        <image class="tiny_icon align_center" src='../../image/index/search-icon.png'>
+        </image>
+      </view>
+      <!--框内文字  -->
+      <view class="align_center" style='margin-left:10rpx;'>
+        搜索
+      </view>
+    </view>
+    <!--站内信  -->
+    <view>
+      <image class="medium_icon align_center" src='../../image/index/letter-icon.png'>
+      </image>
+    </view>
+
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <!--日历  -->
+  <view class='calendar_home_index'>
+    <!--日历头  -->
+    <view class='calendar_head_home_index'>
+      <!--日期选择  -->
+      <view class='time_picker_home_index align_center'>
+
+        <picker name="" mode="date" value="{{thatdate}}" start="2000-1-1" end="2099-09-01" bindchange="bindthatdate">
+          <view style='border-bottom:1px #000 solid; '>
+            <view class="year_time_piker" style=' display:inline'>{{year}}</view>
+            <view style='font-size:9pt; display:inline'>年</view>
+            <view class='month_time_picker' style='display:inline'>{{month}}</view>
+            <view style='font-size:9pt; display:inline'>月</view>
+            <image style='margin-left:5px; height:7px;width:7px;' src='../../image/index/down-triangle-icon.png'></image>
+          </view>
+        </picker>
+
+      </view>
+      <!--按钮部分  -->
+      <view class='row space_around align_center' style='width:200rpx;marigin-right:10rpx;'>
+        <!--分享按钮  -->
+        <view>
+          <image class="medium_icon align_center " src='../../image/index/share-icon.png'></image>
+        </view>
+        <!--今日按钮  -->
+        <view>
+          <image class="medium_icon align_center" src='../../image/index/today-icon.png'></image>
+        </view>
+      </view>
+    </view>
+    <!--日历滑动条  -->
+    <view class='schedule_swiper_home_index'>
+      <!--滑动条  -->
+      <swiper indicator-dots="{{indicatorDots}}" current="{{index}}" autoplay="{{autoplay}}" duration="{{duration}}" bindchange="pagechange">
+        <view wx:for="{{pages}}">
+
+          <swiper-item class="swiper_item_schedule_swiper ">
+            <view wx:for="{{[0,1,2,3,4,5,6]}}" wx:for-item="i" class=" item_swiper_item">
+              <view data-stamp="{{stamp[i]}}" class=" day_box_swiper_item  " data-id="{{i}}" bindtap="bindpage">
+                <view class="center before">
+                  {{day[i]}}
+                </view>
+                <view class='center '>
+                  <view class="date_swiper_item  {{(item==page)?((i==choosedate)?'chooseday':'unchooseday'):'unchooseday'}}  {{(item-page==1||item-page==-3)?(now>nextStamp[i]?'before':'after') :((item-page==-1||item-page==3)?(now>lastStamp[i]?'before':'after'):(now>stamp[i]?'before':'after'))}} ">
+
+                    {{(item-page==1||item-page==-3)?nextDates[i]:((item-page==-1||item-page==3)?lastDates[i]:dates[i])}}
+                  </view>
+                </view>
+                <view wx:if="{{(item-page==1||item-page==-3)?next_event_number[i]:((item-page==-1||item-page==3)?last_event_number[i]:event_number[i])!=0}}" class='center'>
+                  <!--事件提醒  -->
+                  <view class='event_reminded_swiper_item '>
+                    {{(item-page==1||item-page==-3)?next_event_number[i]:((item-page==-1||item-page==3)?last_event_number[i]:event_number[i])}}事件
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </swiper-item>
+        </view>
+      </swiper>
+    </view>
+    <!--当日活动列表  -->
+    <view>
+      <!--单个活动  -->
+      <view class='activity_list_mycalendar align_center'>
+        <!--图片  -->
+        <view class=' align_center' style='height:100%;'>
+          <image class='small_image'></image>
+        </view>
+        <!--内容  -->
+        <view class=' align_center' class='info_activity_list' style=''>
+          <view style=''>
+            132
+          </view>
+          <view class='line_omitted intro_info_activity_list' style=''>
+            989748954618694896498649684894984198
+          </view>
+        </view>
+        <!--标签  -->
+        <view class='label_activity_list'>
+          <view class='time_label_activity_list'>19:35</view>
+          <view class='type_label_activity_list'>hahafg</view>
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+
+
+
+  <!--添加活动按钮  -->
+  <view class='add_activity_home_index'>
+    <!--图标  -->
+    <view style='font-size:17pt;font-weight: 900;line-height:1;align-items: center;'>
+      +
+    </view>
+    <!--文字  -->
+    <view>
+      新 建
+    </view>
+
   </view>
 </view>
