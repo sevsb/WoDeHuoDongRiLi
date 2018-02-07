@@ -24,6 +24,10 @@
   display: flex;
   flex-direction: row;
   font-size: 11pt;
+   justify-content: center;
+  text-align: center;
+   align-items: center;
+    background: #fff;
 }
 
 /*

@@ -1,11 +1,10 @@
 {
   "pages": [
-   
     "pages/index/index",
     "pages/logs/logs",
     "pages/login/login",
-    "pages/mine/index"
-    
+    "pages/mine/index",
+    "pages/index/search/index"
   ],
   "tabBar": {
     "color": "#7A7E83",

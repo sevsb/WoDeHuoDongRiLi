@@ -1,0 +1,96 @@
+<!--pages/index/search/index.wxml-->
+<view class='page_mycalendar'>
+  <!--搜索框  -->
+  <view class='search_box_search_index   '>
+    <!--图标  -->
+    <view class='search_icon_search_box'>
+      <image class="tiny_icon align_center" src='../../../image/index/search-icon.png'>
+      </image>
+    </view>
+    <!--文字  -->
+    <view class='input_search_box'>
+      <input style='width:100%;' type='text' value="{{search_inputTxt}}" placeholder="请输入活动ID、关键字进行查找" bindinput="input_search_input_bind">
+
+      </input>
+    </view>
+    <view wx:if="{{serach_box_focus}}" class='cancel_icon_search_box' bindtap='remove_input_search_input_bind'>
+      <image class="tiny_icon align_center" src='../../../image/search/cancel-icon.png'>
+      </image>
+    </view>
+  </view>
+  <!--便捷搜索  -->
+  <view class='convenient_search_search_index'>
+    <!-- 历史记录 -->
+    <view class='item_convenient_search'>
+      <!--标题  -->
+      <view class='title_convenient_search'>
+        历史记录
+      </view>
+      <!--详细  -->
+      <view class='info_convenient_search'>
+        <view class='item_info_convenient_search'>
+          hahahaha
+        </view>
+        <view class='item_info_convenient_search'>
+          hahah
+        </view>
+        <view class='item_info_convenient_search'>
+          haha
+        </view>
+          <view class='item_info_convenient_search'>
+          haha
+        </view>
+          <view class='item_info_convenient_search'>
+          haha
+        </view>
+          <view class='item_info_convenient_search'>
+          haha
+        </view>
+      </view>
+    </view>
+    <!--热门活动  -->
+    <view class='item_convenient_search'>
+      <!--标题  -->
+      <view class='title_convenient_search'>
+        热门活动
+      </view>
+      <!--详细  -->
+      <view class='info_convenient_search'>
+        <view class='item_info_convenient_search'>
+          hahahaha
+        </view>
+        <view class='item_info_convenient_search'>
+          hahah
+        </view>
+         <view class='item_info_convenient_search'>
+          hahah
+        </view>
+        <view class='item_info_convenient_search'>
+          hahaasfasfawsaq
+        </view>
+      </view>
+    </view>
+    <!--推荐活动  -->
+    <view class='item_convenient_search'>
+      <!--标题  -->
+      <view class='title_convenient_search'>
+        推荐活动
+      </view>
+      <!--详细  -->
+      <view class='info_convenient_search'>
+        <view class='item_info_convenient_search'>
+          hahahahafasf
+        </view>
+        <view class='item_info_convenient_search'>
+          hahah
+        </view>
+         <view class='item_info_convenient_search'>
+          hahahasdafrqwerq
+        </view>
+        <view class='item_info_convenient_search'>
+          haha
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

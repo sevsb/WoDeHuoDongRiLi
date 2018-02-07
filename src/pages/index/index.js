@@ -30,9 +30,9 @@ Page({
     index: 1,
     now: now,
     share: ["转发到微信", "生成朋友圈分享图", "生成二维码"],
-    event_number:[0,0,0,0,1,2,3],//每日事件数量
-    next_event_number:[1,2,3,1,0,0,0],
-    last_event_number:[2,1,3,1,3,2,1],
+    event_number: [0, 0, 0, 0, 1, 2, 3],//每日事件数量
+    next_event_number: [1, 2, 3, 1, 0, 0, 0],
+    last_event_number: [2, 1, 3, 1, 3, 2, 1],
     duration: 500,
   },
   pagechange: function (e) {
@@ -212,7 +212,7 @@ Page({
     var formatdate = e.detail.value;
     console.log("formatdate: ", formatdate);
     var stamp = util.formatTimeStamp(formatdate, "");
-    console.log("stamp: ",stamp);
+    console.log("stamp: ", stamp);
     getDates(this, stamp);
 
   },
@@ -244,7 +244,13 @@ Page({
       url: '../create/index'
     })
   },
+  // 跳转到搜索页面
+  search_navigator: function () {
+    wx.navigateTo({
+      url: 'search/index',
+    })
 
+  }
 })
 function getDates(that, time) {
   var dates = [];

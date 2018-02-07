@@ -3,7 +3,7 @@
   <!--顶部  -->
   <view class='head_home_index align_center'>
     <!--搜索框  -->
-    <view class='searchbox_home_index align_center center'>
+    <view class='searchbox_home_index' bindtap='search_navigator'>
       <!--图标  -->
       <view class='align_center'>
         <image class="tiny_icon align_center" src='../../image/index/search-icon.png'>
@@ -105,12 +105,8 @@
           <view class='type_label_activity_list'>hahafg</view>
         </view>
       </view>
-
-
     </view>
   </view>
-
-
 
   <!--添加活动按钮  -->
   <view class='add_activity_home_index'>
