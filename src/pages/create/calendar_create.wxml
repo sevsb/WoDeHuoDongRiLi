@@ -1,18 +1,38 @@
 <!--pages/create/calendar_create.wxml-->
 <view class="page_mycalendar ">
   <view class='head_calendar_create'>
-    <view>
+    <!--抬头  -->
+    <view style='font-size:14pt;justify-content: flex-start; '>
       创建日历类型
     </view>
-    <view>
-
+    <!--名称  -->
+    <view style='font-size:13pt;justify-content: flex-start;padding:10rpx 10rpx;'>
+      名称
+    </view>
+    <!--输入  -->
+    <view class='input_box_head'>
+      <input style='width:100%;' bindblur="calendar_name_bind" type='text' placeholder="为您的日历创建一个新的类型名称。"></input>
     </view>
 
-    <view>
-      创建日历类型
-    </view>
-    <view>
-
-    </view>
   </view>
+
+  <view class='privacy_calendar_create'>
+    <view style='font-size:13pt;justify-content: flex-start;padding:10rpx 0;'>
+      隐私
+    </view>
+    <radio-group class="radio_group_privacy " bindchange="privacy_bind">
+      <radio checked="{{public_calendar}}" value="true">
+        <view style='justify-content: flex-start;'>
+          公开： 可以分享，并让其他人看到日历的活动内容
+        </view>
+      </radio>
+      <radio checked="{{!public_calendar}}" value="false">
+        <view style='justify-content: flex-start;'>
+          私密： 不可分享，只有创建者才可查看活动内容
+        </view>
+      </radio>
+    </radio-group>
+  </view>
+
+  <button bindtap='create_calendar_request' class="submit_calendar_create form_submit_mycalendar ">确认</button>
 </view>

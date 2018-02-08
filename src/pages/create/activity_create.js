@@ -188,6 +188,7 @@ Page({
   },
   //是否提醒
   remind_bind: function (e) {
+    console.log(e);
     var that = this;
     var remind = e.target.dataset.remind;
     if (remind == true) {
@@ -209,6 +210,8 @@ Page({
 
   },
   create_activity_request:function(e){
-
+      wx.navigateTo({
+        url: 'calendar_create',
+      })
   }
 })
