@@ -109,7 +109,7 @@
   </view>
 
   <!--添加活动按钮  -->
-  <view class='add_activity_home_index'>
+  <view class='add_activity_home_index' bindtap='activity_create_navigator'>
     <!--图标  -->
     <view style='font-size:17pt;font-weight: 900;line-height:1;align-items: center;'>
       +

@@ -1,0 +1,126 @@
+<!--pages/create/activity_create.wxml-->
+<!--创建活动页面  -->
+<view class="page_mycalendar page_activity_create">
+
+  <!--输入部分  -->
+  <view class='enter_part_activity_create'>
+    <!--抬头部分  -->
+    <view class='head_enter_part'>
+      <view style='color:red; align-items: center;'>
+        *
+      </view>
+      <!--标题输入框  -->
+      <view class='input_box_head_enter_part'>
+        <input style='width:100%;' type='text' placeholder="主题，并且选个题图"></input>
+      </view>
+      <view class='align_center'>
+        <image class='small_icon portrait' src='{{userInfo.avatarUrl}}'></image>
+      </view>
+    </view>
+    <!--详细信息部分  -->
+    <view class='detail_enter_part'>
+      <!--详细信息输入  -->
+      <view class='info_detail_enter_part'>
+        <view style='color:red; align-items: center;'>
+          *
+        </view>
+        <textarea placeholder="内容描述" class='textarea_box_detail_enter_part'>
+        </textarea>
+      </view>
+      <!--图片选择  -->
+      <view class='picture_detail_enter_part'>
+        <!--添加按钮  -->
+        <view class='add_picture_buttone_detail_enter_part'>
+          <image class='small_image' src='../../image/create/add-icon.png'></image>
+        </view>
+        <view class='tip_mycalendar align_center center'>
+          为丰富您的内容，可添加9张图片
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <!--附加信息部分  -->
+  <view class="extra_info_part_activity_create">
+    <!--地点-->
+    <view class='item_extra_info' bindtap="position_bind">
+      <view>
+        地点
+      </view>
+      <view>
+        <view name="address" style="color:#888;" value="{{address}}"> {{address}}</view>
+      </view>
+    </view>
+    <!--时间  -->
+    <view class='item_extra_info'>
+      <view>
+        开始
+      </view>
+      <view class='row' style="color:#888;">
+        <picker name="startdate" mode="date" value="{{startdate}}" start="{{date}}" end="2099-09-01" bindchange="StartDate_bind">
+          <view>{{startdate}}</view>
+        </picker>
+        <picker name="starttime" style='margin-left:10rpx;' mode="time" value="{{starttime}}" start="00:00" end="24:59" bindchange="StartTime_bind">
+          <view>{{starttime}}</view>
+        </picker>
+      </view>
+    </view>
+    <!--时间  -->
+    <view class='item_extra_info'>
+      <view>
+        结束
+      </view>
+      <view class='row' style="color:#888;">
+        <picker name="enddate" mode="date" value="{{enddate}}" start="{{startdate}}" end="2099-09-01" bindchange="bindEnddate">
+          <view>{{enddate}}</view>
+        </picker>
+        <picker name="endtime" style='margin-left:10rpx;' mode="time" value="{{endtime}}" start="00:00" end="24:59" bindchange="bindEndTime">
+          <view>{{endtime}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <!--重复-->
+    <picker name="repeattype" style="width:90%; justify-content: space-between;" bindchange="repeat_type_bind" value="{{repeat_type_index}}" range="{{repeat_types}}">
+      <view class='item_extra_info' style='width:100%;'>
+        <view class="">
+          重复周期
+        </view>
+        <view class="" style="color:#888;">
+          {{repeat_types[repeat_type_index]}}
+        </view>
+      </view>
+    </picker>
+
+    <!--提醒-->
+    <view class='item_extra_info'>
+      <view>
+        提醒
+      </view>
+      <view>
+        <switch name="remind" bindtap='remind_bind' data-remind="{{remind}}" class='switch' type="switch" />
+      </view>
+    </view>
+
+
+  </view>
+  <!--日历类别  -->
+  <view class='calendar_type_activity_create'>
+    <picker name="calendar_type" style="width:90%; justify-content: space-between;" bindchange="calendar_type_bind" value="{{calendar_type_index}}" range="{{calendar_types}}">
+      <view class='item_calendar_type' style='width:100%;'>
+        <view class="">
+          日历类别
+        </view>
+        <view class="" style="color:#888;">
+          {{calendar_types[calendar_type_index]}}
+        </view>
+      </view>
+    </picker>
+  </view>
+  <!--创建活动  -->
+  <view class="" id="">
+    <button class="submit_button_activity_create" bindtap='create_activity_request'>创建</button>
+  </view>
+
+
+</view>

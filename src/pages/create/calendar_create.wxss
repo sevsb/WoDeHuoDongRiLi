@@ -1,0 +1,9 @@
+/* pages/create/calendar_create.wxss */
+
+.head_calendar_create {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-size: 11pt;
+  align-items: center;
+}

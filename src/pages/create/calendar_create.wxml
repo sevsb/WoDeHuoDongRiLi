@@ -1,0 +1,18 @@
+<!--pages/create/calendar_create.wxml-->
+<view class="page_mycalendar ">
+  <view class='head_calendar_create'>
+    <view>
+      创建日历类型
+    </view>
+    <view>
+
+    </view>
+
+    <view>
+      创建日历类型
+    </view>
+    <view>
+
+    </view>
+  </view>
+</view>

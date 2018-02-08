@@ -1,0 +1,139 @@
+/* pages/create/activity_create.wxss */
+
+/*
+创建活动页面 页面样式
+  */
+
+.page_activity_create {
+  background: #fff;
+  width: 100%;
+}
+
+/*
+创建活动页面 输入部分样式
+  */
+
+.enter_part_activity_create {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  font-size: 11pt;
+  align-items: center;
+}
+
+.head_enter_part {
+  width: 100%;
+  padding: 20rpx 0;
+  display: flex;
+  border-bottom: 1rpx solid #999;
+  flex-direction: row;
+}
+
+.input_box_head_enter_part {
+  margin: 0 10rpx;
+  border: 1rpx solid #999;
+  display: flex;
+  flex-grow: 1;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  color: #9999a6;
+  width: 100%;
+}
+
+.detail_enter_part {
+  width: 100%;
+  padding: 20rpx 0;
+  display: flex;
+  border-bottom: 1rpx solid #999;
+  flex-direction: column;
+}
+
+.info_detail_enter_part {
+  width: 100%;
+  padding: 20rpx 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.textarea_box_detail_enter_part {
+  margin: 0 10rpx;
+  border: 1rpx solid #999;
+  display: flex;
+  flex-grow: 1;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+  color: #9999a6;
+  width: 100%;
+}
+
+.picture_detail_enter_part {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.add_picture_buttone_detail_enter_part {
+  margin: 10rpx 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border: 10rpx solid #ccc;
+  border-radius: 20rpx;
+}
+
+/*
+创建活动页面 附加信息部分样式
+  */
+
+.extra_info_part_activity_create {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  font-size: 11pt;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #999;
+}
+
+.item_extra_info {
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13pt;
+  color: #333;
+}
+/*
+日立类别
+  */
+.calendar_type_activity_create{
+   display: flex;
+  flex-direction: column;
+  width: 90%;
+  font-size: 11pt;
+  align-items: center;
+  padding: 20rpx 0;
+}
+.item_calendar_type{
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13pt;
+  color: #333;
+}
+
+.submit_button_activity_create{
+
+   position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  left: 0;
+  line-height: 2.6666;
+  color: white;
+  background-color: #09bb07;
+  z-index:10000,
+}

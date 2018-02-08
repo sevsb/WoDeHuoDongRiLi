@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/login/login",
     "pages/mine/index",
-    "pages/index/search/index"
+    "pages/index/search/index",
+    "pages/create/activity_create",
+    "pages/create/calendar_create"
   ],
   "tabBar": {
     "color": "#7A7E83",

@@ -250,7 +250,14 @@ Page({
       url: 'search/index',
     })
 
+  },
+  activity_create_navigator:function(){
+    wx.navigateTo({
+      url: '../create/activity_create',
+    })
   }
+
+
 })
 function getDates(that, time) {
   var dates = [];

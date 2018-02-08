@@ -15,8 +15,7 @@
   flex-direction: row;
   font-size: 11pt;
   align-items: center;
-   background: #fff;
-
+  background: #fff;
 }
 
 .search_icon_search_box {
@@ -26,7 +25,7 @@
 }
 
 .input_search_box {
-  margin: 0 10rpx;
+  margin: 0 20rpx;
   display: flex;
   flex-grow: 1;
 }
@@ -45,11 +44,11 @@
   width: 90%;
   color: #999;
   font-size: 11pt;
-  
 }
 
 .item_convenient_search {
-  margin: 20rpx 0 0 0 ;
+  margin: 20rpx 0 0 0;
+  border-bottom: 1rpx solid #c9c9c9;
 }
 
 .title_convenient_search {
@@ -63,7 +62,6 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 0 10rpx 0;
-  border-bottom: 1rpx solid #c9c9c9;
 }
 
 .item_info_convenient_search {

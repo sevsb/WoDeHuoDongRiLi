@@ -194,7 +194,7 @@ page {
 .small_image {
   height: 100rpx;
   width: 100rpx;
-  border: 1rpx solid #abcabc;
+
 }
 
 .line_omitted {
@@ -205,7 +205,10 @@ page {
   white-space: nowrap;
   list-style: disc inside none;
 }
-
+.portrait{
+ border-radius: 50%;
+ border: 1rpx solid #999;
+}
 /*
 去除按钮边框
 */
