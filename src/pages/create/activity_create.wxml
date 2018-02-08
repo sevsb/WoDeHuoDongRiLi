@@ -6,9 +6,7 @@
   <view class='enter_part_activity_create'>
     <!--抬头部分  -->
     <view class='head_enter_part'>
-      <view style='color:red; align-items: center;'>
-        *
-      </view>
+
       <!--标题输入框  -->
       <view class='input_box_head_enter_part'>
         <input style='width:100%;' type='text' placeholder="主题，并且选个题图"></input>
@@ -21,9 +19,7 @@
     <view class='detail_enter_part'>
       <!--详细信息输入  -->
       <view class='info_detail_enter_part'>
-        <view style='color:red; align-items: center;'>
-          *
-        </view>
+
         <textarea placeholder="内容描述" class='textarea_box_detail_enter_part'>
         </textarea>
       </view>
@@ -91,6 +87,20 @@
         </view>
       </view>
     </picker>
+    <!--重复结束-->
+    <view wx:if="{{is_repeat}}" class="item_extra_info" style=' '>
+      <view>
+        重复结束
+      </view>
+      <view class='row' style="color:#888;">
+        <picker name="repeat_end_date" class="" mode="date" value="{{repeat_end_date}}" start="{{date}}" end="2099-09-01" bindchange="RepeatEndDate_bind">
+          <view>{{repeat_end_date}}</view>
+        </picker>
+        <picker name="repeat_end_time" class="" style='margin-left:10rpx;' mode="time" value="{{repeat_end_time}}" start="00:00" end="24:59" bindchange="RepeatEndTime_bind">
+          <view>{{repeat_end_time}}</view>
+        </picker>
+      </view>
+    </view>
 
     <!--提醒-->
     <view class='item_extra_info'>
@@ -117,6 +127,58 @@
       </view>
     </picker>
   </view>
+
+  <!--附加项  -->
+  <view wx:if="{{calendar_type_index!=0}}" class='additional_info_activity_create'>
+    <!--人数限制  -->
+    <view class='item_additional_info' bindtap='input_number_of_people_bind'>
+      <view>
+        人数限制
+      </view>
+      <view>
+        <input style=' z-index:-1; text-align:right;'  focus="{{input_number_of_people}}" placeholder="未设置" type="number" maxlength="3"></input>
+      </view>
+    </view>
+    <!--提示  -->
+    <view class='item_additional_info ' style='  border-bottom: 1rpx solid #999;'>
+      <view class='tip_mycalendar ' style='padding:0;'>
+        <view class='' style='flex-shrink: 0;'>
+          提示：
+        </view>
+        <view class='' style='flex-grow: 1;'>
+          当报名人数达到限制人数时会结束预约报名 （如未设置表示不限制人数）
+        </view>
+      </view>
+    </view>
+    <!--需要信息提示  -->
+     <view class='item_additional_info'>
+      <view class='tip_mycalendar' style='font-size:11pt;padding:0;'>
+        选择需要报名人员填写的信息
+      </view>
+    </view> 
+    <!--姓名  -->
+     <view class='item_additional_info'>
+      <view>
+        姓名
+      </view>
+      <view>
+        <switch name="name_need" bindtap='name_need_bind' data-name_need="{{name_need}}" class='switch' type="switch" />
+      </view>
+    </view> 
+    <!--手机号  -->
+     <view class='item_additional_info'>
+      <view>
+        手机号
+      </view>
+      <view>
+        <switch name="phone_need" bindtap='phone_need_bind' data-name_need="{{phone_need}}" class='switch' type="switch" />
+      </view>
+    </view> 
+  </view>
+
+
+
+
   <!--创建活动  -->
   <view class="" id="">
     <button class="submit_button_activity_create" bindtap='create_activity_request'>创建</button>

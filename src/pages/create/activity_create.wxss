@@ -7,6 +7,8 @@
 .page_activity_create {
   background: #fff;
   width: 100%;
+  margin-bottom: 100rpx;
+  display: flex;
 }
 
 /*
@@ -35,7 +37,7 @@
   display: flex;
   flex-grow: 1;
   border-radius: 10rpx;
-  padding: 0 20rpx;
+  padding: 10rpx 20rpx;
   color: #9999a6;
   width: 100%;
 }
@@ -50,17 +52,17 @@
 
 .info_detail_enter_part {
   width: 100%;
-  padding: 20rpx 0;
+  margin: 20rpx 0;
   display: flex;
   flex-direction: row;
+  border: 1rpx solid #999;
+  border-radius: 10rpx;
 }
 
 .textarea_box_detail_enter_part {
   margin: 0 10rpx;
-  border: 1rpx solid #999;
-  display: flex;
+  display: inline-block;
   flex-grow: 1;
-  border-radius: 10rpx;
   padding: 10rpx 20rpx;
   color: #9999a6;
   width: 100%;
@@ -70,6 +72,7 @@
   width: 90%;
   display: flex;
   flex-direction: row;
+  margin: 30rpx 0;
 }
 
 .add_picture_buttone_detail_enter_part {
@@ -95,7 +98,7 @@
 }
 
 .item_extra_info {
-  height: 60rpx;
+  height: 90rpx;
   display: flex;
   flex-direction: row;
   width: 90%;
@@ -104,19 +107,22 @@
   font-size: 13pt;
   color: #333;
 }
+
 /*
-日立类别
+创建活动页面 日立类别部分样式
   */
-.calendar_type_activity_create{
-   display: flex;
+
+.calendar_type_activity_create {
+  display: flex;
   flex-direction: column;
   width: 90%;
   font-size: 11pt;
   align-items: center;
   padding: 20rpx 0;
 }
-.item_calendar_type{
-  height: 60rpx;
+
+.item_calendar_type {
+  height: 90rpx;
   display: flex;
   flex-direction: row;
   width: 90%;
@@ -126,14 +132,44 @@
   color: #333;
 }
 
-.submit_button_activity_create{
-
-   position: fixed;
+.submit_button_activity_create {
+  position: fixed;
   bottom: 0;
   width: 750rpx;
   left: 0;
   line-height: 2.6666;
   color: white;
   background-color: #09bb07;
-  z-index:10000,
+  z-index: 10000;
+}
+
+/*
+创建活动页面 附加信息部分样式
+  */
+
+.additional_info_activity_create {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  font-size: 11pt;
+  align-items: center;
+}
+
+.item_additional_info {
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13pt;
+  color: #333;
+}
+
+/*
+创建活动页面 提示信息样式
+  */
+
+.tip_mycalendar {
+  display: flex;
 }

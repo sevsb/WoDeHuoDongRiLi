@@ -19,11 +19,14 @@ Page({
     enddate: nowadays,//结束日期
     repeat_type_index: 0,//重复周期角标
     is_repeat: false,//是否重复
+    repeat_end_date: nowadays,//重复结束日期
+    repeat_end_time: time,//重复结束时间
     repeat_types: ["仅一次", "每天", "每周", "隔周", "每月"],//重复选项
     repeat_counts: ["once", "daily", "weekly", "fortnightly", "monthly"],//重复指令
     remind: false,//是否提醒
-    calendar_types: ["个人", "公司", "新类型"],//类型项
+    calendar_types: ["个人", "工作","活动", "新类型"],//类型项
     calendar_type_index: 0,//日历类型角标
+    input_number_of_people:false,//输入人数限制
 
   },
 
@@ -137,13 +140,13 @@ Page({
     })
   },
   //结束日期绑定
-  bindEnddate: function (e) {
+  Enddate_bind: function (e) {
     this.setData({
       enddate: e.detail.value
     })
   },
   //结束时间绑定
-  bindEndTime: function (e) {
+  EndTime_bind: function (e) {
     this.setData({
       endtime: e.detail.value
     })
@@ -186,6 +189,18 @@ Page({
       }
     }
   },
+// 重复结束日期
+  RepeatEndDate_bind:function(e){
+    this.setData({
+      repeat_end_date: e.detail.value
+    })
+  },
+  // 重复结束时间
+  RepeatEndTime_bind: function (e) {
+    this.setData({
+      repeat_end_time: e.detail.value
+    })
+  },
   //是否提醒
   remind_bind: function (e) {
     console.log(e);
@@ -208,6 +223,12 @@ Page({
       calendar_type_index: e.detail.value
     })
 
+  },
+  input_number_of_people_bind:function(){
+    var that = this;
+    that.setData({
+      input_number_of_people:true
+    })
   },
   create_activity_request:function(e){
       wx.navigateTo({
