@@ -1,1 +1,99 @@
 /* pages/mine/index.wxss */
+
+/*
+我的页面 头部样式
+  */
+
+.head_mine_index {
+  height: 350rpx;
+  width: 100%;
+  border: 1rpx solid #999;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/*
+我的页面 我的信息部分样式
+
+  */
+
+.info_head {
+  position: absolute;
+  top: 0rpx;
+  height: 350rpx;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 0;
+}
+
+/*
+我的页面 头像样式
+  */
+
+.portrait_info_head {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  border: 1rpx solid #999;
+  background-color: #fff;
+}
+
+.nickName_info_head {
+}
+
+.login_button_info_head {
+  display: flex;
+  font-size: 11pt;
+  line-height: 2;
+  margin: 10rpx 0 0 0;
+  border-radius: 10%;
+  border: 1rpx solid #999;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10rpx;
+  background-color: #fff;
+}
+
+/*
+我的页面 跳转列表样式
+  */
+
+.navigator_list_mine_index {
+  width: 100%;
+  margin: 20rpx 0;
+}
+
+.item_navigator_list {
+  height: 90rpx;
+  display: flex;
+  background: #fff;
+  padding: 0 30rpx;
+  align-items: center;
+  margin: 10rpx 0;
+}
+
+.title_item_navigator {
+  margin: 0 20rpx;
+  flex-grow: 1;
+}
+
+button {
+  text-align: start;
+   height: 90rpx;
+  display: flex;
+  background: #fff;
+  padding: 0 30rpx;
+  align-items: center;
+  margin: 10rpx 0;
+  font-size: 11pt;
+
+}
+button::after{
+
+ 
+}

@@ -6,7 +6,8 @@
     "pages/mine/index",
     "pages/index/search/index",
     "pages/create/activity_create",
-    "pages/create/calendar_create"
+    "pages/create/calendar_create",
+    "pages/management/calendar_type_management"
   ],
   "tabBar": {
     "color": "#7A7E83",
@@ -19,7 +20,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/login/login",
+        "pagePath": "pages/mine/index",
         "text": "我的"
       }
     ]

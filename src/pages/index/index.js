@@ -89,6 +89,9 @@ Page({
   onLoad: function (option) {
     var that = this;
     console.log(123);
+    wx.setNavigationBarTitle({
+      title: '标题',
+    })
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({

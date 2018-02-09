@@ -1,2 +1,123 @@
 <!--pages/mine/index.wxml-->
-<text>pages/mine/index.wxml</text>
+<view class='page_mycalendar'>
+  <!--背景图  -->
+  <view class='head_mine_index'>
+    <image></image>
+    <!--信息部分 -->
+    <view style='' class='info_head'>
+      <!--头像  -->
+      <view style='width:100%;justify-content: center;text-align: center;'>
+        <image src='{{userInfo.avatarUrl}}' class='portrait_info_head'></image>
+      </view>
+      <!--微信名  -->
+      <view class='nickName_info_head'>
+        {{userInfo.nickName}}
+      </view>
+      <!--登陆按钮  -->
+      <view class='login_button_info_head' bindtap='login_navigator'>
+        登录/注册
+      </view>
+
+    </view>
+  </view>
+  <!--列表  -->
+  <view class="navigator_list_mine_index">
+    <!--我的消息  -->
+    <view class='item_navigator_list'>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/index/letter-icon.png'> </image>
+      </view>
+      <!--标题  -->
+      <view class='title_item_navigator'>
+        我的消息
+      </view>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/mine/right-arrow-icon.png'> </image>
+      </view>
+    </view>
+
+    <!--联系客服 -->
+
+    <button class='unbutton item_navigator_list' style='' open-type='contact'>
+      <!--图标  -->
+      <view class='align_center'>
+        <image class='small_icon' src='../../image/index/letter-icon.png'> </image>
+      </view>
+      <!--标题  -->
+      <view class='title_item_navigator align_center'>
+        联系客服
+      </view>
+      <!--图标  -->
+      <view class='align_center'>
+        <image class='small_icon' src='../../image/mine/right-arrow-icon.png'> </image>
+      </view>
+    </button>
+
+
+    <!--帮助 -->
+    <view class='item_navigator_list'>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/index/letter-icon.png'> </image>
+      </view>
+      <!--标题  -->
+      <view class='title_item_navigator'>
+        帮助
+      </view>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/mine/right-arrow-icon.png'> </image>
+      </view>
+    </view>
+
+    <!--日历类型管理 -->
+    <view class='item_navigator_list' bindtap='calendar_type_management_navigator'>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/index/letter-icon.png'> </image>
+      </view>
+      <!--标题  -->
+      <view class='title_item_navigator'>
+        日历类型管理
+      </view>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/mine/right-arrow-icon.png'> </image>
+      </view>
+    </view>
+
+    <!--设置 -->
+    <view class='item_navigator_list'>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/index/letter-icon.png'> </image>
+      </view>
+      <!--标题  -->
+      <view class='title_item_navigator'>
+        设置
+      </view>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/mine/right-arrow-icon.png'> </image>
+      </view>
+    </view>
+
+    <!--打赏 -->
+    <view class='item_navigator_list'>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/index/letter-icon.png'> </image>
+      </view>
+      <!--标题  -->
+      <view class='title_item_navigator'>
+        打赏
+      </view>
+      <!--图标  -->
+      <view>
+        <image class='small_icon' src='../../image/mine/right-arrow-icon.png'> </image>
+      </view>
+    </view>
+  </view>
+</view>
