@@ -1,0 +1,41 @@
+<!--pages/management/calendar_type_management.wxml-->
+<view class='page_mycalendar'>
+  <!-- 头部 -->
+  <view class='head_calendar_type_management'>
+    <view class='box_head'>
+      <view>
+        我的日历类别
+      </view>
+      <view bindtap='create_calendar_type_navigator'>
+        <image class='small_icon' src='../../image/management/add-icon.png'>
+        </image>
+      </view>
+    </view>
+
+  </view>
+  <!--私密类型标签  -->
+  <view class='list_calendar_type_management'>
+    <view class='title_box_list'>
+      <view>
+        <image class='small_icon'>
+        </image>
+      </view>
+      <view>
+        私密类型标题
+      </view>
+    </view>
+  </view>
+
+   <!--公开类型标签  -->
+  <view class='list_calendar_type_management'>
+    <view class='title_box_list'>
+      <view>
+        <image class='small_icon'>
+        </image>
+      </view>
+      <view>
+        公开类型标题
+      </view>
+    </view>
+  </view>
+</view>
