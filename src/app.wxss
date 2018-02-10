@@ -155,7 +155,11 @@ page {
   text-align: center;
   
 }
-
+.start{
+  display: flex;
+  justify-content:flex-start;
+  text-align:start;
+}
 .align_center {
   display: flex;
   align-items: center;
@@ -165,7 +169,10 @@ page {
   display: flex;
   justify-content: space-around;
 }
-
+.space_between {
+  display: flex;
+  justify-content: space-between;
+}
 .left {
   justify-content: flex-start;
   text-align: left;
@@ -195,6 +202,9 @@ page {
   height: 100rpx;
   width: 100rpx;
 
+}
+.large_image{
+  width: 100%;
 }
 
 .line_omitted {

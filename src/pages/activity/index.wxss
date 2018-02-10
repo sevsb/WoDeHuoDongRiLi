@@ -1,0 +1,148 @@
+/* pages/activity/index.wxss */
+
+.page_activity_index {
+  margin: 0 0 150rpx 0;
+}
+
+/*
+活动页面 封图部分样式
+  */
+
+.envelope_part_activity_index {
+  height: 350rpx;
+  width: 100%;
+  border: 1rpx solid #333;
+  display: flex;
+}
+
+/*
+活动页面 活动信息样式
+  */
+
+.activity_info_part_activity_index {
+  width: 100%;
+  margin: 0 0 10rpx 0;
+}
+
+.title_activity_info {
+  font-size: 13pt;
+  width: 90%;
+  color: #333;
+}
+
+.item_activity_info {
+  background: #fff;
+  min-height: 90rpx;
+  width: 100%;
+  margin: 0 0 10rpx 0;
+}
+
+.info_activity_info {
+  font-size: 13pt;
+  width: 80%;
+  color: #666;
+}
+
+/*
+活动页面 活动内容部分样式
+  */
+
+.activity_content_part_activity_index {
+  width: 100%;
+  margin: 0 0 10rpx 0;
+  background: #fff;
+  padding: 30rpx 0 10rpx 0;
+  display: flex;
+}
+
+.content_activity_content_part {
+  width: 90%;
+  padding: 30rpx 0;
+  font-size: 13pt;
+  color: #333;
+}
+
+.image_activity_content_part {
+  height: auto;
+  border: 1rpx solid #333;
+  margin: 10rpx 0;
+}
+
+/*
+活动页面 报名情况部分样式
+  */
+
+.registration_part_activity_index {
+  width: 100%;
+  font-size: 11pt;
+  margin: 10rpx 0;
+}
+
+.item_registration_part {
+  background: #fff;
+  min-height: 90rpx;
+  margin: 5rpx 0;
+}
+
+.acatar_registration_part {
+  margin: 10rpx 0;
+  width: 80rpx;
+  /* border: 1rpx solid #333; */
+}
+
+/*
+活动页面 底边栏部分样式
+  */
+
+.bottom_bar_activity_index {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  height: 145rpx;
+  width: 100%;
+  border-top: 1rpx solid #ccc;
+}
+
+.button_bottom_bar {
+  width: 220rpx;
+  background: #199ed8;
+  color: #fffffd;
+  font-size: 14pt;
+}
+
+.list_bottom_bar {
+  flex-grow: 1;
+  display: flex;
+}
+
+.item_bottom_bar {
+  flex: 1;
+  /* border: 1rpx solid #333; */
+}
+
+/*
+活动页面 返回首页按钮样式
+  */
+
+.add_activity_home_index {
+  position: fixed;
+  z-index: 1000;
+  border-radius: 50%;
+  bottom: 170rpx;
+  color: #fff;
+  right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 11pt;
+  line-height: 1;
+  border: 1rpx solid #333;
+}

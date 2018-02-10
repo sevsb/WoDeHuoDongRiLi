@@ -258,6 +258,11 @@ Page({
     wx.navigateTo({
       url: '../create/activity_create',
     })
+  },
+  activity_navigator:function(){
+    wx.navigateTo({
+      url: '../activity/index',
+    })
   }
 
 

@@ -85,7 +85,7 @@
     <!--当日活动列表  -->
     <view>
       <!--单个活动  -->
-      <view class='activity_list_mycalendar align_center'>
+      <view class='activity_list_mycalendar align_center' bindtap='activity_navigator'>
         <!--图片  -->
         <view class=' align_center' style='height:100%;'>
           <image class='small_image'></image>
