@@ -1,0 +1,21 @@
+/* pages/activity/register_info.wxss */
+
+/*
+ 报名信息页面 用户列表
+  */
+
+.list_register_info {
+  width: 100%;
+  color: #999;
+}
+
+.item_list {
+  width: 100%;
+  height: 90rpx;
+  background: #fff;
+  margin: 1rpx 0 10rpx 0;
+}
+
+.item_list >view {
+  width: 90%;
+}

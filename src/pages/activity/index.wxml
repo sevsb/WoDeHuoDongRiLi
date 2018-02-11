@@ -103,7 +103,7 @@
           已报名（0000）
         </view>
 
-        <view class='row' bindtap=''>
+        <view class='row' bindtap='register_info_navigator'>
           <view style='color:#0a9d0a; margin:0 10rpx;'>
             更多报名
           </view>
@@ -252,13 +252,13 @@
       </view>
 
     </view>
-    <view class='button_bottom_bar column  align_center center '>
+    <view class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
       <view>
         我要报名
       </view>
     </view>
   </view>
   <!--悬浮按钮  -->
-  <view class="add_activity_home_index">
+  <view class="back_home_button_activity_index" bindtap='back_home_navigator'>
   </view>
 </view>

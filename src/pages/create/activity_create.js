@@ -215,6 +215,7 @@ Page({
       remind: remind
     });
   },
+  // 日历类型绑定
   calendar_type_bind: function (e) {
     var that = this;
     console.log(e);
@@ -224,12 +225,14 @@ Page({
     })
 
   },
+  //人数限制绑定
   input_number_of_people_bind:function(){
     var that = this;
     that.setData({
       input_number_of_people:true
     })
   },
+  // 常见活动请求
   create_activity_request:function(e){
       wx.navigateTo({
         url: 'calendar_create',

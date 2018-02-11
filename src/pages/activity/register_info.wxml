@@ -1,0 +1,65 @@
+<!--pages/activity/register_info.wxml-->
+<view class='page_mycalendar'>
+  <!--列表  -->
+  <view class='list_register_info'>
+    <view class='item_list center align_center'>
+      <view class='space_between row align_center'>
+        <!--头像  -->
+        <view class='align_center'>
+          <image class='portrait medium_icon'>
+          </image>
+        </view>
+        <!--昵称  -->
+        <view style='flex-grow:1;margin: 0 20rpx; display:flex;'>
+
+          昵称
+
+        </view>
+        <!--时间  -->
+        <view>
+          一小时前
+        </view>
+      </view>
+    </view>
+
+    <view class='item_list center align_center'>
+      <view class='space_between row align_center'>
+        <!--头像  -->
+        <view class='align_center'>
+          <image class='portrait medium_icon'>
+          </image>
+        </view>
+        <!--昵称  -->
+        <view style='flex-grow:1;margin: 0 20rpx; display:flex;'>
+
+          昵称
+
+        </view>
+        <!--时间  -->
+        <view>
+          一小时前
+        </view>
+      </view>
+    </view>
+    <view class='item_list center align_center'>
+      <view class='space_between row align_center'>
+        <!--头像  -->
+        <view class='align_center'>
+          <image class='portrait medium_icon'>
+          </image>
+        </view>
+        <!--昵称  -->
+        <view style='flex-grow:1;margin: 0 20rpx; display:flex;'>
+
+          昵称
+
+        </view>
+        <!--时间  -->
+        <view>
+          一小时前
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>

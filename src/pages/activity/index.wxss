@@ -127,7 +127,7 @@
 活动页面 返回首页按钮样式
   */
 
-.add_activity_home_index {
+.back_home_button_activity_index {
   position: fixed;
   z-index: 1000;
   border-radius: 50%;
