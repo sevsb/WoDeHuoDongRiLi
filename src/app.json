@@ -8,7 +8,9 @@
     "pages/create/activity_create",
     "pages/create/calendar_create",
     "pages/management/calendar_type_management",
-    "pages/activity/index"
+    "pages/activity/index",
+    "pages/activity/sign_up",
+    "pages/activity/register_info"
   ],
   "tabBar": {
     "color": "#7A7E83",

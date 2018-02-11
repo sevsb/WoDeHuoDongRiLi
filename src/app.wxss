@@ -61,10 +61,21 @@ page {
 */
 
 .form_submit_mycalendar {
-  margin: 50rpx 30rpx;
+  margin: 20rpx 30rpx;
   background-color: #1aae18;
   color: #fff;
   border-color: #fff;
+}
+
+/*
+我的活动日历，返回按钮样式
+*/
+
+.back_button_mycalendar {
+  margin: 10rpx 30rpx;
+  background-color: #fff;
+  color: #000;
+  border: 1rpx solid #999;
 }
 
 /*
@@ -86,7 +97,6 @@ page {
 .activity_list_mycalendar {
   background-color: #fff;
   height: 150rpx;
-
   display: flex;
   flex-grow: 1;
   position: relative;
@@ -120,14 +130,13 @@ page {
   position: relative;
   height: 100rpx;
   color: #333;
-  
 }
 
 .type_label_activity_list {
   position: absolute;
   bottom: 0px;
   right: 0px;
-  color: #009933;
+  color: #093;
 }
 
 .time_label_activity_list {
@@ -153,13 +162,14 @@ page {
   display: flex;
   justify-content: center;
   text-align: center;
-  
 }
-.start{
+
+.start {
   display: flex;
-  justify-content:flex-start;
-  text-align:start;
+  justify-content: flex-start;
+  text-align: start;
 }
+
 .align_center {
   display: flex;
   align-items: center;
@@ -169,10 +179,12 @@ page {
   display: flex;
   justify-content: space-around;
 }
+
 .space_between {
   display: flex;
   justify-content: space-between;
 }
+
 .left {
   justify-content: flex-start;
   text-align: left;
@@ -201,9 +213,9 @@ page {
 .small_image {
   height: 100rpx;
   width: 100rpx;
-
 }
-.large_image{
+
+.large_image {
   width: 100%;
 }
 
@@ -215,10 +227,12 @@ page {
   white-space: nowrap;
   list-style: disc inside none;
 }
-.portrait{
- border-radius: 50%;
- border: 1rpx solid #999;
+
+.portrait {
+  border-radius: 50%;
+  border: 1rpx solid #999;
 }
+
 /*
 去除按钮边框
 */

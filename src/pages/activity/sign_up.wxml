@@ -1,0 +1,66 @@
+<!--pages/activity/sign_up.wxml-->
+<view class='page_mycalendar'>
+  <!-- 抬头部分 -->
+  <view class='head_part_activity_sign_up align_center'>
+    请完善个人信息，点击确认完成报名
+  </view>
+  <!--表单部分  -->
+  <view class='form_part_sign_up'>
+    <!--姓名  -->
+    <view class='item_form column '>
+      <view>
+        姓名
+      </view>
+      <view class=' input_box_item_form'>
+        <input style='height:70rpx;' type='text' maxlength='10'></input>
+      </view>
+    </view>
+    <!--电话  -->
+    <view class='item_form column '>
+      <view>
+        电话
+      </view>
+      <view class='input_box_item_form'>
+        <input style='height:70rpx;' type='text' maxlength='10'></input>
+      </view>
+    </view>
+    <!--备注信息 -->
+    <view class='item_form column '>
+      <view>
+        备注信息
+      </view>
+      <view class='input_box_item_form'>
+        <textarea maxlength='140'>
+        </textarea>
+      </view>
+    </view>
+
+    <!--是否提醒 -->
+    <view class='item_form column '>
+      <view style='border-bottom:1rpx solid #999; line-height:3;'>
+        设置此活动是否需要提醒
+      </view>
+      <view style='border-bottom:1rpx solid #999; line-height:3;' class='space_between align_center'>
+        <view>
+          提醒
+        </view>
+        <view>
+          <switch name="remind_sign_up" bindtap='remind_sign_up_bind' data-remind="{{remind_sign_up}}" class='switch' type="switch" />
+        </view>
+      </view>
+    </view>
+    <!--按钮部分  -->
+    <view class='button_form_part center column'>
+      <!--确认  -->
+
+      <button class='form_submit_mycalendar'>
+        确认
+      </button>
+      <!--返回  -->
+      <button class='back_button_mycalendar' bindtap='back_navigator'>
+        返回
+      </button>
+
+    </view>
+  </view>
+</view>

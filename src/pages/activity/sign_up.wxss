@@ -1,0 +1,39 @@
+/* pages/activity/sign_up.wxss */
+
+/*
+报名页面 抬头部分样式 
+  */
+
+.head_part_activity_sign_up {
+  width: 90%;
+  height: 100rpx;
+  font-size: 13pt;
+}
+
+/*
+报名页面 抬头部分样式 
+  */
+
+.form_part_sign_up {
+  width: 90%;
+  margin: 30rpx 0;
+  font-size: 13pt;
+}
+
+.item_form {
+}
+
+.input_box_item_form {
+  border: 1rpx solid #999;
+  background: #fff;
+  margin: 20rpx 0;
+  border-radius: 10rpx;
+}
+
+/*
+报名页面 按钮部分样式 
+  */
+
+.button_form_part {
+  margin: 30rpx 0;
+}
