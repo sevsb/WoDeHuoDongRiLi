@@ -1,38 +1,47 @@
 <!--pages/create/activity_create.wxml-->
 <!--创建活动页面  -->
+<form bindsubmit="formSubmit" >
 <view class="page_mycalendar page_activity_create">
 
   <!--输入部分  -->
   <view class='enter_part_activity_create'>
+    <view bindtap='add_preview_image' class='preivew_view' 
+    wx:if='{{preview_image_id && preview_image_id != 0}}'>
+      <image src='{{preview_image_url}}' data-prevew_image_id='{{preview_image_id}}'></image>
+    </view>
     <!--抬头部分  -->
     <view class='head_enter_part'>
-
       <!--标题输入框  -->
       <view class='input_box_head_enter_part'>
-        <input style='width:100%;' type='text' placeholder="主题，并且选个题图"></input>
+        <input name='title' style='width:100%;' type='text' placeholder="主题，并且选个题图"></input>
       </view>
-      <view class='align_center'>
-        <image class='small_icon portrait' src='{{userInfo.avatarUrl}}'></image>
+      <view class='align_center' wx:if='{{!preview_image_id || preview_image_id == 0}}'>
+        <button bindtap='add_preview_image' class='add_preview_image'>+</button>
       </view>
     </view>
     <!--详细信息部分  -->
     <view class='detail_enter_part'>
       <!--详细信息输入  -->
       <view class='info_detail_enter_part'>
-
-        <textarea placeholder="内容描述" class='textarea_box_detail_enter_part'>
+        <textarea placeholder="内容描述" name='content' class='textarea_box_detail_enter_part'>
         </textarea>
       </view>
+
       <!--图片选择  -->
       <view class='picture_detail_enter_part'>
         <!--添加按钮  -->
-        <view class='add_picture_buttone_detail_enter_part'>
+        <view wx:for='{{upload_pictures}}' wx:for-item="pic" wx:key="unique"
+        class='add_picture_buttone_detail_enter_part'  data-upload_name="{{pic}}" bindtap="removePicture">
+          <image class='small_image' src='{{pic}}'></image>
+        </view>
+        <view wx:if='{{upload_pictures.length < 9}}' bindtap='upload_image' class='add_picture_buttone_detail_enter_part'>
           <image class='small_image' src='../../image/create/add-icon.png'></image>
         </view>
         <view class='tip_mycalendar align_center center'>
           为丰富您的内容，可添加9张图片
         </view>
       </view>
+
     </view>
 
   </view>
@@ -67,10 +76,10 @@
         结束
       </view>
       <view class='row' style="color:#888;">
-        <picker name="enddate" mode="date" value="{{enddate}}" start="{{startdate}}" end="2099-09-01" bindchange="bindEnddate">
+        <picker name="enddate" mode="date" value="{{enddate}}" start="{{startdate}}" end="2099-09-01" bindchange="Enddate_bind">
           <view>{{enddate}}</view>
         </picker>
-        <picker name="endtime" style='margin-left:10rpx;' mode="time" value="{{endtime}}" start="00:00" end="24:59" bindchange="bindEndTime">
+        <picker name="endtime" style='margin-left:10rpx;' mode="time" value="{{endtime}}" start="00:00" end="24:59" bindchange="EndTime_bind">
           <view>{{endtime}}</view>
         </picker>
       </view>
@@ -116,27 +125,27 @@
   </view>
   <!--日历类别  -->
   <view class='calendar_type_activity_create'>
-    <picker name="calendar_type" style="width:90%; justify-content: space-between;" bindchange="calendar_type_bind" value="{{calendar_type_index}}" range="{{calendar_types}}">
+    <picker name="calendar_type" style="width:90%; justify-content: space-between;" bindchange="calendar_type_bind" value="{{calendar_type_index}}" range-key="title" range="{{my_types}}">
       <view class='item_calendar_type' style='width:100%;'>
         <view class="">
           日历类别
         </view>
         <view class="" style="color:#888;">
-          {{calendar_types[calendar_type_index]}}
+          {{my_types[calendar_type_index].title}}
         </view>
       </view>
     </picker>
   </view>
 
   <!--附加项  -->
-  <view wx:if="{{calendar_type_index!=0}}" class='additional_info_activity_create'>
+  <view wx:if="{{my_types[calendar_type_index].pub != 0}}" class='additional_info_activity_create'>
     <!--人数限制  -->
     <view class='item_additional_info' bindtap='input_number_of_people_bind'>
       <view>
         人数限制
       </view>
       <view>
-        <input style=' z-index:-1; text-align:right;'  focus="{{input_number_of_people}}" placeholder="未设置" type="number" maxlength="3"></input>
+        <input name='participants' style=' z-index:-1; text-align:right;'  focus="{{input_number_of_people}}" placeholder="未设置" type="number" maxlength="3"></input>
       </view>
     </view>
     <!--提示  -->
@@ -181,8 +190,9 @@
 
   <!--创建活动  -->
   <view class="" id="">
-    <button class="submit_button_activity_create" bindtap='create_activity_request'>创建</button>
+    <button formType="submit" class="submit_button_activity_create" bindtap='create_activity_request'>创建</button>
   </view>
 
 
 </view>
+</form>

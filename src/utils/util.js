@@ -68,12 +68,12 @@ function neterror_Modal(callback) {
 //从服务器获取组织信息
 function organizations_request(callBack) {
   wx.showLoading();
-  var yuyue_session = wx.getStorageSync('yuyue_session');
+  var calendar_session = wx.getStorageSync('calendar_session');
   wx.request({
     url: app.globalData.default_url,
     data: {
       action: "api.v1.user.organizations",
-      yuyue_session: yuyue_session,
+      calendar_session: calendar_session,
     },
     success: function (res) {
       console.log(res);

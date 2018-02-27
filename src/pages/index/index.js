@@ -241,8 +241,8 @@ Page({
 
   },
   create_activity: function () {
-
-
+    wx.setStorageSync(preview_image_id, 0);
+    wx.setStorageSync(preview_image_url, '');
     wx.navigateTo({
       url: '../create/index'
     })

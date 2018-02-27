@@ -1,6 +1,8 @@
 // pages/create/activity_create.js
 var app = getApp()
 var util = require('../../utils/util.js');
+var activity = require('../../utils/activity.js');
+var activity_type = require('../../utils/activity_type.js');
 const date = new Date();
 const time = util.formatTime(date);
 const nowadays = util.formatDate(date);
@@ -28,6 +30,11 @@ Page({
     calendar_type_index: 0,//日历类型角标
     input_number_of_people:false,//输入人数限制
 
+    preview_image_url: '',
+    preview_image_id: 0,
+    my_types: [],
+
+    upload_pictures: [],
   },
 
 
@@ -39,6 +46,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '创建活动',
     })
+
     app.getUserInfo(function (userInfo) {
       //更新数据
       console.log(userInfo);
@@ -59,7 +67,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    that.setData({
+      preview_image_id: wx.getStorageSync('preview_image_id'),
+      preview_image_url: wx.getStorageSync('preview_image_url'),
+    });
 
+    activity_type.my_activity_types(function (res) {
+      var ret = res.data.data;
+      console.log(ret);
+      if (res.data.op == 'my_custom_types') {
+        var my_types = ret.my_types;
+        var default_type_id = my_types[0].id;
+        that.setData({
+          my_types: my_types,
+          choosed_type_id: default_type_id,
+        });
+      }
+    });
   },
 
   /**
@@ -219,11 +244,11 @@ Page({
   calendar_type_bind: function (e) {
     var that = this;
     console.log(e);
-
     that.setData({
       calendar_type_index: e.detail.value
     })
-
+    var choosed_type_id = this.data.my_types[e.detail.value].id;
+    console.log(choosed_type_id);
   },
   //人数限制绑定
   input_number_of_people_bind:function(){
@@ -233,9 +258,91 @@ Page({
     })
   },
   // 常见活动请求
-  create_activity_request:function(e){
-      wx.navigateTo({
-        url: 'calendar_create',
-      })
-  }
+  formSubmit:function(e){
+    var that = this;
+    console.log(e);
+
+    var title   = e.detail.value.title;
+    var content = e.detail.value.content;
+
+    var preview_image_id = that.data.preview_image_id;
+    var type_id = that.data.choosed_type_id;
+    var address = that.data.address;
+
+    var starttime = e.detail.value.startdate + ' ' + e.detail.value.starttime;
+    var endtime = e.detail.value.enddate + ' ' + e.detail.value.endtime;
+    
+    var repeattype = e.detail.value.repeattype;
+    var repeat_end = (repeattype == 0) ? 0 : e.detail.value.repeat_end_date + ' ' + e.detail.value.repeat_end_time; 
+
+    var upload_pictures = that.data.upload_pictures;
+
+    console.log("title: " + title);
+    console.log("content: " + content);
+    console.log("preview_image_id: " + preview_image_id);
+    console.log("type_id: " + type_id);
+    console.log("address: " + address);
+    console.log("starttime: " + starttime);
+    console.log("endtime: " + endtime);
+    console.log("repeattype: " + repeattype);
+    console.log("repeat_end: " + repeat_end);
+    console.log("upload_pictures: ");
+    console.log(upload_pictures);
+
+
+  },
+  add_preview_image: function () {
+    console.log('going to choose preview_image');
+    wx.navigateTo({
+      url: 'choose_preview_image',
+    })
+  },
+  upload_image: function (e) {
+    var that = this;
+    var upload_pictures = that.data.upload_pictures;
+    var count = upload_pictures.length;
+    wx.chooseImage({
+      success: function (res) {
+        console.log(res);
+        var imgs = res.tempFilePaths;
+        if (imgs.length + count > 9) {
+          wx.showModal({
+            title: '提示',
+            content: '上传失败，组多9张图片',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+          return false;
+        }
+        for (var i in imgs) {
+          upload_pictures.push(imgs[i]);
+        }
+        that.setData({
+          upload_pictures: upload_pictures
+        })
+        return false;
+      }
+    })
+  },
+  removePicture: function (e) {
+    var upload_name = e.currentTarget.dataset.upload_name;
+    var upload_pictures = this.data.upload_pictures;
+    for (var i = 0; i < upload_pictures.length; i++) {
+      if (upload_pictures[i] == upload_name) {
+        upload_pictures.splice(i, 1);
+        console.log(upload_pictures[i]);
+        console.log(i);
+        break;
+      }
+    }
+    console.log(upload_pictures);
+    this.setData({
+      upload_pictures: upload_pictures
+    })
+  },
 })

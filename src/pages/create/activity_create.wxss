@@ -72,6 +72,7 @@
   width: 90%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin: 30rpx 0;
 }
 
@@ -172,4 +173,10 @@
 
 .tip_mycalendar {
   display: flex;
+}
+
+.add_preview_image {
+  background-color: orange;
+  font-weight: bold;
+  color: white;
 }

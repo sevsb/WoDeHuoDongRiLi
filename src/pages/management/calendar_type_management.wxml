@@ -6,36 +6,27 @@
       <view>
         我的日历类别
       </view>
-      <view bindtap='create_calendar_type_navigator'>
+      <view bindtap='create_calendar_type_navigator' data-type_id='0'>
         <image class='small_icon' src='../../image/management/add-icon.png'>
         </image>
       </view>
     </view>
 
   </view>
-  <!--私密类型标签  -->
-  <view class='list_calendar_type_management'>
-    <view class='title_box_list'>
-      <view>
-        <image class='small_icon'>
-        </image>
-      </view>
-      <view>
-        私密类型标题
-      </view>
-    </view>
-  </view>
 
-   <!--公开类型标签  -->
-  <view class='list_calendar_type_management'>
+  <view wx:for="{{my_types}}" wx:key="*this" class='list_calendar_type_management'
+  bindtap='create_calendar_type_navigator'
+  data-type_id='{{item.id}}' 
+  data-type_title='{{item.title}}'
+  data-type_pub='{{item.pub}}'>
     <view class='title_box_list'>
       <view>
         <image class='small_icon'>
         </image>
       </view>
       <view>
-        公开类型标题
-      </view>
+        {{item.title}}
+      </view><span class='private_flag' wx:if="{{item.pub == 0}}">[ 隐私 ]</span>
     </view>
   </view>
 </view>

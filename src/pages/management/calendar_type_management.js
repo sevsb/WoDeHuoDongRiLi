@@ -1,11 +1,13 @@
 // pages/management/calendar_type_management.js
+
+var activity_type = require('../../utils/activity_type.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    my_types: [],
   },
 
   /**
@@ -28,7 +30,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    activity_type.my_activity_types(function (res){
+      var ret = res.data.data;
+      console.log(ret);
+      if (res.data.op == 'my_custom_types') {
+        that.setData({
+          my_types: ret.my_types
+        });
+      }
+    });
   },
 
   /**
@@ -66,9 +77,15 @@ Page({
   
   },
   // 创建日历类型跳转
-  create_calendar_type_navigator: function () {
-wx.navigateTo({
-  url: '../create/calendar_create',
-})
+  create_calendar_type_navigator: function (e) {
+    var type_id = e.currentTarget.dataset.type_id;
+    var type_title = e.currentTarget.dataset.type_title;
+    var type_pub = e.currentTarget.dataset.type_pub;
+    wx.setStorageSync("activity_type_id", type_id)
+    wx.setStorageSync("activity_type_title", type_title)
+    wx.setStorageSync("activity_type_pub", type_pub)
+    wx.navigateTo({
+      url: '../create/calendar_create',
+    })
   },
 })

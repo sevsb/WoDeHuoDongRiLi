@@ -10,7 +10,8 @@
     "pages/management/calendar_type_management",
     "pages/activity/index",
     "pages/activity/sign_up",
-    "pages/activity/register_info"
+    "pages/activity/register_info",
+    "pages/create/choose_preview_image"
   ],
   "tabBar": {
     "color": "#7A7E83",

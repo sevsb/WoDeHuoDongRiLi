@@ -1,0 +1,15 @@
+/* pages/create/choose_preview_image.wxss */
+.intro_info {
+  padding: 8px;
+  font-size: 18px;
+  border-bottom: 1px solid grey;
+  margin: 0 0 10px 0;
+}
+
+.preview_view {
+  padding: 0 8px 8px 8px;
+}
+
+.preview_image_item {
+  width: 100%;
+}

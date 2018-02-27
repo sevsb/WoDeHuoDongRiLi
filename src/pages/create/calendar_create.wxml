@@ -1,9 +1,12 @@
 <!--pages/create/calendar_create.wxml-->
+<form bindsubmit="formSubmit">
 <view class="page_mycalendar ">
   <view class='head_calendar_create'>
     <!--抬头  -->
     <view style='font-size:14pt;justify-content: flex-start; '>
-      创建日历类型
+      <span wx:if="{{type_id == 0}}">创建</span>
+      <span wx:else>编辑</span>
+      日历类型
     </view>
     <!--名称  -->
     <view style='font-size:13pt;justify-content: flex-start;padding:10rpx 10rpx;'>
@@ -11,7 +14,7 @@
     </view>
     <!--输入  -->
     <view class='input_box_head'>
-      <input style='width:100%;' bindblur="calendar_name_bind" type='text' placeholder="为您的日历创建一个新的类型名称。"></input>
+      <input style='width:100%;' name='title' value='{{type_title}}' bindblur="calendar_name_bind" type='text' placeholder="为您的日历创建一个新的类型名称。"></input>
     </view>
 
   </view>
@@ -20,13 +23,13 @@
     <view style='font-size:13pt;justify-content: flex-start;padding:10rpx 0;'>
       隐私
     </view>
-    <radio-group class="radio_group_privacy " bindchange="privacy_bind">
-      <radio checked="{{public_calendar}}" value="true">
+    <radio-group class="radio_group_privacy " bindchange="radioChange">
+      <radio name='public_flag' checked="{{type_public}}" value='1'>
         <view style='justify-content: flex-start;'>
           公开： 可以分享，并让其他人看到日历的活动内容
         </view>
       </radio>
-      <radio checked="{{!public_calendar}}" value="false">
+      <radio name='public_flag' checked="{{!type_public}}" value='0'>
         <view style='justify-content: flex-start;'>
           私密： 不可分享，只有创建者才可查看活动内容
         </view>
@@ -34,5 +37,7 @@
     </radio-group>
   </view>
 
-  <button bindtap='create_calendar_request' class="submit_calendar_create form_submit_mycalendar ">确认</button>
+  <button bindtap='submit_calendar_request' formType="submit" class="submit_calendar_create form_submit_mycalendar ">确认</button>
+  <button wx:if='{{type_id != 0}}' type='warn' bindtap='remove_calendar_request' class="submit_calendar_create form_submit_mycalendar ">移除</button>
 </view>
+</form>

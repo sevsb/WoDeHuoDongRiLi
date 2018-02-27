@@ -1,7 +1,7 @@
-var default_url = "https://www.xiaoningmengkeji.com";
+var default_url = "https://xiaoningmengkeji.com";
 //var default_url = "http://127.0.0.1";
 
-function do_login(from, yuyue_session, nick, avatar) {
+function do_login(from, calendar_session, nick, avatar) {
  
   console.log('userfunction: do_login start/');
   console.log('nick: ' + nick);
@@ -16,7 +16,7 @@ function do_login(from, yuyue_session, nick, avatar) {
           data: {
             action: 'api.v1.user.login',
             from: from,
-            yuyue_session: yuyue_session,
+            calendar_session: calendar_session,
             nick: nick,
             avatar: avatar,
             code: res.code
@@ -28,15 +28,13 @@ function do_login(from, yuyue_session, nick, avatar) {
             //return;
             if (res.data.op == 'login') {
               //return;
-              var yuyue_session = ret.yuyue_session;
+              var calendar_session = ret.calendar_session;
               var token = ret.token;
               var timeout = ret.timeout;
-              var my_orgs = ret.my_orgs;
               wx.setStorageSync('uid', ret.uid);
-              wx.setStorageSync('yuyue_session', yuyue_session);
+              wx.setStorageSync('calendar_session', calendar_session);
               wx.setStorageSync('token', token);
               wx.setStorageSync('timeout', timeout); 
-              wx.setStorageSync('my_orgs', my_orgs);
             }
           },fail: function (res) {
             console.log(res);
@@ -52,13 +50,13 @@ function do_login(from, yuyue_session, nick, avatar) {
   });
 }
 
-function refresh_token(yuyue_session, token){
+function refresh_token(calendar_session, token){
  
   wx.request({
     url: default_url,
     data: {
       action: 'api.v1.user.refreshtoken',
-      yuyue_session: yuyue_session,
+      calendar_session: calendar_session,
       token: token
     },
     success: function (res) {

@@ -1,0 +1,7 @@
+<!--pages/create/choose_preview_image.wxml-->
+<view class=''>
+  <view class='intro_info'>选择主题图</view>
+  <view class='preview_view' bindtap='choose_thiz' wx:for='{{image_list}}'>
+    <image data-id='{{item.id}}' data-url='{{item.image}}' class='preview_image_item' src='{{item.image}}'></image>
+  </view>
+</view>
