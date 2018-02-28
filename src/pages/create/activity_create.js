@@ -244,11 +244,14 @@ Page({
   calendar_type_bind: function (e) {
     var that = this;
     console.log(e);
-    that.setData({
-      calendar_type_index: e.detail.value
-    })
     var choosed_type_id = this.data.my_types[e.detail.value].id;
+    var pub = this.data.my_types[e.detail.value].pub;
     console.log(choosed_type_id);
+    console.log(pub);
+    that.setData({
+      calendar_type_index: e.detail.value,
+      pub: pub
+    })
   },
   //人数限制绑定
   input_number_of_people_bind:function(){
@@ -266,7 +269,9 @@ Page({
     var content = e.detail.value.content;
 
     var preview_image_id = that.data.preview_image_id;
+    var participants = that.data.participants;
     var type_id = that.data.choosed_type_id;
+    var pub = that.data.pub;
     var address = that.data.address;
 
     var starttime = e.detail.value.startdate + ' ' + e.detail.value.starttime;
@@ -275,11 +280,22 @@ Page({
     var repeattype = e.detail.value.repeattype;
     var repeat_end = (repeattype == 0) ? 0 : e.detail.value.repeat_end_date + ' ' + e.detail.value.repeat_end_time; 
 
+    var join_sheet = '';
+    if (pub == 1) {
+      console.log('pub =1');
+      var obj = new Object();
+      obj.name_need = e.detail.value.name_need;
+      obj.phone_need = e.detail.value.phone_need;
+      join_sheet = obj;
+    }
+
+
     var upload_pictures = that.data.upload_pictures;
 
     console.log("title: " + title);
     console.log("content: " + content);
     console.log("preview_image_id: " + preview_image_id);
+    console.log("participants: " + participants);
     console.log("type_id: " + type_id);
     console.log("address: " + address);
     console.log("starttime: " + starttime);
@@ -288,8 +304,24 @@ Page({
     console.log("repeat_end: " + repeat_end);
     console.log("upload_pictures: ");
     console.log(upload_pictures);
+    console.log(join_sheet);
 
-
+    wx.showModal({
+      title: '是否确认提交？',
+      content: '请注意，提交后无法修改',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          //return false;
+          var images = [];
+          that.uploadDIY(upload_pictures, 0, 0, 0, upload_pictures.length, images, function (successUp, failUp, length, images) {
+            activity.organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, join_sheet);
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   add_preview_image: function () {
     console.log('going to choose preview_image');
@@ -344,5 +376,38 @@ Page({
     this.setData({
       upload_pictures: upload_pictures
     })
+  },
+  uploadDIY(filePaths, successUp, failUp, i, length, images, callback) {
+    if (filePaths.length == 0) {
+      callback(0, 0, 0, []);
+      return false;
+    }
+    wx.uploadFile({
+      url: app.globalData.default_url + '/?action=api.v1.activity.upload_image',
+      filePath: filePaths[i],
+      name: 'file',
+      success: (resp) => {
+        successUp++;
+      },
+      fail: (res) => {
+        failUp++;
+      },
+      complete: (res) => {
+        var str = res.data;
+        var json = JSON.parse(str);
+        i++;
+        if (json.op == "upload_image") {
+          images.push(json.data);
+        }
+        if (i == length) {
+          console.log(images);
+          callback(successUp, failUp, length, images);
+          //this.showToast('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
+        }
+        else {  //递归调用uploadDIY函数
+          this.uploadDIY(filePaths, successUp, failUp, i, length, images, callback);
+        }
+      },
+    });
   },
 })
