@@ -37,7 +37,7 @@ function organize(title, content, preview_image_id, type_id, address, starttime,
       participants: participants,
       images: images,
       joinsheet: joinsheet,
-      yuyue_session: wx.getStorageSync("yuyue_session"),
+      calendar_session: wx.getStorageSync("calendar_session"),
     },
     success: function (res) {
       console.log(res);

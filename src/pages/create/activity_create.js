@@ -269,16 +269,18 @@ Page({
     var content = e.detail.value.content;
 
     var preview_image_id = that.data.preview_image_id;
-    var participants = that.data.participants;
+    var participants = (e.detail.value.participants) ? e.detail.value.participants : 0;
     var type_id = that.data.choosed_type_id;
     var pub = that.data.pub;
     var address = that.data.address;
 
     var starttime = e.detail.value.startdate + ' ' + e.detail.value.starttime;
+    starttime = (new Date(starttime).getTime()) / 1000;
     var endtime = e.detail.value.enddate + ' ' + e.detail.value.endtime;
-    
+    endtime = (new Date(endtime).getTime()) / 1000;
+
     var repeattype = e.detail.value.repeattype;
-    var repeat_end = (repeattype == 0) ? 0 : e.detail.value.repeat_end_date + ' ' + e.detail.value.repeat_end_time; 
+    var repeat_end = (repeattype == 0) ? 0 : (new Date(e.detail.value.repeat_end_date + ' ' + e.detail.value.repeat_end_time).getTime()) / 1000; 
 
     var join_sheet = '';
     if (pub == 1) {

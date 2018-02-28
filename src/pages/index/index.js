@@ -241,8 +241,7 @@ Page({
 
   },
   create_activity: function () {
-    wx.setStorageSync(preview_image_id, 0);
-    wx.setStorageSync(preview_image_url, '');
+
     wx.navigateTo({
       url: '../create/index'
     })
@@ -255,6 +254,8 @@ Page({
 
   },
   activity_create_navigator:function(){
+    wx.setStorageSync('preview_image_id', 0);
+    wx.setStorageSync('preview_image_url', '');
     wx.navigateTo({
       url: '../create/activity_create',
     })
