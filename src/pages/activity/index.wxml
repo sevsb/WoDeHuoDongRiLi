@@ -4,7 +4,7 @@
 <view class='page_mecalendar page_activity_index'>
   <!--封图  -->
   <view class='envelope_part_activity_index'>
-    <image>
+    <image src='{{activity_detail.avatar_detail.url}}'>
     </image>
   </view>
 
@@ -13,7 +13,7 @@
 
     <view class="item_activity_info align_center center">
       <view class='title_activity_info start'>
-        活动标题显示 活动标题显示 活动标题显活动标题显示活动标题显示活动标题显示………
+        {{activity_detail.title}}
       </view>
     </view>
 
@@ -25,7 +25,7 @@
         </view>
         <!-- 文字 -->
         <view class='align_center'>
-          01-30 18:30
+          {{activity_detail.time_detail}}
         </view>
       </view>
     </view>
@@ -38,7 +38,7 @@
         </view>
         <!-- 文字 -->
         <view class='align_center'>
-          地址
+          {{activity_detail.address}}
         </view>
       </view>
     </view>
@@ -73,24 +73,12 @@
     <!--活动内容区域  -->
     <view class='content_activity_content_part center align_center'>
       <view>
-        活动内容区域
+        {{activity_detail.content}}
       </view>
     </view>
     <!--活动内容区域  -->
-    <view class='image_activity_content_part center align_center'>
-      <image class='lagre_image'>
-
-      </image>
-    </view>
-    <!--活动内容区域  -->
-    <view class='image_activity_content_part center align_center'>
-      <image class='lagre_image'>
-
-      </image>
-    </view>
-    <!--活动内容区域  -->
-    <view class='image_activity_content_part center align_center'>
-      <image class='lagre_image'>
+    <view wx:if='{{activity_detail.images != null}}' wx:for='{{activity_detail.images_full_list}}' class='image_activity_content_part center align_center'>
+      <image src='{{item.thumbnail_url}}' class='lagre_image'>
 
       </image>
     </view>

@@ -18,6 +18,43 @@ function preview_images_list(callback) {
   });
 }
 
+function view(id, callback) {
+  wx.request({
+    url: app.globalData.default_url,
+    data: {
+      action: 'api.v1.activity.view',
+      id: id,
+      calendar_session: wx.getStorageSync("calendar_session"),
+    },
+    success: function (res) {
+      console.log(res.data);
+      callback(res.data)
+      return;
+    },
+    complete: function () {
+
+    }
+  });
+}
+
+function all_my_list(callback) {
+  wx.request({
+    url: app.globalData.default_url,
+    data: {
+      action: 'api.v1.activity.all_my_list',
+      calendar_session: wx.getStorageSync("calendar_session"),
+    },
+    success: function (res) {
+      console.log(res.data);
+      callback(res.data)
+      return;
+    },
+    complete: function () {
+
+    }
+  });
+}
+
 function organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, joinsheet) {
   console.log('activity organize start...');
   wx.showLoading();
@@ -68,5 +105,7 @@ function organize(title, content, preview_image_id, type_id, address, starttime,
 module.exports = {
   preview_images_list: preview_images_list,
   organize: organize,
+  all_my_list: all_my_list,
+  view: view,
 }
 

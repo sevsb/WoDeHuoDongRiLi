@@ -1,0 +1,36 @@
+/* pages/activity/list.wxss */
+
+.activity_item {
+  width: 100%;
+  border: 1px solid;
+  padding: 8px;
+  display: flex；
+  justify-content ： space-around;
+}
+.avatar {
+  width: 60px; 
+  height: 60px;
+}
+
+
+.detail {
+
+}
+
+.avatar_view, .detail{
+  display: inline-flex;
+  vertical-align: top;
+}
+
+.row {
+  display: block;
+  flex-grow: 1;
+}
+
+.row > view {
+  display: inline-flex;
+}
+
+.time, .type {
+  float: right;
+}

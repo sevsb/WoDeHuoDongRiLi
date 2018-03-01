@@ -11,7 +11,8 @@
     "pages/activity/index",
     "pages/activity/sign_up",
     "pages/activity/register_info",
-    "pages/create/choose_preview_image"
+    "pages/create/choose_preview_image",
+    "pages/activity/list"
   ],
   "tabBar": {
     "color": "#7A7E83",
@@ -22,6 +23,10 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/activity/list",
+        "text": "列表"
       },
       {
         "pagePath": "pages/mine/index",
