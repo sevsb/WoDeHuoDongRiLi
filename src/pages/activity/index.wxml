@@ -56,16 +56,16 @@
       </view>
     </view>
 
-    <!--<view class="item_activity_info align_center center">
+    <view class="item_activity_info align_center center">
       <view class='info_activity_info start align_center'>
         <view style='margin: 10rpx 15rpx;'>
-          <image class='small_image portrait align_center'></image>
+          <image src='{{activity_detail.owner.avatar}}' class='small_image portrait align_center'></image>
         </view>
         <view>
-          已报名5人/限20人报名
+          {{activity_detail.owner.name}}
         </view>
       </view>
-    </view> -->
+    </view>
   </view>
   <!--活动内容  -->
   <view class='activity_content_part_activity_index  column center align_center'>
