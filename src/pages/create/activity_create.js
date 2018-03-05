@@ -282,6 +282,8 @@ Page({
     var repeattype = e.detail.value.repeattype;
     var repeat_end = (repeattype == 0) ? 0 : (new Date(e.detail.value.repeat_end_date + ' ' + e.detail.value.repeat_end_time).getTime()) / 1000; 
 
+    var notice = (that.data.remind) ? 1 : 0;
+
     var join_sheet = '';
     if (pub == 1) {
       console.log('pub =1');
@@ -304,6 +306,7 @@ Page({
     console.log("endtime: " + endtime);
     console.log("repeattype: " + repeattype);
     console.log("repeat_end: " + repeat_end);
+    console.log("notice: " + notice);
     console.log("upload_pictures: ");
     console.log(upload_pictures);
     console.log(join_sheet);
@@ -317,7 +320,7 @@ Page({
           //return false;
           var images = [];
           that.uploadDIY(upload_pictures, 0, 0, 0, upload_pictures.length, images, function (successUp, failUp, length, images) {
-            activity.organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, join_sheet);
+            activity.organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, join_sheet, notice);
           });
         } else if (res.cancel) {
           console.log('用户点击取消')

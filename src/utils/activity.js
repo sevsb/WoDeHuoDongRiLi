@@ -55,7 +55,7 @@ function all_my_list(callback) {
   });
 }
 
-function organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, joinsheet) {
+function organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, joinsheet, notice) {
   console.log('activity organize start...');
   wx.showLoading();
   wx.request({
@@ -75,6 +75,7 @@ function organize(title, content, preview_image_id, type_id, address, starttime,
       images: images,
       joinsheet: joinsheet,
       calendar_session: wx.getStorageSync("calendar_session"),
+      notice: notice,
     },
     success: function (res) {
       console.log(res);
