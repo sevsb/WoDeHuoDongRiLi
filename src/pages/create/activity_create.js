@@ -250,6 +250,7 @@ Page({
     console.log(pub);
     that.setData({
       calendar_type_index: e.detail.value,
+      choosed_type_id: choosed_type_id,
       pub: pub
     })
   },
@@ -290,6 +291,7 @@ Page({
       var obj = new Object();
       obj.name_need = e.detail.value.name_need;
       obj.phone_need = e.detail.value.phone_need;
+      obj.comment_need = e.detail.value.comment_need;
       join_sheet = obj;
     }
 

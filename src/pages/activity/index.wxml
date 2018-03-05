@@ -42,7 +42,8 @@
         </view>
       </view>
     </view>
-    <view class="item_activity_info align_center center">
+
+    <view wx:if='{{activity_detail.type_detail.pub == 1}}' class="item_activity_info align_center center">
       <view class='info_activity_info start'>
         <!-- 图标 -->
         <view>
@@ -50,23 +51,21 @@
         </view>
         <!-- 文字 -->
         <view class='align_center'>
-          已报名5人/限20人报名
+          已报名{{activity_detail.now_participants}}人/{{activity_detail.max_participants}}
         </view>
       </view>
     </view>
 
-    <view class="item_activity_info align_center center">
+    <!--<view class="item_activity_info align_center center">
       <view class='info_activity_info start align_center'>
-        <!-- 图标 -->
         <view style='margin: 10rpx 15rpx;'>
           <image class='small_image portrait align_center'></image>
         </view>
-        <!-- 文字 -->
         <view>
           已报名5人/限20人报名
         </view>
       </view>
-    </view>
+    </view> -->
   </view>
   <!--活动内容  -->
   <view class='activity_content_part_activity_index  column center align_center'>
@@ -84,11 +83,11 @@
     </view>
   </view>
   <!--报名情况  -->
-  <view class='registration_part_activity_index  column '>
+  <view wx:if='{{activity_detail.type_detail.pub == 1}}' class='registration_part_activity_index  column '>
     <view class='item_registration_part center align_center'>
       <view style='width: 90%;' class='space_between align_center'>
         <view>
-          已报名（0000）
+          已报名（{{activity_detail.now_participants}}）
         </view>
 
         <view class='row' bindtap='register_info_navigator'>
@@ -105,106 +104,19 @@
     <view class='item_registration_part align_center center'>
       <view style='width: 90%;' class='space_between align_center'>
 
-        <view class='acatar_registration_part'>
+        <view wx:for='{{activity_detail.signed_user_list}}' class='acatar_registration_part'>
           <view wx:if="{{true}}">
             <view>
-              <image class='medium_icon portrait'>
+              <image class='medium_icon portrait' src='{{item.user.avatar}}'>
               </image>
             </view>
             <view>
-              昵称
+              {{item.user.name}}
             </view>
           </view>
         </view>
-
-        <view class='acatar_registration_part'>
-          <view wx:if="{{false}}">
-            <view>
-              <image class='medium_icon portrait'>
-              </image>
-            </view>
-            <view>
-              昵称
-            </view>
-          </view>
-        </view>
-
-        <view class='acatar_registration_part'>
-          <view wx:if="{{false}}">
-            <view>
-              <image class='medium_icon portrait'>
-              </image>
-            </view>
-            <view>
-              昵称
-            </view>
-          </view>
-        </view>
-
-        <view class='acatar_registration_part'>
-          <view wx:if="{{false}}">
-            <view>
-              <image class='medium_icon portrait'>
-              </image>
-            </view>
-            <view>
-              昵称
-            </view>
-          </view>
-        </view>
-
-        <view class='acatar_registration_part'>
-          <view wx:if="{{false}}">
-            <view>
-              <image class='medium_icon portrait'>
-              </image>
-            </view>
-            <view>
-              昵称
-            </view>
-          </view>
-        </view>
-
-        <view class='acatar_registration_part'>
-          <view wx:if="{{false}}">
-            <view>
-              <image class='medium_icon portrait'>
-              </image>
-            </view>
-            <view>
-              昵称
-            </view>
-          </view>
-        </view>
-
-        <view class='acatar_registration_part'>
-          <view wx:if="{{false}}">
-            <view>
-              <image class='medium_icon portrait'>
-              </image>
-            </view>
-            <view>
-              昵称
-            </view>
-          </view>
-        </view>
-
-        <view class='acatar_registration_part'>
-          <view wx:if="{{false}}">
-            <view>
-              <image class='medium_icon portrait'>
-              </image>
-            </view>
-            <view>
-              昵称
-            </view>
-          </view>
-        </view>
-
-
 
       </view>
-
     </view>
   </view>
   <!--底边栏  -->
@@ -240,9 +152,19 @@
       </view>
 
     </view>
-    <view class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
+    <view wx:if="{{activity_detail.type_detail.pub == 1&& joined == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
       <view>
         我要报名
+      </view>
+    </view>
+    <view wx:elif="{{activity_detail.type_detail.pub == 1 && joined == true}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
+      <view>
+        已经报名
+      </view>
+    </view>
+    <view wx:else class='button_bottom_bar_disable column  align_center center'>
+      <view>
+        无法报名
       </view>
     </view>
   </view>

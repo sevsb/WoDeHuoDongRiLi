@@ -47,12 +47,23 @@ Page({
     var id = that.data.id;
     activity.view(id, function (res){
       if (res.op == 'activity_view') {
+        if (res.data.info.max_participants == 0) {
+          res.data.info.max_participants = '不限人数';
+        }else {
+          res.data.info.max_participants = '限' + res.data.info.max_participants + '人报名';
+        }
         that.setData({
           activity_detail: res.data.info,
           editable: res.data.editable,
           joined: res.data.joined,
           join_sheet: res.data.join_sheet,
         });
+        var joinsheet = res.data.info.joinsheet;
+        console.log(joinsheet);
+        wx.setStorageSync("joinsheet", joinsheet);
+        wx.setStorageSync("joined", res.data.joined);
+        wx.setStorageSync("my_joined_sheet", res.data.join_sheet);
+        wx.setStorageSync("notice", res.data.notice);
       }
     });
   },
@@ -99,8 +110,9 @@ Page({
   },
   // 报名活动跳转
   sign_up_activity_navigator: function () {
+    var id = this.data.id;
     wx.navigateTo({
-      url: 'sign_up',
+      url: 'sign_up?id=' + id,
     })
   },
   // 返回首页跳转

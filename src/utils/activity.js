@@ -18,6 +18,27 @@ function preview_images_list(callback) {
   });
 }
 
+function sign(id, joinsheet, notice, callback) {
+  wx.request({
+    url: app.globalData.default_url,
+    data: {
+      action: 'api.v1.activity.sign',
+      id: id,
+      joinsheet: joinsheet,
+      notice: notice,
+      calendar_session: wx.getStorageSync("calendar_session"),
+    },
+    success: function (res) {
+      console.log(res.data);
+      callback(res.data)
+      return;
+    },
+    complete: function () {
+
+    }
+  });
+}
+
 function view(id, callback) {
   wx.request({
     url: app.globalData.default_url,
@@ -108,5 +129,6 @@ module.exports = {
   organize: organize,
   all_my_list: all_my_list,
   view: view,
+  sign: sign,
 }
 

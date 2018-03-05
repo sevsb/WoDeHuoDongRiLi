@@ -113,6 +113,13 @@
   font-size: 14pt;
 }
 
+.button_bottom_bar_disable {
+  width: 220rpx;
+  background: grey;
+  color: #fffffd;
+  font-size: 14pt;
+}
+
 .list_bottom_bar {
   flex-grow: 1;
   display: flex;

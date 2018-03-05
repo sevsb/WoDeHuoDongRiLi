@@ -183,6 +183,15 @@
         <switch name="phone_need" bindtap='phone_need_bind' data-name_need="{{phone_need}}" class='switch' type="switch" />
       </view>
     </view> 
+    <!--备注  -->
+     <view class='item_additional_info'>
+      <view>
+        备注
+      </view>
+      <view>
+        <switch name="comment_need" bindtap='comment_need_bind' data-name_need="{{comment_need}}" class='switch' type="switch" />
+      </view>
+    </view> 
   </view>
 
 
