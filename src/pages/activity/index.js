@@ -127,4 +127,24 @@ Page({
       url: 'register_info',
     })
   },
+  show_sign_detail: function (e){
+    console.log(e);
+    var that = this;
+    var editable = that.data.editable;
+
+    if (editable) {
+      var sign_detail = e.currentTarget.dataset.item_detail.sheet;
+      wx.showModal({
+        title: sign_detail.name + " - " + sign_detail.phone,
+        content: sign_detail.comment,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
+  },
 })

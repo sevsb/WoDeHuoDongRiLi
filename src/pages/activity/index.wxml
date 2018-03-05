@@ -104,7 +104,7 @@
     <view class='item_registration_part align_center center'>
       <view style='width: 90%;' class='space_between align_center'>
 
-        <view wx:for='{{activity_detail.signed_user_list}}' class='acatar_registration_part'>
+        <view bindtap='show_sign_detail' wx:for='{{activity_detail.signed_user_list}}' class='acatar_registration_part' data-item_detail='{{item}}'>
           <view wx:if="{{true}}">
             <view>
               <image class='medium_icon portrait' src='{{item.user.avatar}}'>
