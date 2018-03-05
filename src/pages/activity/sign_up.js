@@ -50,6 +50,7 @@ Page({
       comment_need: comment_need,
       my_joined_sheet: my_joined_sheet,
       remind_sign_up: notice,
+      joined: joined,
     });
   },
 
@@ -132,5 +133,27 @@ Page({
     that.setData({
       remind_sign_up: remind_sign_up
     });
+  },
+  cancel_sign: function (){
+    var that = this;
+    var id = that.data.id;
+    wx.showModal({
+      title: '撤消报名',
+      content: '确定撤消报名？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          activity.unsign(id, function (res) {
+            if (res.op == 'activity_unsign') {
+              wx.navigateBack({});
+            }
+
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
   },
 })

@@ -58,8 +58,8 @@
         确认
       </button>
       <!--返回  -->
-      <button class='back_button_mycalendar' bindtap='back_navigator'>
-        返回
+      <button type='warn' wx:if="{{joined}}" class='back_button_mycalendar' bindtap='cancel_sign'>
+        撤消报名
       </button>
 
     </view>
