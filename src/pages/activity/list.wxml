@@ -11,7 +11,7 @@
     </view>
     
     <view class='right_view'>
-      <view class=''>{{item.begintime_detail}}</view>
+      <view class=''>{{item.begindate}}</view>
       <view class=''>{{item.type_detail.title}}</view>
     </view>
 
