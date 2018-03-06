@@ -4,7 +4,7 @@
 <view class='page_mecalendar page_activity_index'>
   <!--封图  -->
   <view class='envelope_part_activity_index'>
-    <image src='{{activity_detail.avatar_detail.url}}'>
+    <image class='preview_image' src='{{activity_detail.avatar_detail.url}}'>
     </image>
   </view>
 
@@ -34,7 +34,7 @@
       <view class='info_activity_info start'>
         <!-- 图标 -->
         <view>
-          <image src='/../image/icons/u469.png' style='margin: 0 15rpx;' class='small_icon align_center'></image>
+          <image src='/../image/icons/u469.png' style='margin: 0 15rpx;' class='small_icon_h align_center'></image>
         </view>
         <!-- 文字 -->
         <view class='align_center'>
@@ -76,7 +76,7 @@
       </view>
     </view>
     <!--活动内容区域  -->
-    <view wx:if='{{activity_detail.images != null}}' wx:for='{{activity_detail.images_full_list}}' class='image_activity_content_part center align_center'>
+    <view wx:if='{{activity_detail.images != null}}' wx:key="unique" wx:for='{{activity_detail.images_full_list}}' class='image_activity_content_part center align_center'>
       <image src='{{item.thumbnail_url}}' class='lagre_image'>
 
       </image>
@@ -104,7 +104,7 @@
     <view class='item_registration_part align_center center'>
       <view style='width: 90%;' class='space_between align_center'>
 
-        <view bindtap='show_sign_detail' wx:for='{{activity_detail.signed_user_list}}' class='acatar_registration_part' data-item_detail='{{item}}'>
+        <view bindtap='show_sign_detail'  wx:key="unique" wx:for='{{activity_detail.signed_user_list}}' class='acatar_registration_part' data-item_detail='{{item}}'>
           <view wx:if="{{true}}">
             <view>
               <image class='medium_icon portrait' src='{{item.user.avatar}}'>
@@ -169,7 +169,7 @@
     </view>
   </view>
   <!--悬浮按钮  -->
-  <view>
-    <image class="back_home_button_activity_index" bindtap='back_home_navigator' src='/../image/icons/u547.png'></image>
+  <view class="back_home_button_activity_index" >
+    <image bindtap='back_home_navigator' src='/../image/icons/u547.png'></image>
   </view>
 </view>

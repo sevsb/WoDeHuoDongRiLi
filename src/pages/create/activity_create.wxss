@@ -69,11 +69,9 @@
 }
 
 .picture_detail_enter_part {
-  width: 90%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 30rpx 0;
 }
 
 .add_picture_buttone_detail_enter_part {
@@ -179,4 +177,10 @@
   background-color: orange;
   font-weight: bold;
   color: white;
+}
+
+.preivew_view > image {
+  height: 200px;
+  margin-top:5px;
+  border-radius: 5px;
 }

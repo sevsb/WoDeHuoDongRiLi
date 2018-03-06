@@ -205,6 +205,11 @@ page {
   width: 50rpx;
 }
 
+.small_icon_h {
+  height: 70rpx;
+  width: 50rpx;
+}
+
 .medium_icon {
   height: 70rpx;
   width: 70rpx;

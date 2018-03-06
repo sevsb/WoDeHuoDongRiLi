@@ -1,6 +1,6 @@
 <!--pages/activity/list.wxml-->
 <view class='activity_list'>
-  <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:for='{{activity_list}}'>
+  <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:key="unique" wx:for='{{activity_list}}'>
     <view class='left_view'>
       <image class='avatar' src='{{item.avatar_detail.url}}'></image>
     </view>
