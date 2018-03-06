@@ -88,7 +88,8 @@
 
 .acatar_registration_part {
   margin: 10rpx 0;
-  width: 80rpx;
+  margin-right: 2px;
+  min-width: 80rpx;
   /* border: 1rpx solid #333; */
 }
 

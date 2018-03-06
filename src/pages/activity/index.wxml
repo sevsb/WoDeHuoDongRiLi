@@ -102,8 +102,7 @@
       </view>
     </view>
     <view class='item_registration_part align_center center'>
-      <view style='width: 90%;' class='space_between align_center'>
-
+      <view style='width: 90%;' class='space_round align_center'>
         <view bindtap='show_sign_detail'  wx:key="unique" wx:for='{{activity_detail.signed_user_list}}' class='acatar_registration_part' data-item_detail='{{item}}'>
           <view wx:if="{{true}}">
             <view>
@@ -128,17 +127,35 @@
           </image>
         </view>
         <view>
-          创建活动
+          创建
         </view>
       </view>
 
-      <view class='item_bottom_bar column center align_center'>
+      <view bindtap='share_btn' class='item_bottom_bar column center align_center'>
         <view>
           <image src='/../image/icons/u532.png' class='medium_icon'>
           </image>
         </view>
         <view>
           分享
+        </view>
+      </view>
+      <view wx:if='{{editable}}' bindtap='modify_btn' class='item_bottom_bar column center align_center'>
+        <view>
+          <image src='/../image/icons/u563.png' class='medium_icon'>
+          </image>
+        </view>
+        <view>
+          编辑
+        </view>
+      </view>
+      <view wx:if='{{editable}}' bindtap='cancel_btn' class='item_bottom_bar column center align_center'>
+        <view>
+          <image src='/../image/icons/u560.png' class='medium_icon'>
+          </image>
+        </view>
+        <view>
+          撤消
         </view>
       </view>
       <view class='item_bottom_bar   column center align_center'>

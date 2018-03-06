@@ -147,4 +147,31 @@ Page({
       })
     }
   },
+  share_btn: function (e){
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['分享此页面', '查看二维码图片'],
+      success: function (res) {
+        console.log(res.tapIndex)
+        switch (res.tapIndex) {
+          case 0: 
+            Page.onShareAppMessage();
+          break;
+          case 1:
+            var detail_qcode = that.data.activity_detail.detail_qcode;
+            wx.previewImage({
+              current: detail_qcode, // 当前显示图片的http链接
+              urls: [detail_qcode] // 需要预览的图片http链接列表
+            })
+          break;
+
+          default:
+
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
 })
