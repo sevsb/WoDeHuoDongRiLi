@@ -87,7 +87,7 @@ Page({
     var title = options.target.dataset.title;
     return {
       title: '分享列表：' + title,
-      path: '/page/type_list_share?type_id=' + type_id,
+      path: '/pages/activity/type_list_share?type_id=' + type_id,
       success: function (res) {
         // 转发成功
       },

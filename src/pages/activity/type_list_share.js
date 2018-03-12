@@ -24,7 +24,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     console.log(options);
+    var type_id = options.type_id;
+    that.get_list_by_type(type_id);
   },
 
   /**
@@ -39,12 +42,11 @@ Page({
    */
   onShow: function () {
     var that = this;
-    var choosed_type = wx.getStorageSync("choosed_type");
-    that.get_list_by_type(choosed_type);
+
   },
-  get_list_by_type: function (choosed_type) {
+  get_list_by_type: function (type_id) {
     var that = this;
-    activity.all_my_list(choosed_type, function (res) {
+    activity.all_my_list(type_id, function (res) {
       if (res.op == 'all_my_list') {
         that.setData({
           activity_list: res.data.my_list,
