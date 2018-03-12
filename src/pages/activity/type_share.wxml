@@ -1,0 +1,41 @@
+<!--pages/activity/type_share.wxml-->
+<!--pages/management/calendar_type_management.wxml-->
+<view class='page_mycalendar'>
+  <!-- 头部 -->
+  <view class=''>
+    <view class=''>
+      <view>
+        可进行分享的日历类别请看下面列表，此分享是针对某个公开日历类别的所有活动进行分享
+      </view>
+      <view>
+        1、分享至个人或群
+        2、生成二维码进行分享。
+      </view>
+      <view>
+       如需要分享单个活动请进入某一个活动在活动内容中进行分享，个人私有活动无法分享。
+      </view>
+    </view>
+  </view>
+
+  <view wx:for="{{my_types}}" wx:key="*this" class='list_calendar_type_management'
+  bindtap='share_type'
+  data-type_id='{{item.id}}' 
+  data-type_title='{{item.title}}'
+  data-type_pub='{{item.pub}}'>
+    <view class='title_box_list'>
+      <view> {{item.title}}</view>
+      <view class='private_flag' wx:if="{{item.pub == 0}}">[ 隐私 ]</view>
+      <view class='' wx:if="{{item.pub != 0}}">
+        <image class='icon' src=''></image>
+      </view>
+      <view class='' wx:if="{{item.pub != 0}}">
+        <button class='share_icon'
+        data-type_id='{{item.id}}'
+        data-type_title='{{item.title}}'
+        open-type="share"
+        >123</button>
+        <image class='icon' src='../../image/icons/u81.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -4,23 +4,22 @@
   <view class='head_calendar_type_management'>
     <view class='box_head'>
       <view>
-        我的日历类别
+        日历类别筛选列表
       </view>
-      <view bindtap='create_calendar_type_navigator' data-type_id='0'>
-        <image class='small_icon' src='../../image/management/add-icon.png'>
-        </image>
+      <view>
+        当前选中：
+        {{choosed_type_name}}
       </view>
     </view>
-
   </view>
 
   <view wx:for="{{my_types}}" wx:key="*this" class='list_calendar_type_management'
-  bindtap='create_calendar_type_navigator'
+  bindtap='choose_type'
   data-type_id='{{item.id}}' 
   data-type_title='{{item.title}}'
   data-type_pub='{{item.pub}}'>
     <view class='title_box_list'>
-      <view>{{item.title}}</view>
+      <view> {{item.title}}</view>
       <view class='private_flag' wx:if="{{item.pub == 0}}">[ 隐私 ]</view>
     </view>
   </view>

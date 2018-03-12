@@ -12,7 +12,10 @@
     "pages/activity/sign_up",
     "pages/activity/register_info",
     "pages/create/choose_preview_image",
-    "pages/activity/list"
+    "pages/activity/list",
+    "pages/activity/choose_type",
+    "pages/activity/type_share",
+    "pages/activity/type_list_share"
   ],
   "tabBar": {
     "color": "#7A7E83",
@@ -30,13 +33,13 @@
         "pagePath": "pages/activity/list",
         "text": "列表",
         "iconPath": "/image/icons/u17.png",
-        "selectedIconPath": "/image/icons/u11_selected.png"
+        "selectedIconPath": "/image/icons/u17_selected.png"
       },
       {
         "pagePath": "pages/mine/index",
         "text": "我的",
-        "iconPath" : "/image/icons/u14.png",
-        "selectedIconPath": "/image/icons/u11_selected.png"
+        "iconPath": "/image/icons/u14.png",
+        "selectedIconPath": "/image/icons/u14_selected.png"
       }
     ]
   },

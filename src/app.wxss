@@ -256,3 +256,40 @@ button::after {
   padding: 200rpx 0;
   box-sizing: border-box;
 }
+
+/*
+搜索栏
+*/
+
+.search_view {
+  display: flex;
+  
+  height: 45px;
+}
+
+.msg_entre {
+  flex-basis: 45px;
+  padding: 7px;
+}
+
+.msg_entre image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search_input {
+  flex-grow: 1;
+  padding: 8px;
+}
+
+.search_input input {
+  background-color: white;
+  border-radius: 2px;
+  height: 30px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}

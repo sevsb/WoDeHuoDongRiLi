@@ -77,11 +77,12 @@ function view(id, callback) {
   });
 }
 
-function all_my_list(callback) {
+function all_my_list(choosed_type, callback) {
   wx.request({
     url: app.globalData.default_url,
     data: {
       action: 'api.v1.activity.all_my_list',
+      choosed_type: choosed_type,
       calendar_session: wx.getStorageSync("calendar_session"),
     },
     success: function (res) {

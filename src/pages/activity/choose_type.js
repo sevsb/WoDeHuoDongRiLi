@@ -1,13 +1,8 @@
-// pages/activity/list.js
+// pages/activity/choose_type.js
 var app = getApp()
 var util = require('../../utils/util.js');
 var activity = require('../../utils/activity.js');
 var activity_type = require('../../utils/activity_type.js');
-const date = new Date();
-const time = util.formatTime(date);
-const nowadays = util.formatDate(date);
-
-
 
 Page({
 
@@ -15,16 +10,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activity_list: [],
-    choosed_type: 0,
     type_list: [],
+    choosed_type: 0,
+    choosed_type_name: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+  
   },
 
   /**
@@ -40,17 +35,32 @@ Page({
   onShow: function () {
     var that = this;
     var choosed_type = wx.getStorageSync("choosed_type");
-    that.get_list_by_type(choosed_type);
-  },
-  get_list_by_type: function (choosed_type){
-    var that = this;
-    activity.all_my_list(choosed_type, function (res) {
-      if (res.op == 'all_my_list') {
+    that.setData({
+      choosed_type: choosed_type,
+    });
+    activity_type.my_activity_types(function (res) {
+      var ret = res.data.data;
+      console.log(ret);
+      if (res.data.op == 'my_custom_types') {
         that.setData({
-          activity_list: res.data.my_list,
+          my_types: ret.my_types
+        });
+        if (choosed_type == 0) {
+          var choosed_type_name = '未选中';
+        }
+        for (var i in that.data.my_types) {
+          var type_item = that.data.my_types[i];
+          if (type_item.id == choosed_type) {
+            var choosed_type_name = type_item.title;
+          }
+        }
+        that.setData({
+          choosed_type_name: choosed_type_name
         });
       }
     });
+
+
   },
 
   /**
@@ -87,35 +97,12 @@ Page({
   onShareAppMessage: function () {
   
   },
-  show_detail: function (e){
-    console.log(e);
-    var id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: 'index?id=' + id,
-    })
-  },
-  all_type: function (e) {
-    var that = this;
-    var choosed_type = wx.getStorageSync("choosed_type");
-    if (choosed_type != 0) {
-      wx.setStorageSync("choosed_type", 0)
-      that.setData({
-        choosed_type: 0,
-      });
-      that.get_list_by_type(0);
-    }
-
-  },
-  type_list: function (e) {
-    var that = this;
-    wx.navigateTo({
-      url: 'choose_type',
-    })
-  },
-  type_share: function (e) {
-    var that = this;
-    wx.navigateTo({
-      url: 'type_share',
-    })
+  choose_type: function (e){
+    var type_id = e.currentTarget.dataset.type_id;
+    console.log(type_id);
+    wx.setStorageSync("choosed_type", type_id);
+    wx.switchTab({
+      url: 'list?choosed_type=' + type_id 
+    });
   },
 })
