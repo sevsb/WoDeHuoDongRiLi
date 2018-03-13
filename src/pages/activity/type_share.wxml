@@ -35,7 +35,7 @@
         data-type_id='{{item.id}}'
         data-type_title='{{item.title}}'
         open-type="share"
-        >123</button>
+        >   </button>
       </view>
     </view>
   </view>
