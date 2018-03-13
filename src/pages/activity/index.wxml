@@ -158,7 +158,7 @@
           撤消
         </view>
       </view>
-      <view class='item_bottom_bar   column center align_center'>
+      <view wx:if='{{editable == false}}' class='item_bottom_bar   column center align_center'>
         <view>
           <image src='/../image/icons/u535.png' class='medium_icon'>
           </image>
@@ -169,12 +169,12 @@
       </view>
 
     </view>
-    <view wx:if="{{activity_detail.type_detail.pub == 1&& joined == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
+    <view wx:if="{{activity_detail.type_detail.pub == 1 && joined == false && editable == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
       <view>
         我要报名
       </view>
     </view>
-    <view wx:elif="{{activity_detail.type_detail.pub == 1 && joined == true}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
+    <view wx:elif="{{activity_detail.type_detail.pub == 1 && joined == true && editable == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
       <view>
         已经报名
       </view>
