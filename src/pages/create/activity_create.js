@@ -13,6 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isIpx: app.globalData.isIpx ? true : false,
     address: "选择地址",//地址
     bindAddress: true,//绑定地址标识
     starttime: time,//开始时间
@@ -276,12 +277,14 @@ Page({
     var address = that.data.address;
 
     var starttime = e.detail.value.startdate + ' ' + e.detail.value.starttime;
+    starttime = starttime.replace(/-/g, '/');
     starttime = (new Date(starttime).getTime()) / 1000;
     var endtime = e.detail.value.enddate + ' ' + e.detail.value.endtime;
+    endtime = endtime.replace(/-/g, '/');
     endtime = (new Date(endtime).getTime()) / 1000;
 
     var repeattype = e.detail.value.repeattype;
-    var repeat_end = (repeattype == 0) ? 0 : (new Date(e.detail.value.repeat_end_date + ' ' + e.detail.value.repeat_end_time).getTime()) / 1000; 
+    var repeat_end = (repeattype == 0) ? 0 : (new Date((e.detail.value.repeat_end_date + ' ' + e.detail.value.repeat_end_time).replace(/-/g, '/')).getTime()) / 1000; 
 
     var notice = (that.data.remind) ? 1 : 0;
 
@@ -320,8 +323,6 @@ Page({
       error_reason = '描述不完整';
     } else if (preview_image_id == 0) {
       error_reason = '题图未选择';
-    } else if (address == '' || address == '选择地址' ) {
-      error_reason = '地址未选择';
     }
     if (error_reason != '') {
       wx.showToast({

@@ -38,3 +38,4 @@
 </view>
 
 <view class=''></view>
+<view class="button-group {{isIpx ? 'fix-iphonex-button':''}}"></view>

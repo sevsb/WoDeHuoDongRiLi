@@ -41,9 +41,9 @@ Page({
     var my_joined_sheet = wx.getStorageSync("my_joined_sheet");
     var notice = (wx.getStorageSync("notice") == 1) ? true : false;
     console.log(my_joined_sheet);
-    var name_need = joinsheet.name_need;
-    var phone_need = joinsheet.phone_need;
-    var comment_need = joinsheet.comment_need;
+    var name_need = joinsheet && joinsheet.name_need ? joinsheet.name_need : false;
+    var phone_need = joinsheet && joinsheet.phone_need ? joinsheet.phone_need : false;
+    var comment_need = joinsheet && joinsheet.comment_need ? joinsheet.comment_need : false;
     that.setData({
       name_need: name_need,
       phone_need: phone_need,

@@ -1,5 +1,6 @@
 //app.js
 var user_js = require('/utils/user.js')
+
 App({
   onLaunch: function () {
     var that = this;
@@ -12,6 +13,20 @@ App({
     console.log("timeout:" + timeout);
     console.log("calendar_session:" + calendar_session);
     console.log("token:" + token);
+
+
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res)
+        var isIpx = false;
+        if (res.model.indexOf("iphone x") > -1) {
+          isIpx = true;
+        }
+        that.globalData.isIpx = isIpx;
+      }
+    })
+
+
 
     // 模拟器切换手机的时候，手机有缓存不更新，注释掉判断
     /*
