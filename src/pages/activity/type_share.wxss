@@ -52,5 +52,24 @@
 .share_icon {
   height: 30px;
   width: 30px;
+  background-image: url('http://www.xiaoningmengkeji.com/sevsb/upload/system/share.png');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 30px 30px;
+  border: 1px solid;
+  color: white;
 }
 
+.header_intro {
+  padding: 8px;
+  background-color: white;
+}
+
+.grey {
+  color: grey;
+}
+
+.share_intro_second {
+  margin: 8px 0 8px 0;
+}

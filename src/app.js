@@ -39,6 +39,12 @@ App({
         typeof cb == "function" && cb(that.globalData.userInfo)
         user_js.do_login('weapp', calendar_session, nick, avatar);
         return;
+      },
+      error: function (res) {
+        console.error(res);
+      },
+      complete: function (res) {
+        console.log(res);
       }
     })
   },
@@ -66,7 +72,7 @@ App({
     createnumber: 1,
 
     default_url: 'https://xiaoningmengkeji.com',
-    //default_url: 'http://127.0.0.1',
+    default_url: 'http://127.0.0.1',
     debug: 0,
   }
 })

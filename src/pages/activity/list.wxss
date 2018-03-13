@@ -31,6 +31,7 @@
   display: flex;
   width: 120px;
   justify-content: space-around;
+  background-color: white;
 }
 
 .text-overflow {
@@ -54,13 +55,12 @@
 }
 
 .filter_view {
-  background-color: #ccc;
   display: flex;
   height: 45px;
 }
 
 .filter_view > view {
-  background-color: #eee;
+  background-color: white;
   display: flex;
   flex-direction: row;
   flex-grow: 1;
@@ -68,7 +68,7 @@
   align-items: center;
   font-size: 16px;
   margin-top: 1px;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .all_type, .type_list {

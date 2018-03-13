@@ -3,7 +3,7 @@ var default_url = "https://xiaoningmengkeji.com";
 
 function do_login(from, calendar_session, nick, avatar) {
  
-  console.log('userfunction: do_login start/');
+  console.log('userfunction: do_login start..');
   console.log('nick: ' + nick);
   console.log('avatar: ' + avatar);
   wx.login({

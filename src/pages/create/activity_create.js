@@ -313,6 +313,26 @@ Page({
     console.log(upload_pictures);
     console.log(join_sheet);
 
+    var error_reason = '';
+    if (title == '' ) {
+      error_reason = '标题不完整';
+    } else if (content == '' ) {
+      error_reason = '描述不完整';
+    } else if (preview_image_id == 0) {
+      error_reason = '题图未选择';
+    } else if (address == '' || address == '选择地址' ) {
+      error_reason = '地址未选择';
+    }
+    if (error_reason != '') {
+      wx.showToast({
+        title: error_reason,
+        image: "../../image/warning-icon.png",
+        icon: 'none',
+        duration: 3000
+      })
+      return false;
+    }
+
     wx.showModal({
       title: '是否确认提交？',
       content: '请注意，提交后无法修改',

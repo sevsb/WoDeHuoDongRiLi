@@ -1,6 +1,7 @@
 <!--pages/activity/list.wxml-->
 <view class=''>
-  分享日历列表
+  <view class='type_intro'>分享日历列表</view>
+  <view class='type_title'>{{type_detail.title}}</view>
 </view>
 <view class='activity_list'>
   <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:key="unique" wx:for='{{activity_list}}'>

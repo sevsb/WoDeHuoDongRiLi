@@ -18,6 +18,7 @@ Page({
     activity_list: [],
     choosed_type: 0,
     type_list: [],
+    type_detail: [],
   },
 
   /**
@@ -46,10 +47,12 @@ Page({
   },
   get_list_by_type: function (type_id) {
     var that = this;
-    activity.all_my_list(type_id, function (res) {
+    activity.share_list(type_id, function (res) {
+      console.log(res);
       if (res.op == 'all_my_list') {
         that.setData({
-          activity_list: res.data.my_list,
+          activity_list: res.data.my_list.my_list,
+          type_detail: res.data.type,
         });
       }
     });

@@ -84,3 +84,22 @@
   align-items: center;
 }
 
+.type_title {
+  padding: 15px 0 15px 0;
+  font-size: 16px;
+  display: flex;
+  align-content: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.type_intro {
+  padding: 8px 0px 8px 15px;
+  display: flex;
+  flex-grow: 1;
+  color: grey;
+  font-size: 14px;
+  justify-content: flex-start;
+  background-color: white;
+  border-bottom: 1px solid grey;
+}

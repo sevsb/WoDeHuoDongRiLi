@@ -2,16 +2,18 @@
 <!--pages/management/calendar_type_management.wxml-->
 <view class='page_mycalendar'>
   <!-- 头部 -->
-  <view class=''>
-    <view class=''>
-      <view>
-        可进行分享的日历类别请看下面列表，此分享是针对某个公开日历类别的所有活动进行分享
+  <view class='header_intro'>
+    <view >
+      <view class='grey'>
+      可进行分享的日历类别请看下面列表，此分享是针对某个公开日历类别的所有活动进行分
       </view>
-      <view>
+      <view class='share_intro_second'>
         1、分享至个人或群
-        2、生成二维码进行分享。
       </view>
-      <view>
+      <view class='share_intro_second'>
+        2、生成二维码进行分享
+      </view>
+      <view class='grey'>
        如需要分享单个活动请进入某一个活动在活动内容中进行分享，个人私有活动无法分享。
       </view>
     </view>
@@ -34,7 +36,6 @@
         data-type_title='{{item.title}}'
         open-type="share"
         >123</button>
-        <image class='icon' src='../../image/icons/u81.png'></image>
       </view>
     </view>
   </view>

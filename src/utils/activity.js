@@ -1,4 +1,5 @@
 var app = getApp();
+var util = require("util.js");
 
 function preview_images_list(callback) {
   wx.request({
@@ -87,6 +88,29 @@ function all_my_list(choosed_type, callback) {
     },
     success: function (res) {
       console.log(res.data);
+      if (res.data.op == 'all_my_list') {
+        callback(res.data)
+      }else {
+        util.error_modal(res);
+      }
+      return;
+    },
+    complete: function () {
+
+    }
+  });
+}
+
+function share_list(choosed_type, callback) {
+  wx.request({
+    url: app.globalData.default_url,
+    data: {
+      action: 'api.v1.activity.share_list',
+      choosed_type: choosed_type,
+      calendar_session: wx.getStorageSync("calendar_session"),
+    },
+    success: function (res) {
+      console.log(res.data);
       callback(res.data)
       return;
     },
@@ -151,5 +175,6 @@ module.exports = {
   view: view,
   sign: sign,
   unsign: unsign,
+  share_list: share_list,
 }
 

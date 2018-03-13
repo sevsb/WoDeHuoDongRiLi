@@ -112,6 +112,23 @@ function organizations_request(callBack) {
   })
 }
 
+function error_modal(res) {
+  console.log(res);
+  var code = res.data.code;
+  var reason = res.data.reason;
+  wx.showModal({
+    title: '错误',
+    content: 'code：' + code + ". 提示：" + reason,
+    success: function (res) {
+      if (res.confirm) {
+        console.log('用户点击确定')
+      } else if (res.cancel) {
+        console.log('用户点击取消')
+      }
+    }
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
   formatDate: formatDate,
@@ -120,5 +137,6 @@ module.exports = {
   formatDatetime: formatDatetime,
   organizations_request: organizations_request,
   neterror_Modal: neterror_Modal,
+  error_modal: error_modal,
 }
 
