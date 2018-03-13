@@ -211,8 +211,8 @@ page {
 }
 
 .medium_icon {
-  height: 70rpx;
-  width: 70rpx;
+  height: 60rpx;
+  width: 60rpx;
 }
 
 .small_image {
