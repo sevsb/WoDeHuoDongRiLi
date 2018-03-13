@@ -174,4 +174,21 @@ Page({
       }
     })
   },
+  view_image: function (e) {
+    var that = this;
+    var name = e.currentTarget.dataset.name;
+    if (name != '') {
+      for (var i in that.data.activity_detail.images_full_list) {
+        var image = that.data.activity_detail.images_full_list[i];
+        if (name == image.name) {
+          var image_url = image.image_url;
+          wx.previewImage({
+            current: image_url, 
+            urls: that.data.activity_detail.image_thumbnail_url_list, 
+          })
+          return false;
+        }
+      }
+    }
+  },
 })
