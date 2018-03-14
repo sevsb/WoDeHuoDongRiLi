@@ -75,16 +75,19 @@ Page({
     });
 
     activity_type.my_activity_types(function (res) {
-      var ret = res.data.data;
-      console.log(ret);
-      if (res.data.op == 'my_custom_types') {
-        var my_types = ret.my_types;
-        var default_type_id = my_types[0].id;
-        that.setData({
-          my_types: my_types,
-          choosed_type_id: default_type_id,
-        });
+      var my_types = res.data.my_types;
+      var my_types_new = [];
+      for (var i in my_types) {
+        var tp = my_types[i];
+        if (tp.id != -1 && tp.id != -2 ) {
+          my_types_new.push(tp);
+        }
       }
+      var default_type_id = my_types_new[0].id;
+      that.setData({
+        my_types: my_types_new,
+        choosed_type_id: default_type_id,
+      });
     });
   },
 
