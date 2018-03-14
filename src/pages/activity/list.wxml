@@ -10,15 +10,15 @@
 <view class='filter_view'>
   <view bindtap='all_type' class='all_type'>
     <view class='filter_intro'>全部</view>
-    <view><image class='icon' src='../../image/icons/u75.png'></image></view>
+    <view><image class='icon_s' src='../../image/icons/u75.png'></image></view>
   </view>
   <view bindtap='type_list'  class='type_list'>
     <view class='filter_intro'>筛选</view>
-    <view><image class='icon' src='../../image/icons/u78.png'></image></view>
+    <view><image class='icon_s' src='../../image/icons/u78.png'></image></view>
   </view>
   <view bindtap='type_share'  class='type_share'>
     <view class='filter_intro'>分享</view>
-    <view><image class='icon' src='../../image/icons/u81.png'></image></view>
+    <view><image class='icon_s' src='../../image/icons/u81.png'></image></view>
   </view>
 </view>
 <view class='activity_list'>
@@ -28,7 +28,7 @@
     </view>
     <view class='center_view'>
       <view class='text-overflow'>{{item.title}}</view>
-      <view class='text-overflow'>{{item.content}}</view>
+      <view class='text-overflow title_content'>{{item.content}}</view>
     </view>
     <view class='right_view'>
       <view class=''>{{item.begindate}}</view>

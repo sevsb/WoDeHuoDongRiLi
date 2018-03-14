@@ -294,6 +294,13 @@ button::after {
   height: 30px;
 }
 
+.icon_s {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-content: center;
+}
+
 .fix-iphonex-button {
   bottom:68rpx!important;
 }

@@ -21,7 +21,7 @@
       <view class='info_activity_info start'>
         <!-- 图标 -->
         <view>
-          <image src='/../image/icons/u466.png' style='margin: 0 15rpx;' class='small_icon align_center'></image>
+          <image src='/../../image/icons/u466.png' style='margin: 0 15rpx;' class='small_icon align_center'></image>
         </view>
         <!-- 文字 -->
         <view class='align_center' style='font-size: 12px;'>
@@ -34,7 +34,7 @@
       <view class='info_activity_info start'>
         <!-- 图标 -->
         <view>
-          <image src='/../image/icons/u469.png' style='margin: 0 15rpx;' class='small_icon_h align_center'></image>
+          <image src='/../../image/icons/u469.png' style='margin: 0 15rpx;' class='small_icon_h align_center'></image>
         </view>
         <!-- 文字 -->
         <view class='align_center'>
@@ -47,7 +47,7 @@
       <view class='info_activity_info start'>
         <!-- 图标 -->
         <view>
-          <image src='/../image/icons/u475.png' style='margin: 0 15rpx;' class='small_icon align_center'></image>
+          <image src='/../../image/icons/u475.png' style='margin: 0 15rpx;' class='small_icon align_center'></image>
         </view>
         <!-- 文字 -->
         <view class='align_center'>
@@ -123,7 +123,7 @@
     <view class='list_bottom_bar row space_between'>
       <view class='item_bottom_bar column center align_center' bindtap='create_activity_navigator'>
         <view>
-          <image src='/../image/icons/u529.png' class='medium_icon'>
+          <image src='/../../image/icons/u529.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -133,7 +133,7 @@
 
       <view bindtap='share_btn' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/../image/icons/u532.png' class='medium_icon'>
+          <image src='/../../image/icons/u532.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -142,7 +142,7 @@
       </view>
       <view wx:if='{{editable}}' bindtap='modify_btn' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/../image/icons/u563.png' class='medium_icon'>
+          <image src='/../../image/icons/u563.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -151,7 +151,7 @@
       </view>
       <view wx:if='{{editable}}' bindtap='cancel_btn' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/../image/icons/u560.png' class='medium_icon'>
+          <image src='/../../image/icons/u560.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -160,7 +160,7 @@
       </view>
       <view bindtap='subscribe_it' wx:if='{{editable == false && subscribed == false}}' class='item_bottom_bar   column center align_center'>
         <view>
-          <image src='/../image/icons/u535.png' class='medium_icon'>
+          <image src='/../../image/icons/u535.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -169,7 +169,7 @@
       </view>
       <view bindtap='unsubscribe_it' wx:if='{{editable == false && subscribed == true}}' class='item_bottom_bar   column center align_center'>
         <view>
-          <image src='/../image/icons/u535_selected.png' class='medium_icon'>
+          <image src='/../../image/icons/u535_selected.png' class='medium_icon'>
           </image>
         </view>
         <view>
