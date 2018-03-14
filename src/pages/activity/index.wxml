@@ -158,7 +158,7 @@
           撤消
         </view>
       </view>
-      <view wx:if='{{editable == false}}' class='item_bottom_bar   column center align_center'>
+      <view bindtap='subscribe_it' wx:if='{{editable == false && subscribed == false}}' class='item_bottom_bar   column center align_center'>
         <view>
           <image src='/../image/icons/u535.png' class='medium_icon'>
           </image>
@@ -167,7 +167,15 @@
           关注
         </view>
       </view>
-
+      <view bindtap='unsubscribe_it' wx:if='{{editable == false && subscribed == true}}' class='item_bottom_bar   column center align_center'>
+        <view>
+          <image src='/../image/icons/u535_selected.png' class='medium_icon'>
+          </image>
+        </view>
+        <view>
+          已关注
+        </view>
+      </view>
     </view>
     <view wx:if="{{activity_detail.type_detail.pub == 1 && joined == false && editable == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
       <view>

@@ -10,7 +10,11 @@ function preview_images_list(callback) {
     },
     success: function (res) {
       console.log(res.data);
-      callback(res.data)
+      if (res.data.op == 'preview_images_list') {
+        callback(res.data)
+      } else {
+        util.error_modal(res);
+      }
       return;
     },
     complete: function () {
@@ -31,7 +35,11 @@ function sign(id, joinsheet, notice, callback) {
     },
     success: function (res) {
       console.log(res.data);
-      callback(res.data)
+      if (res.data.op == 'activity_sign') {
+        callback(res.data)
+      } else {
+        util.error_modal(res);
+      }
       return;
     },
     complete: function () {
@@ -50,7 +58,57 @@ function unsign(id, callback) {
     },
     success: function (res) {
       console.log(res.data);
-      callback(res.data)
+      if (res.data.op == 'activity_unsign') {
+        callback(res.data)
+      } else {
+        util.error_modal(res);
+      }
+      return;
+    },
+    complete: function () {
+
+    }
+  });
+}
+
+function subscribe(id, callback) {
+  wx.request({
+    url: app.globalData.default_url,
+    data: {
+      action: 'api.v1.activity.subscribe',
+      id: id,
+      calendar_session: wx.getStorageSync("calendar_session"),
+    },
+    success: function (res) {
+      console.log(res.data);
+      if (res.data.op == 'activity_subsrcibe') {
+        callback(res.data)
+      } else {
+        util.error_modal(res);
+      }
+      return;
+    },
+    complete: function () {
+
+    }
+  });
+}
+
+function unsubscribe(id, callback) {
+  wx.request({
+    url: app.globalData.default_url,
+    data: {
+      action: 'api.v1.activity.unsubscribe',
+      id: id,
+      calendar_session: wx.getStorageSync("calendar_session"),
+    },
+    success: function (res) {
+      console.log(res.data);
+      if (res.data.op == 'activity_unsubscribe') {
+        callback(res.data)
+      } else {
+        util.error_modal(res);
+      }
       return;
     },
     complete: function () {
@@ -69,7 +127,11 @@ function view(id, callback) {
     },
     success: function (res) {
       console.log(res.data);
-      callback(res.data)
+      if (res.data.op == 'activity_view') {
+        callback(res.data)
+      } else {
+        util.error_modal(res);
+      }
       return;
     },
     complete: function () {
@@ -176,5 +238,7 @@ module.exports = {
   sign: sign,
   unsign: unsign,
   share_list: share_list,
+  subscribe: subscribe,
+  unsubscribe: unsubscribe,
 }
 

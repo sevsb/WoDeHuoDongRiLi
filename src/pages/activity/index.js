@@ -18,6 +18,7 @@ Page({
     activity_detail: null,
     editable: false,
     joined: false,
+    subscribe: false,
     join_sheet: {},
   },
 
@@ -46,17 +47,18 @@ Page({
     var that = this;
     var id = that.data.id;
     activity.view(id, function (res){
-      if (res.op == 'activity_view') {
         if (res.data.info.max_participants == 0) {
           res.data.info.max_participants = '不限人数';
         }else {
           res.data.info.max_participants = '限' + res.data.info.max_participants + '人报名';
         }
+        var subscribed = res.data.subscribe ? true : false;
         that.setData({
           activity_detail: res.data.info,
           editable: res.data.editable,
           joined: res.data.joined,
           join_sheet: res.data.join_sheet,
+          subscribed: subscribed,
         });
         var joinsheet = res.data.info.joinsheet;
         console.log(joinsheet);
@@ -64,7 +66,7 @@ Page({
         wx.setStorageSync("joined", res.data.joined);
         wx.setStorageSync("my_joined_sheet", res.data.join_sheet);
         wx.setStorageSync("notice", res.data.notice);
-      }
+      
     });
   },
 
@@ -190,5 +192,23 @@ Page({
         }
       }
     }
+  },
+  subscribe_it: function () {
+    var that = this;
+    var id = that.data.id;
+    activity.subscribe(id, function (res) {
+      that.setData({
+        subscribed: true
+      });
+    });
+  },
+  unsubscribe_it: function () {
+    var that = this;
+    var id = that.data.id;
+    activity.unsubscribe(id, function (res) {
+      that.setData({
+        subscribed: false
+      });
+    });
   },
 })
