@@ -39,25 +39,22 @@ Page({
       choosed_type: choosed_type,
     });
     activity_type.my_activity_types(function (res) {
-      var ret = res.data.data;
-      console.log(ret);
-      if (res.data.op == 'my_custom_types') {
-        that.setData({
-          my_types: ret.my_types
-        });
-        if (choosed_type == 0) {
-          var choosed_type_name = '未选中';
-        }
-        for (var i in that.data.my_types) {
-          var type_item = that.data.my_types[i];
-          if (type_item.id == choosed_type) {
-            var choosed_type_name = type_item.title;
-          }
-        }
-        that.setData({
-          choosed_type_name: choosed_type_name
-        });
+      that.setData({
+        my_types: res.data.my_types
+      });
+      if (choosed_type == 0) {
+        var choosed_type_name = '未选中';
       }
+      for (var i in that.data.my_types) {
+        var type_item = that.data.my_types[i];
+        if (type_item.id == choosed_type) {
+          var choosed_type_name = type_item.title;
+        }
+      }
+      that.setData({
+        choosed_type_name: choosed_type_name
+      });
+      
     });
 
 
@@ -105,4 +102,20 @@ Page({
       url: 'list?choosed_type=' + type_id 
     });
   },
+  unsubscribe_type: function (e) {
+    var that = this;
+    var type_id = e.currentTarget.dataset.type_id;
+    activity_type.unsubscribe_type(type_id, function (res){
+      for (var i in that.data.my_types) {
+        var tp = that.data.my_types[i];
+        if (tp.id == type_id) {
+          that.data.my_types.splice(i,1);
+          that.setData({
+            my_types: that.data.my_types,
+          });
+          return;
+        }
+      }
+    });
+  }
 })

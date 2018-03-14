@@ -21,6 +21,12 @@
     <view class='title_box_list'>
       <view> {{item.title}}</view>
       <view class='private_flag' wx:if="{{item.pub == 0}}">[ 隐私 ]</view>
+      <view stype='z-index: 9999;' catchtap='unsubscribe_type' data-type_id='{{item.id}}' wx:if='{{item.editable == 0 &&item.subscribed == 1}}'>
+        <view>
+          <image src='/../image/icons/u535_selected.png' class='medium_icon'>
+          </image>
+        </view>
+      </view>
     </view>
   </view>
 </view>

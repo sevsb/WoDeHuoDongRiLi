@@ -173,7 +173,11 @@ function share_list(choosed_type, callback) {
     },
     success: function (res) {
       console.log(res.data);
-      callback(res.data)
+      if (res.data.op == 'share_list') {
+        callback(res.data)
+      } else {
+        util.error_modal(res);
+      }
       return;
     },
     complete: function () {

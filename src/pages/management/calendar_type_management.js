@@ -32,13 +32,9 @@ Page({
   onShow: function () {
     var that = this;
     activity_type.my_activity_types(function (res){
-      var ret = res.data.data;
-      console.log(ret);
-      if (res.data.op == 'my_custom_types') {
-        that.setData({
-          my_types: ret.my_types
-        });
-      }
+      that.setData({
+        my_types: res.data.my_types
+      });
     });
   },
 
@@ -81,6 +77,10 @@ Page({
     var type_id = e.currentTarget.dataset.type_id;
     var type_title = e.currentTarget.dataset.type_title;
     var type_pub = e.currentTarget.dataset.type_pub;
+    var editable = e.currentTarget.dataset.editable;
+    if (editable == 0) {
+      return false;
+    }
     wx.setStorageSync("activity_type_id", type_id)
     wx.setStorageSync("activity_type_title", type_title)
     wx.setStorageSync("activity_type_pub", type_pub)

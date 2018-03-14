@@ -37,14 +37,9 @@ Page({
       choosed_type: choosed_type,
     });
     activity_type.my_activity_types(function (res) {
-      var ret = res.data.data;
-      console.log(ret);
-      if (res.data.op == 'my_custom_types') {
         that.setData({
-          my_types: ret.my_types
-        });
-        
-      }
+          my_types: res.data.my_types
+        });      
     });
 
 

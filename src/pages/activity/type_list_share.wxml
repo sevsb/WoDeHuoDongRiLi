@@ -1,7 +1,21 @@
 <!--pages/activity/list.wxml-->
 <view class=''>
   <view class='type_intro'>分享日历列表</view>
-  <view class='type_title'>{{type_detail.title}}</view>
+  <view class='type_title'>
+    <view>{{type_detail.title}}</view>
+    <view bindtap='subscribe_type' wx:if='{{subscribe_type == false}}'>
+      <view>
+        <image src='/../image/icons/u535.png' class='medium_icon'>
+        </image>
+      </view>
+    </view>
+    <view bindtap='unsubscribe_type' wx:if='{{subscribe_type == true}}'>
+      <view>
+        <image src='/../image/icons/u535_selected.png' class='medium_icon'>
+        </image>
+      </view>
+    </view>
+  </view>
 </view>
 <view class='activity_list'>
   <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:key="unique" wx:for='{{activity_list}}'>

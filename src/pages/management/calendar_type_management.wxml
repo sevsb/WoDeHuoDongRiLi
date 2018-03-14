@@ -14,10 +14,11 @@
 
   </view>
 
-  <view wx:for="{{my_types}}" wx:key="*this" class='list_calendar_type_management'
+  <view wx:if='{{item.id != -1 && item.id != -2}}' wx:for="{{my_types}}" wx:key="*this" class='list_calendar_type_management'
   bindtap='create_calendar_type_navigator'
   data-type_id='{{item.id}}' 
   data-type_title='{{item.title}}'
+  data-editable='{{item.editable}}'
   data-type_pub='{{item.pub}}'>
     <view class='title_box_list'>
       <view>{{item.title}}</view>

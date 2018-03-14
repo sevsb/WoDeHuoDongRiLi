@@ -19,6 +19,7 @@ Page({
     choosed_type: 0,
     type_list: [],
     type_detail: [],
+    subscribe_type: false,
   },
 
   /**
@@ -48,13 +49,13 @@ Page({
   get_list_by_type: function (type_id) {
     var that = this;
     activity.share_list(type_id, function (res) {
-      console.log(res);
-      if (res.op == 'all_my_list') {
-        that.setData({
-          activity_list: res.data.my_list.my_list,
-          type_detail: res.data.type,
-        });
-      }
+    console.log(res);
+      that.setData({
+        activity_list: res.data.my_list.my_list,
+        type_detail: res.data.type,
+        subscribe_type: res.data.subscribe_type,
+      });
+      
     });
   },
 
@@ -109,7 +110,6 @@ Page({
       });
       that.get_list_by_type(0);
     }
-
   },
   type_list: function (e) {
     var that = this;
@@ -122,5 +122,23 @@ Page({
     wx.navigateTo({
       url: 'type_share',
     })
+  },
+  subscribe_type: function () {
+    var that = this;
+    var type_id = that.data.type_detail.id;
+    activity_type.subscribe_type(type_id, function (res){
+      that.setData({ 
+        subscribe_type: true,
+      });
+    });
+  },
+  unsubscribe_type: function () {
+    var that = this;
+    var type_id = that.data.type_detail.id;
+    activity_type.unsubscribe_type(type_id, function (res) {
+      that.setData({
+        subscribe_type: false,
+      });
+    });
   },
 })
