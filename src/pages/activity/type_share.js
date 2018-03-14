@@ -79,7 +79,7 @@ Page({
   onShareAppMessage: function (options) {
     console.log(options);
     var type_id = options.target.dataset.type_id;
-    var title = options.target.dataset.title;
+    var title = options.target.dataset.type_title;
     return {
       title: '分享列表：' + title,
       path: '/pages/activity/type_list_share?type_id=' + type_id,

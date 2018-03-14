@@ -1,6 +1,7 @@
 // pages/management/calendar_type_management.js
 
 var activity_type = require('../../utils/activity_type.js');
+var util = require('../../utils/util.js');
 Page({
 
   /**

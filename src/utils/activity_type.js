@@ -1,4 +1,5 @@
 var app = getApp();
+var util = require('util.js');
 
 function my_activity_types(callback) {
   wx.request({

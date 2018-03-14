@@ -104,22 +104,29 @@ Page({
     console.log(pub);
 
     activity_type.custom_type_modify(type_id, title, pub, function (res){
-      console.log(res);
-      if (res.data.op == 'custom_type_modify') {
         wx.navigateBack({
         });
-      }
     });
   },
   remove_calendar_request: function () {
     var that = this;
     var type_id = that.data.type_id;
-    activity_type.custom_type_remove(type_id, function (res) {
-      console.log(res);
-      if (res.data.op == 'custom_type_remove') {
-        wx.navigateBack({
-        });
+    wx.showModal({
+      title: '提示',
+      content: '删除分类可能会导致分类下活动出现问题',
+      confirmText: '确认删除',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          activity_type.custom_type_remove(type_id, function (res) {
+            wx.navigateBack({
+            });
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
-    });
+    })
+    
   }
 })
