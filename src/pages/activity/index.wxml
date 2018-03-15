@@ -4,7 +4,7 @@
 <view class='page_mecalendar page_activity_index'>
   <!--封图  -->
   <view class='envelope_part_activity_index'>
-    <image class='preview_image' src='{{activity_detail.avatar_detail.url}}'>
+    <image class='preview_image' src='{{activity_detail.avatar_detail}}'>
     </image>
   </view>
 
@@ -21,7 +21,7 @@
       <view class='info_activity_info start'>
         <!-- 图标 -->
         <view>
-          <image src='/../../image/icons/u466.png' style='margin: 0 15rpx;' class='small_icon align_center'></image>
+          <image src='../../image/icons/u466.png' style='margin: 0 15rpx;' class='small_icon align_center'></image>
         </view>
         <!-- 文字 -->
         <view class='align_center' style='font-size: 12px;'>
@@ -34,7 +34,7 @@
       <view class='info_activity_info start'>
         <!-- 图标 -->
         <view>
-          <image src='/../../image/icons/u469.png' style='margin: 0 15rpx;' class='small_icon_h align_center'></image>
+          <image src='../../image/icons/u469.png' style='margin: 0 15rpx;' class='small_icon_h align_center'></image>
         </view>
         <!-- 文字 -->
         <view class='align_center'>
@@ -47,7 +47,7 @@
       <view class='info_activity_info start'>
         <!-- 图标 -->
         <view>
-          <image src='/../../image/icons/u475.png' style='margin: 0 15rpx;' class='small_icon align_center'></image>
+          <image src='../../image/icons/u475.png' style='margin: 0 15rpx;' class='small_icon align_center'></image>
         </view>
         <!-- 文字 -->
         <view class='align_center'>
@@ -59,10 +59,10 @@
     <view class="item_activity_info align_center center">
       <view class='info_activity_info start align_center'>
         <view style='margin: 10rpx 15rpx;'>
-          <image src='{{activity_detail.owner.avatar}}' class='small_image portrait align_center'></image>
+          <image src='{{activity_detail.owner.owner_avatar}}' class='small_image portrait align_center'></image>
         </view>
         <view>
-          {{activity_detail.owner.name}}
+          {{activity_detail.owner.owner_nickname}}
         </view>
       </view>
     </view>
@@ -83,7 +83,7 @@
     </view>
   </view>
   <!--报名情况  -->
-  <view wx:if='{{activity_detail.type_detail.pub == 1}}' class='registration_part_activity_index  column '>
+  <view wx:if='{{activity_detail.type_pub == 1}}' class='registration_part_activity_index  column '>
     <view class='item_registration_part center align_center'>
       <view style='width: 90%;' class='space_between align_center'>
         <view>
@@ -106,11 +106,11 @@
         <view bindtap='show_sign_detail'  wx:key="unique" wx:for='{{activity_detail.signed_user_list}}' class='acatar_registration_part' data-item_detail='{{item}}'>
           <view wx:if="{{true}}">
             <view>
-              <image class='medium_icon portrait' src='{{item.user.avatar}}'>
+              <image class='medium_icon portrait' src='{{item.avatar}}'>
               </image>
             </view>
             <view>
-              {{item.user.name}}
+              {{item.nickname}}
             </view>
           </view>
         </view>
@@ -123,7 +123,7 @@
     <view class='list_bottom_bar row space_between'>
       <view class='item_bottom_bar column center align_center' bindtap='create_activity_navigator'>
         <view>
-          <image src='/../../image/icons/u529.png' class='medium_icon'>
+          <image src='../../image/icons/u529.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -133,7 +133,7 @@
 
       <view bindtap='share_btn' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/../../image/icons/u532.png' class='medium_icon'>
+          <image src='../../image/icons/u532.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -142,7 +142,7 @@
       </view>
       <view wx:if='{{editable}}' bindtap='modify_btn' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/../../image/icons/u563.png' class='medium_icon'>
+          <image src='../../image/icons/u563.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -151,7 +151,7 @@
       </view>
       <view wx:if='{{editable}}' bindtap='cancel_btn' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/../../image/icons/u560.png' class='medium_icon'>
+          <image src='../../image/icons/u560.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -160,7 +160,7 @@
       </view>
       <view bindtap='subscribe_it' wx:if='{{editable == false && subscribed == false}}' class='item_bottom_bar   column center align_center'>
         <view>
-          <image src='/../../image/icons/u535.png' class='medium_icon'>
+          <image src='../../image/icons/u535.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -169,7 +169,7 @@
       </view>
       <view bindtap='unsubscribe_it' wx:if='{{editable == false && subscribed == true}}' class='item_bottom_bar   column center align_center'>
         <view>
-          <image src='/../../image/icons/u535_selected.png' class='medium_icon'>
+          <image src='../../image/icons/u535_selected.png' class='medium_icon'>
           </image>
         </view>
         <view>
@@ -177,12 +177,12 @@
         </view>
       </view>
     </view>
-    <view wx:if="{{activity_detail.type_detail.pub == 1 && joined == false && editable == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
+    <view wx:if="{{activity_detail.type_pub == 1 && joined == false && editable == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
       <view>
         我要报名
       </view>
     </view>
-    <view wx:elif="{{activity_detail.type_detail.pub == 1 && joined == true && editable == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
+    <view wx:elif="{{activity_detail.type_pub == 1 && joined == true && editable == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
       <view>
         已经报名
       </view>

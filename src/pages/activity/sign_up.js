@@ -115,10 +115,7 @@ Page({
     console.log(id);
 
     activity.sign(id, joinsheet, remind_sign_up, function (res){
-      if (res.op == 'activity_sign') {
-        wx.navigateBack({});
-      }
-
+      wx.navigateBack({});
     });
   }, 
   remind_bind: function (e) {
@@ -144,10 +141,7 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           activity.unsign(id, function (res) {
-            if (res.op == 'activity_unsign') {
-              wx.navigateBack({});
-            }
-
+            wx.navigateBack({});
           });
         } else if (res.cancel) {
           console.log('用户点击取消')

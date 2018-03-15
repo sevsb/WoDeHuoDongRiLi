@@ -46,11 +46,9 @@ Page({
   get_list_by_type: function (choosed_type){
     var that = this;
     activity.all_my_list(choosed_type, function (res) {
-      if (res.op == 'all_my_list') {
-        that.setData({
-          activity_list: res.data.my_list,
-        });
-      }
+      that.setData({
+        activity_list: res.data.my_list,
+      });
     });
   },
 

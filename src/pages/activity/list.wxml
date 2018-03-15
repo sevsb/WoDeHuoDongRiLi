@@ -24,7 +24,7 @@
 <view class='activity_list'>
   <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:key="unique" wx:for='{{activity_list}}'>
     <view class='left_view'>
-      <image class='avatar' src='{{item.avatar_detail.url}}'></image>
+      <image class='avatar' src='{{item.avatar_detail}}'></image>
     </view>
     <view class='center_view'>
       <view class='text-overflow'>{{item.title}}</view>
@@ -32,7 +32,7 @@
     </view>
     <view class='right_view'>
       <view class=''>{{item.begindate}}</view>
-      <view class=''>{{item.type_detail.title}}</view>
+      <view class=''>{{item.type_title}}</view>
     </view>
   </view>
 </view>
