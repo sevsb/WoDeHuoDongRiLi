@@ -87,7 +87,7 @@ App({
     createnumber: 1,
 
     default_url: 'https://xiaoningmengkeji.com',
-    default_url: 'http://127.0.0.1',
+    //default_url: 'http://127.0.0.1',
     debug: 0,
   }
 })
