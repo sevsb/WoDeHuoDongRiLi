@@ -19,11 +19,9 @@ Page({
   onLoad: function (options) {
     var that = this;
     activity.preview_images_list(function (res) {
-      if (res.op == 'preview_images_list') {
-        that.setData({
-          image_list: res.data,
-        });
-      }
+      that.setData({
+        image_list: res.data,
+      });
     });
   },
 
