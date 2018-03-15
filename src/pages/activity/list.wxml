@@ -32,7 +32,7 @@
     </view>
     <view class='right_view'>
       <view class=''>{{item.begindate}}</view>
-      <view class=''>{{item.type_title}}</view>
+      <view class='text-overflow title_content'>{{item.type_title}}</view>
     </view>
   </view>
 </view>
