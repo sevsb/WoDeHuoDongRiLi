@@ -32,10 +32,14 @@ Page({
    */
   onShow: function () {
     var that = this;
+    wx.showLoading({
+      title: '',
+    });
     activity_type.my_activity_types(function (res){
       that.setData({
         my_types: res.data.my_types
       });
+      wx.hideLoading()
     });
   },
 

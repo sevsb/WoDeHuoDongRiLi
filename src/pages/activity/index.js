@@ -46,27 +46,30 @@ Page({
   onShow: function () {
     var that = this;
     var id = that.data.id;
+    wx.showLoading({
+      title: '',
+    });
     activity.view(id, function (res){
-        if (res.data.info.max_participants == 0) {
-          res.data.info.max_participants = '不限人数';
-        }else {
-          res.data.info.max_participants = '限' + res.data.info.max_participants + '人报名';
-        }
-        var subscribed = res.data.subscribe ? true : false;
-        that.setData({
-          activity_detail: res.data.info,
-          editable: res.data.editable,
-          joined: res.data.joined,
-          join_sheet: res.data.join_sheet,
-          subscribed: subscribed,
-        });
-        var joinsheet = res.data.info.joinsheet;
-        console.log(joinsheet);
-        wx.setStorageSync("joinsheet", joinsheet);
-        wx.setStorageSync("joined", res.data.joined);
-        wx.setStorageSync("my_joined_sheet", res.data.join_sheet);
-        wx.setStorageSync("notice", res.data.notice);
-      
+      if (res.data.info.max_participants == 0) {
+        res.data.info.max_participants = '不限人数';
+      }else {
+        res.data.info.max_participants = '限' + res.data.info.max_participants + '人报名';
+      }
+      var subscribed = res.data.subscribe ? true : false;
+      that.setData({
+        activity_detail: res.data.info,
+        editable: res.data.editable,
+        joined: res.data.joined,
+        join_sheet: res.data.join_sheet,
+        subscribed: subscribed,
+      });
+      var joinsheet = res.data.info.joinsheet;
+      console.log(joinsheet);
+      wx.setStorageSync("joinsheet", joinsheet);
+      wx.setStorageSync("joined", res.data.joined);
+      wx.setStorageSync("my_joined_sheet", res.data.join_sheet);
+      wx.setStorageSync("notice", res.data.notice);
+      wx.hideLoading();
     });
   },
 

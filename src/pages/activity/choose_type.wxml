@@ -13,12 +13,13 @@
     </view>
   </view>
 
-  <view wx:for="{{my_types}}" wx:key="*this" class='list_calendar_type_management'
+  <view wx:for="{{my_types}}" wx:key="*this" 
+  class="list_calendar_type_management "
   bindtap='choose_type'
   data-type_id='{{item.id}}' 
   data-type_title='{{item.title}}'
   data-type_pub='{{item.pub}}'>
-    <view class='title_box_list'>
+    <view class="title_box_list {{item.id == choosed_type ? 'choosed_type_line' : ''}}">
       <view> {{item.title}}</view>
       <view class='private_flag' wx:if="{{item.pub == 0 && item.id != -1 && item.id != -2}}">[ 隐私 ]</view>
       <view class='private_flag' wx:elif="{{item.id == -1 || item.id == -2}}">[ 固定 ]</view>

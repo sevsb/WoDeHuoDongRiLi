@@ -89,3 +89,8 @@
   color: grey;
 }
 
+.choosed_filter {
+  color: white;
+  background-color: #09bb07 !important;
+}
+

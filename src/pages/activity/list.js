@@ -41,14 +41,21 @@ Page({
   onShow: function () {
     var that = this;
     var choosed_type = wx.getStorageSync("choosed_type");
+    that.setData({
+      choosed_type: choosed_type,
+    });
     that.get_list_by_type(choosed_type);
   },
   get_list_by_type: function (choosed_type){
     var that = this;
+    wx.showLoading({
+      title: '',
+    });
     activity.all_my_list(choosed_type, function (res) {
       that.setData({
         activity_list: res.data.my_list,
       });
+      wx.hideLoading();
     });
   },
 

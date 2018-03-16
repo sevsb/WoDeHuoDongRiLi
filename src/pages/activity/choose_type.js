@@ -38,6 +38,9 @@ Page({
     that.setData({
       choosed_type: choosed_type,
     });
+    wx.showLoading({
+      title: '',
+    });
     activity_type.my_activity_types(function (res) {
       that.setData({
         my_types: res.data.my_types
@@ -54,7 +57,7 @@ Page({
       that.setData({
         choosed_type_name: choosed_type_name
       });
-      
+      wx.hideLoading()
     });
 
 

@@ -18,6 +18,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '',
+    });
     wx.setNavigationBarTitle({
       title: '创建日历类型',
     })
@@ -35,6 +38,7 @@ Page({
         type_public: false
       });
     }
+    wx.hideLoading()
   },
 
   /**
@@ -102,10 +106,13 @@ Page({
     console.log(type_id);
     console.log(title);
     console.log(pub);
-
+    wx.showLoading({
+      title: '',
+    });
     activity_type.custom_type_modify(type_id, title, pub, function (res){
-        wx.navigateBack({
-        });
+      wx.hideLoading()
+      wx.navigateBack({
+      });
     });
   },
   remove_calendar_request: function () {
@@ -118,7 +125,11 @@ Page({
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          wx.showLoading({
+            title: '',
+          });
           activity_type.custom_type_remove(type_id, function (res) {
+            wx.hideLoading()
             wx.navigateBack({
             });
           });
