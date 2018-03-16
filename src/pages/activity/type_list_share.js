@@ -49,7 +49,6 @@ Page({
   get_list_by_type: function (type_id) {
     var that = this;
     activity.share_list(type_id, function (res) {
-    console.log(res);
       that.setData({
         activity_list: res.data.my_list.my_list,
         type_detail: res.data.type,

@@ -55,6 +55,12 @@
 					"name": "share_list type_id=1020",
 					"pathName": "pages/activity/type_list_share",
 					"query": "type_id=1020"
+				},
+				{
+					"id": 4,
+					"name": "share_list type_id =410829",
+					"pathName": "pages/activity/type_list_share",
+					"query": "type_id=410829"
 				}
 			]
 		}

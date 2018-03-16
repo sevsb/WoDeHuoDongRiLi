@@ -3,16 +3,21 @@
   <view class='type_intro'>分享日历列表</view>
   <view class='type_title'>
     <view>{{type_detail.title}}</view>
-    <view bindtap='subscribe_type' wx:if='{{subscribe_type == false}}'>
+    <view bindtap='subscribe_type' wx:if='{{subscribe_type == false && type_detail.editable == 0}}'>
       <view>
         <image src='/../image/icons/u535.png' class='medium_icon'>
         </image>
       </view>
     </view>
-    <view bindtap='unsubscribe_type' wx:if='{{subscribe_type == true}}'>
+    <view bindtap='unsubscribe_type' wx:if='{{subscribe_type == true && type_detail.editable == 0}}'>
       <view>
         <image src='/../image/icons/u535_selected.png' class='medium_icon'>
         </image>
+      </view>
+    </view>
+    <view wx:if='{{type_detail.editable == 1}}'>
+      <view>
+        <view>[ 自身分类 ]</view>
       </view>
     </view>
   </view>
@@ -28,7 +33,7 @@
     </view>
     <view class='right_view'>
       <view class=''>{{item.begindate}}</view>
-      <view class=''>{{item.type_title}}</view>
+      <view class='text-overflow'>{{item.type_title}}</view>
     </view>
   </view>
 </view>
