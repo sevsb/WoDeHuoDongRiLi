@@ -15,7 +15,8 @@
     "pages/activity/list",
     "pages/activity/choose_type",
     "pages/activity/type_share",
-    "pages/activity/type_list_share"
+    "pages/activity/type_list_share",
+    "pages/index/entrance"
   ],
   "tabBar": {
     "color": "#7A7E83",

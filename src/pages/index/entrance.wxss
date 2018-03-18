@@ -1,0 +1,5 @@
+/* pages/index/entrance.wxss */
+.section {
+  padding: 15px;
+  background-color: white;
+}

@@ -21,16 +21,16 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"plugin": {
 			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -61,6 +61,11 @@
 					"name": "share_list type_id =410829",
 					"pathName": "pages/activity/type_list_share",
 					"query": "type_id=410829"
+				},
+				{
+					"id": -1,
+					"name": "entrance",
+					"pathName": "pages/index/entrance"
 				}
 			]
 		}
