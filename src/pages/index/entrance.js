@@ -46,9 +46,11 @@ Page({
       title: '',
     });
     activity.all_my_list(0, function (res) {
+      var activity_list = res.data.my_list;
       that.setData({
-        activity_list: res.data.my_list,
+        activity_list: activity_list,
       });
+      that.get_all_week_days();
       wx.hideLoading();
     });
   },
@@ -127,6 +129,9 @@ Page({
     var that = this;
     var one_day_stamp = 60 * 60 * 24;
 
+    var activity_list = that.data.activity_list;
+    //console.log(activity_list);
+
     var now_date = that.data.choosed_date;
     var stamp = that.get_stamp_from_date(now_date);
     var the_day = new Date(now_date).getDay();
@@ -134,16 +139,30 @@ Page({
     var this_week_days = [];
 
     for (var i = 0; i < 7; i++) {
+      var sum = 0;
       var between = (i - the_day) + week * 7;
 
       var thiz_stamp = (stamp + (between * one_day_stamp)) * 1000;
       var date = new Date(thiz_stamp);
+      var full_date = that.get_full_date(date);
       var thiz_date = date.getDate();
+      var num = 0;
+
+      for (var x in activity_list) {
+        var act = activity_list[x];
+        var act_full_date = '20' + act.begindate;
+        if (act_full_date == full_date) {
+          num++;
+        }
+      }
 
       var d = new Object();
       d.detail = date;
       d.stamp = thiz_stamp / 1000;
       d.date = thiz_date;
+      d.full_date = full_date;
+      d.num = num;
+      d.sum = num == 0 ? '': num + '事件';
 
       this_week_days[i] = d;
     }
@@ -166,7 +185,7 @@ Page({
       choosed_date_stamp: stamp,
     })
 
-    that.get_all_week_days();
+    //that.get_all_week_days();
   },
   touchStart: function (e) {
     touch_start_x = e.touches[0].pageX;
@@ -257,5 +276,7 @@ Page({
 
     that.get_all_week_days();
   },
+  refresh_activity_sum : function () {
 
+  },
 })
