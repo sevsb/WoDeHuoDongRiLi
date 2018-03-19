@@ -1,3 +1,4 @@
+<view class='header_body'>
 <view class='head_home_index align_center'>
   <!--搜索框  -->
   <view class='searchbox_home_index' bindtap='search_navigator'>
@@ -38,48 +39,44 @@
       <image class="medium_icon align_center" src='../../image/index/today-icon.png'></image>
     </view>
   </view>
-
 </view>
-<view class="week_group  {{move_direction < 0 ? 'week_view_left' : ''}}  {{move_direction > 0 ? 'week_view_right' : ''}}"  bindtouchstart="touchStart" bindtouchend='touchEnd'>
 
-<view class="week_view last_week">
-  <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{last_week_days}}' class="week_day {{item.stamp == choosed_date_stamp ? 'choosed_date' : ''}}">
-    <view class='week_head'>
-      {{week_head[index]}}
+<view class='week_group_view'>
+  <view class="week_group  {{move_direction < 0 ? 'week_view_left' : ''}}  {{move_direction > 0 ? 'week_view_right' : ''}}"  bindtouchstart="touchStart" bindtouchend='touchEnd'>
+    <view class="week_view last_week">
+      <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{last_week_days}}' class="week_day {{item.stamp == choosed_date_stamp ? 'choosed_date' : ''}}">
+        <view class='week_head'>
+          {{week_head[index]}}
+        </view>
+        <view class='week_body'>
+          {{item.date}}
+        </view>
+      </view>
     </view>
-    <view class='week_body'>
-      {{item.date}}
+    <view class="week_view now_week">
+      <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{week_days}}' class="week_day {{item.stamp == choosed_date_stamp ? 'choosed_date' : ''}}">
+        <view class='week_head'>
+          {{week_head[index]}}
+        </view>
+        <view class='week_body'>
+          {{item.date}}
+        </view>
+      </view>
+    </view>
+    <view class="week_view next_week">
+      <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{next_week_days}}' class="week_day {{item.stamp == choosed_date_stamp ? 'choosed_date' : ''}}">
+        <view class='week_head'>
+          {{week_head[index]}}
+        </view>
+        <view class='week_body'>
+          {{item.date}}
+        </view>
+      </view>
     </view>
   </view>
 </view>
 
-
-
-<view class="week_view now_week">
-  <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{week_days}}' class="week_day {{item.stamp == choosed_date_stamp ? 'choosed_date' : ''}}">
-    <view class='week_head'>
-      {{week_head[index]}}
-    </view>
-    <view class='week_body'>
-      {{item.date}}
-    </view>
-  </view>
 </view>
-
-<view class="week_view next_week">
-  <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{next_week_days}}' class="week_day {{item.stamp == choosed_date_stamp ? 'choosed_date' : ''}}">
-    <view class='week_head'>
-      {{week_head[index]}}
-    </view>
-    <view class='week_body'>
-      {{item.date}}
-    </view>
-  </view>
-</view>
-
-</view>
-
-
 <view class='activity_list'>
   <view  class='activity_view' wx:if='{{"20" + item.begindate == choosed_date}}' bindtap='show_detail' data-id='{{item.id}}' data-begindate='{{item.begindate}}' wx:key="unique" wx:for='{{activity_list}}'>
     <view class='left_view'>

@@ -5,13 +5,13 @@
     <view>{{type_detail.title}}</view>
     <view bindtap='subscribe_type' wx:if='{{subscribe_type == false && type_detail.editable == 0}}'>
       <view>
-        <image src='/../image/icons/u535.png' class='medium_icon'>
+        <image src='/image/icons/u535.png' class='medium_icon'>
         </image>
       </view>
     </view>
     <view bindtap='unsubscribe_type' wx:if='{{subscribe_type == true && type_detail.editable == 0}}'>
       <view>
-        <image src='/../image/icons/u535_selected.png' class='medium_icon'>
+        <image src='/image/icons/u535_selected.png' class='medium_icon'>
         </image>
       </view>
     </view>

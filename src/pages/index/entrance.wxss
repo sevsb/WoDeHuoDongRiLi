@@ -189,10 +189,10 @@ from activity/list
   display: flex;
   flex-direction: row;
   font-size: 11pt;
-   justify-content: center;
+  justify-content: center;
   text-align: center;
-   align-items: center;
-    background: #fff;
+  align-items: center;
+  background: #fff;
 }
 
 .picker_view {
@@ -201,5 +201,20 @@ from activity/list
   justify-content:space-between;
 }
 
-.button_view {
+.week_group_view{
+  background-color: #eee;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  overflow: hidden;
+}
+
+.activity_list {
+  margin-top: 154px;
+}
+
+.header_body {
+  width: 100%;
+  position: fixed;
+  top: 0;
 }

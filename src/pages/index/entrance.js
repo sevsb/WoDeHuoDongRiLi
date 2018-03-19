@@ -27,18 +27,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
     that.go_today();
-
-    wx.showLoading({
-      title: '',
-    });
-    activity.all_my_list(0, function (res) {
-      that.setData({
-        activity_list: res.data.my_list,
-      });
-      wx.hideLoading();
-    });
   },
 
   /**
@@ -52,7 +41,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    wx.showLoading({
+      title: '',
+    });
+    activity.all_my_list(0, function (res) {
+      that.setData({
+        activity_list: res.data.my_list,
+      });
+      wx.hideLoading();
+    });
   },
 
   /**
