@@ -1,18 +1,109 @@
-<view class=''>
-
-<view class="section">
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2099-01-01" bindchange="bindDateChange">
-    <view class="picker">
-      {{date}}
+<view class='head_home_index align_center'>
+  <!--搜索框  -->
+  <view class='searchbox_home_index' bindtap='search_navigator'>
+    <!--图标  -->
+    <view class='align_center'>
+      <image class="tiny_icon align_center" src='../../image/index/search-icon.png'>
+      </image>
     </view>
-  </picker>
+    <!--框内文字  -->
+    <view class="align_center" style='margin-left:10rpx;'>
+      搜索
+    </view>
+  </view>
+  <!--站内信  -->
+  <view>
+    <image class="medium_icon align_center" src='../../image/index/letter-icon.png'>
+    </image>
+  </view>
 </view>
 
-</view>
-<view class='week_view'>
-  <view class='week_day'>
+
+<view class='picker_view'>
+  <view class="section">
+    <picker mode="date" value="{{choosed_date}}" start="2015-09-01" end="2099-01-01" bindchange="bindDateChange">
+      <view class="picker">
+        {{choosed_date}}
+      </view>
+    </picker>
+  </view>
+  <!--按钮部分  -->
+  <view class='button_view row space_around align_center' style='width:200rpx;marigin-right:10rpx;'>
+    <!--分享按钮  -->
     <view>
-    
+      <image class="medium_icon align_center " src='../../image/index/share-icon.png'></image>
+    </view>
+    <!--今日按钮  -->
+    <view bindtap='go_today'>
+      <image class="medium_icon align_center" src='../../image/index/today-icon.png'></image>
+    </view>
+  </view>
+
+</view>
+<view class="week_group  {{move_direction < 0 ? 'week_view_left' : ''}}  {{move_direction > 0 ? 'week_view_right' : ''}}"  bindtouchstart="touchStart" bindtouchend='touchEnd'>
+
+<view class="week_view last_week">
+  <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{last_week_days}}' class="week_day {{item.stamp == choosed_date_stamp ? 'choosed_date' : ''}}">
+    <view class='week_head'>
+      {{week_head[index]}}
+    </view>
+    <view class='week_body'>
+      {{item.date}}
     </view>
   </view>
 </view>
+
+
+
+<view class="week_view now_week">
+  <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{week_days}}' class="week_day {{item.stamp == choosed_date_stamp ? 'choosed_date' : ''}}">
+    <view class='week_head'>
+      {{week_head[index]}}
+    </view>
+    <view class='week_body'>
+      {{item.date}}
+    </view>
+  </view>
+</view>
+
+<view class="week_view next_week">
+  <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{next_week_days}}' class="week_day {{item.stamp == choosed_date_stamp ? 'choosed_date' : ''}}">
+    <view class='week_head'>
+      {{week_head[index]}}
+    </view>
+    <view class='week_body'>
+      {{item.date}}
+    </view>
+  </view>
+</view>
+
+</view>
+
+
+<view class='activity_list'>
+  <view  class='activity_view' wx:if='{{"20" + item.begindate == choosed_date}}' bindtap='show_detail' data-id='{{item.id}}' data-begindate='{{item.begindate}}' wx:key="unique" wx:for='{{activity_list}}'>
+    <view class='left_view'>
+      <image class='avatar' src='{{item.avatar_detail}}'></image>
+    </view>
+    <view class='center_view'>
+      <view class='text-overflow'>{{item.title}}</view>
+      <view class='text-overflow title_content'>{{item.content}}</view>
+    </view>
+    <view class='right_view'>
+      <view class=''>{{item.begindate}}</view>
+      <view class='text-overflow title_content'>{{item.type_title}}</view>
+    </view>
+  </view>
+</view>
+
+
+
+  <!--添加活动按钮  -->
+  <view class='add_activity_home_index' bindtap='activity_create_navigator'>
+    <view style='font-size:17pt;font-weight: 900;line-height:1;align-items: center;'>
+      +
+    </view>
+    <view>
+      新 建
+    </view>
+  </view>

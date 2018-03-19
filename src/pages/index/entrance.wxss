@@ -3,3 +3,203 @@
   padding: 15px;
   background-color: white;
 }
+
+.week_day {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+
+.week_view {
+  width: 750rpx;
+  flex-basis: 750rpx;
+  background-color: white;
+  display: flex;
+  flex-grow: 1;
+}
+
+.week_view_left {
+
+  transform: translateX(-750rpx);
+  transition-duration: 1s;
+}
+
+.week_view_right {
+
+  transform: translateX(750rpx);
+  transition-duration: 1s;
+}
+
+
+.choosed_date {
+  background-color: orange;
+  color: white;
+}
+
+.week_group {
+  padding: 2px;
+  display: inline-flex;
+}
+
+.week_view {
+  position: relative !important;
+  left: -750rpx;
+}
+
+/*
+
+from activity/list
+
+*/
+
+.activity_view {
+  display: flex;
+  flex-grow: 1;
+  height: 50px;
+  padding: 8px 15px;
+  background-color: white;
+  margin-bottom: 2px;
+  align-items: center;
+}
+
+.left_view, .center_view, .right_view{
+  display: flex;
+  flex-direction:column;
+}
+
+.left_view {
+  flex-basis: 50px;
+}
+
+.center_view {
+  min-width: 0;
+  flex-grow: 4; 
+  padding: 0px 0px 0px 8px;
+}
+
+.right_view {
+  flex-basis: 120px;
+}
+
+.right_view > view {
+  display: flex;
+  width: 120px;
+  justify-content: space-around;
+  background-color: white;
+}
+
+.text-overflow {
+  word-break:break-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+
+.avatar {
+  width: 50px; 
+  height: 50px;
+}
+
+.right_view {
+  float: right;
+}
+
+.filter_view {
+  display: flex;
+  height: 45px;
+}
+
+.filter_view > view {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  margin-top: 1px;
+  margin-bottom: 2px;
+}
+
+.all_type, .type_list {
+  margin-right: 1px;
+}
+
+.filter_intro {
+  display: flex;
+  margin-right: 4px;
+  align-items: center;
+}
+
+.filter_view .icon {
+  display: flex;
+  align-items: center;
+}
+
+.title_content {
+  color: grey;
+}
+
+.choosed_filter {
+  color: white;
+  background-color: #09bb07 !important;
+}
+
+.add_activity_home_index {
+  position: fixed;
+  z-index: 1000;
+  border-radius: 45rpx;
+  bottom: 20rpx;
+  color: #fff;
+  right: 5rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  background: #093;
+  width: 150rpx;
+  height: 100rpx;
+  font-size: 11pt;
+  line-height: 1;
+}
+
+/*
+首页 头部样式。
+*/
+.head_home_index {
+  background-color: #f2f2f2;
+  height: 100rpx;
+  width: 100%;
+  justify-content: space-around;
+}
+
+/*
+首页 搜索框样式。
+*/
+.searchbox_home_index {
+  width: 80%;
+  min-height: 68rpx; /*为了和站内信对齐*/
+  border: solid 1px #d7d7d7;
+  border-radius: 10rpx;
+  color: #99a6c4;
+  display: flex;
+  flex-direction: row;
+  font-size: 11pt;
+   justify-content: center;
+  text-align: center;
+   align-items: center;
+    background: #fff;
+}
+
+.picker_view {
+  display: flex;
+  background-color: white;
+  justify-content:space-between;
+}
+
+.button_view {
+}

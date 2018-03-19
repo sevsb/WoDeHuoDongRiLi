@@ -21,16 +21,16 @@
 			"current": -1,
 			"list": []
 		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
 		"plugin": {
 			"current": -1,
 			"list": []
 		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
 		"miniprogram": {
-			"current": 5,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -65,7 +65,14 @@
 				{
 					"id": -1,
 					"name": "entrance",
-					"pathName": "pages/index/entrance"
+					"pathName": "pages/index/entrance",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "test_page",
+					"pathName": "pages/index/test_page",
+					"query": ""
 				}
 			]
 		}

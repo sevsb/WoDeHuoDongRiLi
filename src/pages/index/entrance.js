@@ -1,13 +1,25 @@
 // pages/index/entrance.js
+var touch_start_x = 0;
+var move_direction = 0;
+
+var activity = require('../../utils/activity.js');
+var activity_type = require('../../utils/activity_type.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    date: '',
+    choosed_date: '',
+    choosed_date_stamp : 0,
     week_head: ['日', '一', '二', '三', '四', '五', '六'],
     week_days: [],
+    next_week_days: [],
+    last_week_days: [],
+    move_left: false,
+    move_right: false,
+    activity_list: [],
   },
 
   /**
@@ -15,40 +27,18 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var today = new Date();
 
+    that.go_today();
 
-    var full_year = today.getFullYear();
-    var month = today.getMonth() + 1;
-    var day = today.getDay();
-    var date = today.getDate();
-
-    var now_date = full_year + '-' + month + '-' + date;
-    that.setData({
-      date: now_date,
-    })
-
-    now_date = now_date.replace(/-/g, '/');
-    var stamp = Date.parse(now_date) / 1000;
-
-    var one_day_stamp = 60 * 60 * 24;
-    var how_many_day = -1;
-
-    console.log(stamp)
-
-
-    var which_date = new Date((stamp + (how_many_day * one_day_stamp)) * 1000);
-    console.log(which_date);
-    var the_day = which_date.getDay();
-
-    console.log(the_day)
-    for (var i = 0; i < 7; i++) {
-      var between = (i - the_day);
-      console.log(between);
-      var thiz_day = new Date((stamp + (how_many_day * one_day_stamp) + (between * one_day_stamp)) * 1000);
-      console.log(thiz_day);
-    }
-
+    wx.showLoading({
+      title: '',
+    });
+    activity.all_my_list(0, function (res) {
+      that.setData({
+        activity_list: res.data.my_list,
+      });
+      wx.hideLoading();
+    });
   },
 
   /**
@@ -62,7 +52,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
@@ -100,9 +90,174 @@ Page({
   
   },
   bindDateChange: function (e) {
+    var that = this;
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      date: e.detail.value
+    var stamp = that.get_stamp_from_date(e.detail.value);
+    that.setData({
+      choosed_date: e.detail.value,
+      choosed_date_stamp: stamp,
+    })
+    that.get_all_week_days();
+  },
+  get_all_week_days() {
+    this.get_thiz_week_days();
+    this.get_next_week_days();
+    this.get_last_week_days();
+  },
+  get_thiz_week_days: function () {
+    var that = this;
+    var wk_days = that.get_week_days(0);
+    that.setData({
+      week_days: wk_days,
+    })
+  }, 
+  get_next_week_days: function () {
+    var that = this;
+    var wk_days = that.get_week_days(1);
+    that.setData({
+      next_week_days: wk_days,
+    })
+  }, 
+  get_last_week_days: function () {
+    var that = this;
+    var wk_days = that.get_week_days(-1);
+    that.setData({
+      last_week_days: wk_days,
     })
   },
+  get_week_days: function (week) {
+    var that = this;
+    var one_day_stamp = 60 * 60 * 24;
+
+    var now_date = that.data.choosed_date;
+    var stamp = that.get_stamp_from_date(now_date);
+    var the_day = new Date(now_date).getDay();
+
+    var this_week_days = [];
+
+    for (var i = 0; i < 7; i++) {
+      var between = (i - the_day) + week * 7;
+
+      var thiz_stamp = (stamp + (between * one_day_stamp)) * 1000;
+      var date = new Date(thiz_stamp);
+      var thiz_date = date.getDate();
+
+      var d = new Object();
+      d.detail = date;
+      d.stamp = thiz_stamp / 1000;
+      d.date = thiz_date;
+
+      this_week_days[i] = d;
+    }
+    return this_week_days;
+  },
+  get_stamp_from_date: function (date) {
+    var now_date = date.replace(/-/g, '/');
+    var stamp = Date.parse(now_date) / 1000 + (60 * 60 * 8);
+    return stamp;
+  }, 
+  choose_date: function (e){
+    var that = this;
+
+    var stamp = e.currentTarget.dataset.stamp;
+    var date = new Date(stamp * 1000);
+    var now_date = that.get_full_date(date);
+
+    that.setData({
+      choosed_date: now_date,
+      choosed_date_stamp: stamp,
+    })
+
+    that.get_all_week_days();
+  },
+  touchStart: function (e) {
+    touch_start_x = e.touches[0].pageX;
+  }, 
+  touchEnd: function (e) {
+    var that = this;
+    var touch_end_x = e.changedTouches[0].pageX;
+    var move = touch_end_x - touch_start_x;
+
+    if (move > 40) {
+      console.log('move right.'); 
+      var move_direction = 1;
+    }else if (move < -40) {
+      var move_direction = -1;
+      console.log('move left.');
+    }else {
+      return false;
+    }
+
+    that.setData({
+      move_direction: move_direction,
+    });
+
+    var setI = setTimeout(function (){
+      console.log('move_direction back.')
+      that.setData({
+        move_direction: 0,
+      });
+      that.slider_week(move_direction);
+    }, 995);
+  },
+  slider_week: function (dircetion) {
+    var that = this;
+    var now_date = that.data.choosed_date;
+    var stamp = that.get_stamp_from_date(now_date);
+
+    var slider_date_stamp = stamp + (24 * 60 * 60 * 7) * dircetion * -1;
+    var slider_date = new Date(slider_date_stamp * 1000);
+    var that_slider_date = that.get_full_date(slider_date);
+
+    that.setData({
+      choosed_date: that_slider_date,
+      choosed_date_stamp: slider_date_stamp,
+    });
+    that.get_all_week_days();
+  },
+  activity_create_navigator: function () {
+    wx.setStorageSync('preview_image_id', 0);
+    wx.setStorageSync('preview_image_url', '');
+    wx.navigateTo({
+      url: '../create/activity_create',
+    })
+  },
+  add_zero: function (num) {
+    if (num < 10) {
+      return '0' + num;
+    }
+    return num;
+  },
+  get_full_date: function (date) {
+    var that = this;
+
+    var full_year = date.getFullYear();
+    var month = that.add_zero(date.getMonth() + 1);
+    var day = that.add_zero(date.getDay());
+    var date = that.add_zero(date.getDate());
+
+    return full_year + '-' + month + '-' + date;
+  },
+  show_detail: function (e) {
+    console.log(e);
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/activity/index?id=' + id,
+    })
+  },
+  go_today: function () {
+    var that = this;
+    var today = new Date();
+
+    var now_date = that.get_full_date(today);
+    var stamp = that.get_stamp_from_date(now_date);
+
+    that.setData({
+      choosed_date: now_date,
+      choosed_date_stamp: stamp,
+    })
+
+    that.get_all_week_days();
+  },
+
 })

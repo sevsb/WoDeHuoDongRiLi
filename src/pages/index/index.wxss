@@ -169,21 +169,3 @@ height:170rpx;
 首页 添加活动按钮样式。
 */
 
-.add_activity_home_index {
-  position: fixed;
-  z-index: 1000;
-  border-radius: 45rpx;
-  bottom: 20rpx;
-  color: #fff;
-  right: 5rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
-  text-align: center;
-  background: #093;
-  width: 150rpx;
-  height: 100rpx;
-  font-size: 11pt;
-  line-height: 1;
-}
