@@ -34,7 +34,7 @@
 
 
 .choosed_date {
-  background-color: orange;
+  background-color: black;
   color: white;
 }
 

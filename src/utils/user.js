@@ -1,5 +1,5 @@
-var default_url = "https://xiaoningmengkeji.com";
-//var default_url = "http://127.0.0.1";
+var default_url = "https://xiaoningmengkeji.com/xiaoyu";
+//var default_url = "http://127.0.0.1/xiaoyu";
 
 function do_login(from, calendar_session, nick, avatar) {
  

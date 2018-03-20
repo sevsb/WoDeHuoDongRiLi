@@ -123,7 +123,7 @@ Page({
   // 返回首页跳转
   back_home_navigator: function () {
     wx.switchTab({
-      url: '../index/index',
+      url: '/pages/index/entrance',
     })
   },
   // 报名信息跳转
