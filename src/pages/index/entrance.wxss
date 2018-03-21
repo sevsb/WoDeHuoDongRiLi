@@ -210,7 +210,7 @@ from activity/list
 }
 
 .activity_list {
-  margin-top: 193px;
+  padding-top: 193px;
 }
 
 .header_body {
