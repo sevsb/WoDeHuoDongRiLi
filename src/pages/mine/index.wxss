@@ -77,6 +77,11 @@
   margin: 10rpx 0;
 }
 
+.item_navigator_list image {
+  align-items: center;
+  align-content: center;
+}
+
 .title_item_navigator {
   margin: 0 20rpx;
   flex-grow: 1;
@@ -96,4 +101,9 @@ button {
 button::after{
 
  
+}
+
+.arrow_icon {
+  width: 15px !important;
+  height: 20px !important;
 }
