@@ -6,7 +6,7 @@
   height: 50px;
   padding: 8px 15px;
   background-color: white;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   align-items: center;
 }
 
@@ -58,6 +58,10 @@
   height: 45px;
 }
 
+.search_view, .filter_view {
+  background-color: #eee;
+}
+
 .filter_view > view {
   background-color: white;
   display: flex;
@@ -94,3 +98,12 @@
   background-color: #09bb07 !important;
 }
 
+.header_view {
+  width: 100%;
+  position: fixed;
+  left: 0;
+}
+
+.activity_list {
+  padding-top: 89px;
+}

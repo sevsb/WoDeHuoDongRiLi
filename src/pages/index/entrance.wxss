@@ -60,7 +60,7 @@ from activity/list
   height: 50px;
   padding: 8px 15px;
   background-color: white;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   align-items: center;
 }
 

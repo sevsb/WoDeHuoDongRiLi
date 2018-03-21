@@ -8,7 +8,10 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  margin: 20rpx 0 ;
+  padding: 20rpx 0 ;
+  background-color: #eee;
+  position: fixed;
+  left: 0;
 }
 
 .box_head {
@@ -30,12 +33,16 @@
 
 .list_calendar_type_management {
   width: 100%;
-   margin: 10rpx 0 0 0 ;
+  margin: 10rpx 0 0 0 ;
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
   font-size: 11pt;
+}
+
+.list_calendar_type_management_view {
+  padding-top: 130rpx;
 }
 
 .title_box_list {

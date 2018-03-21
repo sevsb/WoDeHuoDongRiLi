@@ -13,6 +13,7 @@
     </view>
   </view>
 
+  <view class='list_calendar_type_management_view'>
   <view wx:for="{{my_types}}" wx:key="*this" 
   class="list_calendar_type_management "
   bindtap='choose_type'
@@ -30,5 +31,6 @@
         </view>
       </view>
     </view>
+  </view>
   </view>
 </view>

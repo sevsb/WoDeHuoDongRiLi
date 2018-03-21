@@ -1,4 +1,5 @@
 <!--pages/activity/list.wxml-->
+<view class='header_view'>
 <view class='search_view'>
   <view class='search_input'>
     <input class=''></input>
@@ -20,6 +21,7 @@
     <view class='filter_intro'>分享</view>
     <view><image class='icon_s' src='../../image/icons/u81.png'></image></view>
   </view>
+</view>
 </view>
 <view class='activity_list'>
   <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:key="unique" wx:for='{{activity_list}}'>

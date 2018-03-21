@@ -19,6 +19,7 @@
     </view>
   </view>
 
+  <view class='list_calendar_type_management_view'>
   <view wx:for="{{my_types}}" wx:key="*this" class='list_calendar_type_management'
   bindtap='share_type'
   data-type_id='{{item.id}}' 
@@ -38,5 +39,6 @@
         >   </button>
       </view>
     </view>
+  </view>
   </view>
 </view>

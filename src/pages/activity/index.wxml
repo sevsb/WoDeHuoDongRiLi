@@ -195,6 +195,6 @@
   </view>
   <!--悬浮按钮  -->
   <view class="back_home_button_activity_index" >
-    <image bindtap='back_home_navigator' src='/../image/icons/u547.png'></image>
+    <image bindtap='back_home_navigator' src='/image/icons/u547.png'></image>
   </view>
 </view>
