@@ -6,10 +6,8 @@
       <view>
         我的日历类别
       </view>
-      <view bindtap='create_calendar_type_navigator' data-type_id='0'>
-        <image class='small_icon' src='../../image/management/add-icon.png'>
-        </image>
-      </view>
+      <image  bindtap='create_calendar_type_navigator' data-type_id='0' class='small_icon' src='../../image/management/add-icon.png'>
+      </image>
     </view>
   </view>
   <view class='list_calendar_type_management_view'>

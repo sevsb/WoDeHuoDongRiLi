@@ -27,20 +27,20 @@
       {
         "pagePath": "pages/index/entrance",
         "text": "首页",
-        "iconPath": "/image/icons/u11.png",
-        "selectedIconPath": "/image/icons/u11_selected.png"
+        "iconPath": "/image/icons/u20.png",
+        "selectedIconPath": "/image/icons/u20_selected.png"
       },
       {
         "pagePath": "pages/activity/list",
         "text": "列表",
-        "iconPath": "/image/icons/u17.png",
-        "selectedIconPath": "/image/icons/u17_selected.png"
+        "iconPath": "/image/icons/u30.png",
+        "selectedIconPath": "/image/icons/u30_selected.png"
       },
       {
         "pagePath": "pages/mine/index",
         "text": "我的",
-        "iconPath": "/image/icons/u14.png",
-        "selectedIconPath": "/image/icons/u14_selected.png"
+        "iconPath": "/image/icons/u25.png",
+        "selectedIconPath": "/image/icons/u25_selected.png"
       }
     ]
   },

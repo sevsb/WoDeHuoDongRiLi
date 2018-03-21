@@ -5,21 +5,31 @@
     <input class=''></input>
   </view>
   <view class='msg_entre'>
-    <image class='icon' src='../../image/icons/u24.png'></image>
+    <image class='icon' src='/image/icons/u24.png'></image>
   </view>
 </view>
 <view class='filter_view'>
   <view bindtap='all_type' class="all_type {{choosed_type == 0 ? 'choosed_filter' : ''}}">
     <view class='filter_intro'>全部</view>
-    <view><image class='icon_s' src='../../image/icons/u75.png'></image></view>
+    <view>
+    <image wx:if='{{choosed_type == 0}}' 
+    class='icon_s' src='/image/icons/u125_selected.png'></image>
+    <image wx:if='{{choosed_type != 0}}' 
+    class='icon_s' src='/image/icons/u125.png'></image>
+    </view>
   </view>
   <view bindtap='type_list'  class="type_list {{choosed_type != 0 ? 'choosed_filter' : ''}}">
     <view class='filter_intro'>筛选</view>
-    <view><image class='icon_s' src='../../image/icons/u78.png'></image></view>
+    <view>
+    <image wx:if='{{choosed_type == 0}}' 
+    class='icon_s' src='/image/icons/u175.png'></image>
+    <image wx:if='{{choosed_type != 0}}' 
+    class='icon_s' src='/image/icons/u175_selected.png'></image>
+    </view>
   </view>
   <view bindtap='type_share'  class='type_share'>
     <view class='filter_intro'>分享</view>
-    <view><image class='icon_s' src='../../image/icons/u81.png'></image></view>
+    <view><image class='icon_s' src='/image/icons/u133.png'></image></view>
   </view>
 </view>
 </view>

@@ -25,6 +25,13 @@
     <picker mode="date" value="{{choosed_date}}" start="2015-09-01" end="2099-01-01" bindchange="bindDateChange">
       <view class="picker">
         {{choosed_date}}
+            <view style='border-bottom:1px #000 solid; '>
+            <view class="year_time_piker" style=' display:inline'>{{choosed_year}}</view>
+            <view style='font-size:9pt; display:inline'>年</view>
+            <view class='month_time_picker' style='display:inline'>{{choosed_month}}</view>
+            <view style='font-size:9pt; display:inline'>月</view>
+            <image style='margin-left:5px; height:7px;width:7px;' src='../../image/index/down-triangle-icon.png'></image>
+          </view>
       </view>
     </picker>
   </view>
