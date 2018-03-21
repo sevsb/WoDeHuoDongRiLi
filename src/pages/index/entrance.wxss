@@ -64,6 +64,12 @@ from activity/list
   align-items: center;
 }
 
+.choosed_date_view {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
 .left_view, .center_view, .right_view{
   display: flex;
   flex-direction:column;
