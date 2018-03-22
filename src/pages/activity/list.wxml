@@ -1,13 +1,30 @@
 <!--pages/activity/list.wxml-->
 <view class='header_view'>
-<view class='search_view'>
-  <view class='search_input'>
-    <input class=''></input>
+
+<view class='head_home_index align_center'>
+  <!--搜索框  -->
+  <view class='searchbox_home_index' bindtap='search_navigator'>
+    <!--图标  -->
+    <view class='align_center'>
+      <image class="tiny_icon align_center" src='/image/index/search-icon.png'>
+      </image>
+    </view>
+    <!--框内文字  -->
+    <view class="align_center" style='margin-left:10rpx;'>
+      搜索
+    </view>
   </view>
-  <view class='msg_entre'>
-    <image class='icon' src='/image/icons/u24.png'></image>
+  <!--站内信  -->
+  <view>
+    <image class="medium_icon align_center" src='/image/index/letter-icon.png'>
+    </image>
   </view>
 </view>
+
+
+
+
+
 <view class='filter_view'>
   <view bindtap='all_type' class="all_type {{choosed_type == 0 ? 'choosed_filter' : ''}}">
     <view class='filter_intro'>全部</view>
@@ -40,7 +57,7 @@
     </view>
     <view class='center_view'>
       <view class='text-overflow'>{{item.title}}</view>
-      <view class='text-overflow title_content'>{{item.content}}</view>
+      <view class='text-overflow font12 title_content'>{{item.content}}</view>
     </view>
     <view class='right_view'>
       <view class=''>{{item.begindate}}</view>

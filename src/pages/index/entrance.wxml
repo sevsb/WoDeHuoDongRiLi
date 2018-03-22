@@ -4,7 +4,7 @@
   <view class='searchbox_home_index' bindtap='search_navigator'>
     <!--图标  -->
     <view class='align_center'>
-      <image class="tiny_icon align_center" src='../../image/index/search-icon.png'>
+      <image class="tiny_icon align_center" src='/image/index/search-icon.png'>
       </image>
     </view>
     <!--框内文字  -->
@@ -14,7 +14,7 @@
   </view>
   <!--站内信  -->
   <view>
-    <image class="medium_icon align_center" src='../../image/index/letter-icon.png'>
+    <image class="medium_icon align_center" src='/image/index/letter-icon.png'>
     </image>
   </view>
 </view>
@@ -24,7 +24,12 @@
   <view class="section">
     <picker mode="date" value="{{choosed_date}}" start="2015-09-01" end="2099-01-01" bindchange="bindDateChange">
       <view class="picker choosed_date_view">
-        {{choosed_date}}
+        <view style='border-bottom:1px #000 solid; '>
+            <view class="year_time_piker" style=' display:inline'>{{choosed_year}}</view>
+            <view style='font-size:9pt; display:inline'>年</view>
+            <view class='month_time_picker' style='display:inline'>{{choosed_month}}</view>
+            <view style='font-size:9pt; display:inline'>月</view>
+          </view>
       </view>
     </picker>
   </view>
@@ -93,7 +98,7 @@
     </view>
     <view class='center_view'>
       <view class='text-overflow'>{{item.title}}</view>
-      <view class='text-overflow title_content'>{{item.content}}</view>
+      <view class='text-overflow font12 title_content'>{{item.content}}</view>
     </view>
     <view class='right_view'>
       <view class=''>{{item.begindate}}</view>
@@ -105,11 +110,7 @@
 
 
   <!--添加活动按钮  -->
-  <view class='add_activity_home_index' bindtap='activity_create_navigator'>
-    <view style='font-size:17pt;font-weight: 900;line-height:1;align-items: center;'>
-      +
-    </view>
-    <view>
-      新 建
-    </view>
-  </view>
+  <image class='add_activity_home_index' 
+  bindtap='activity_create_navigator' src='/image/icons/u811.png'></image>
+
+

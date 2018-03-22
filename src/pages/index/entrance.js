@@ -96,6 +96,7 @@ Page({
     var that = this;
     console.log('picker发送选择改变，携带值为', e.detail.value)
     var stamp = that.get_stamp_from_date(e.detail.value);
+    that.set_choosed_date_full_info(e.detail.value);
     that.setData({
       choosed_date: e.detail.value,
       choosed_date_stamp: stamp,
@@ -183,6 +184,7 @@ Page({
     var date = new Date(stamp * 1000);
     var now_date = that.get_full_date(date);
 
+    that.set_choosed_date_full_info(now_date);
     that.setData({
       choosed_date: now_date,
       choosed_date_stamp: stamp,
@@ -229,6 +231,7 @@ Page({
     var slider_date = new Date(slider_date_stamp * 1000);
     var that_slider_date = that.get_full_date(slider_date);
 
+    that.set_choosed_date_full_info(that_slider_date);
     that.setData({
       choosed_date: that_slider_date,
       choosed_date_stamp: slider_date_stamp,
@@ -272,6 +275,7 @@ Page({
     var now_date = that.get_full_date(today);
     var stamp = that.get_stamp_from_date(now_date);
 
+    that.set_choosed_date_full_info(now_date);
     that.setData({
       choosed_date: now_date,
       choosed_date_stamp: stamp,
@@ -282,4 +286,14 @@ Page({
   refresh_activity_sum : function () {
 
   },
+  set_choosed_date_full_info: function (date_string) {
+    var that = this;
+    var date_array = date_string.split('-');
+
+    that.setData({
+      choosed_year: date_array[0],
+      choosed_month: date_array[1],
+      choosed_day: date_array[2],
+    });
+  }
 })

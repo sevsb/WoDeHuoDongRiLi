@@ -1,5 +1,33 @@
 /* pages/activity/list.wxss */
 
+/*
+首页 头部样式。
+*/
+.head_home_index {
+  background-color: #f2f2f2;
+  height: 100rpx;
+  width: 100%;
+  justify-content: space-around;
+}
+
+/*
+首页 搜索框样式。
+*/
+.searchbox_home_index {
+  width: 80%;
+  min-height: 68rpx; /*为了和站内信对齐*/
+  border: solid 1px #d7d7d7;
+  border-radius: 10rpx;
+  color: #99a6c4;
+  display: flex;
+  flex-direction: row;
+  font-size: 11pt;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background: #fff;
+}
+
 .activity_view {
   display: flex;
   flex-grow: 1;
@@ -91,6 +119,10 @@
 
 .title_content {
   color: grey;
+}
+
+.font12 {
+  font-size: 12px;
 }
 
 .choosed_filter {

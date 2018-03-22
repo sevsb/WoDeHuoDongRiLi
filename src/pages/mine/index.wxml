@@ -25,7 +25,7 @@
     <!--我的消息  -->
     <view class='item_navigator_list'>
       <!--图标  -->
-      <image class='small_icon' src='/image/icons/u24.png'> </image>
+      <image class='small_icon' src='/image/icons/u190.png'> </image>
       <!--标题  -->
       <view class='title_item_navigator'>
         我的消息
@@ -38,7 +38,7 @@
 
     <button class='unbutton item_navigator_list' style='' open-type='contact'>
       <!--图标  -->
-      <image class='small_icon' src='/image/icons/u909.png'> </image>
+      <image class='small_icon' src='/image/icons/u200.png'> </image>
       <!--标题  -->
       <view class='title_item_navigator align_center'>
         联系客服
@@ -51,7 +51,7 @@
     <!--帮助 -->
     <view class='item_navigator_list'>
       <!--图标  -->
-      <image class='small_icon' src='/image/icons/u204.png'> </image>
+      <image class='small_icon' src='/image/icons/u207.png'> </image>
       <!--标题  -->
       <view class='title_item_navigator'>
         帮助
@@ -63,7 +63,7 @@
     <!--日历类型管理 -->
     <view class='item_navigator_list' bindtap='calendar_type_management_navigator'>
       <!--图标  -->
-      <image class='small_icon' src='/image/icons/u902.png'> </image>
+      <image class='small_icon' src='/image/icons/u228.png'> </image>
       <!--标题  -->
       <view class='title_item_navigator'>
         日历类型管理
@@ -75,7 +75,7 @@
     <!--设置 -->
     <view class='item_navigator_list'>
       <!--图标  -->
-      <image class='small_icon' src='/image/icons/u211.png'> </image>
+      <image class='small_icon' src='/image/icons/u214.png'> </image>
       <!--标题  -->
       <view class='title_item_navigator'>
         设置
@@ -87,7 +87,7 @@
     <!--打赏 -->
     <view class='item_navigator_list'>
       <!--图标  -->
-      <image class='small_icon' src='/image/icons/u218.png'> </image>
+      <image class='small_icon' src='/image/icons/u221.png'> </image>
       <!--标题  -->
       <view class='title_item_navigator'>
         打赏

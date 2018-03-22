@@ -1,10 +1,11 @@
 /* pages/index/entrance.wxss */
 .section {
-  padding: 15px;
+  padding: 8px;
   background-color: white;
 }
 
 .week_day {
+  padding-top: 2px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -39,7 +40,7 @@
 }
 
 .week_group {
-  padding: 2px;
+  padding-top: 1px;
   display: inline-flex;
 }
 
@@ -157,20 +158,37 @@ from activity/list
 .add_activity_home_index {
   position: fixed;
   z-index: 1000;
-  border-radius: 45rpx;
-  bottom: 20rpx;
-  color: #fff;
-  right: 5rpx;
+  border-radius: 310rpx;
+  bottom: 30rpx;
+  right: 25rpx;
   display: flex;
   flex-direction: column;
   justify-content: center; 
   align-items: center;
   text-align: center;
-  background: #093;
-  width: 150rpx;
-  height: 100rpx;
-  font-size: 11pt;
-  line-height: 1;
+  width: 110rpx;
+  height: 110rpx;
+}
+
+.time_picker_home_index {
+  margin-left: 20rpx;
+}
+
+.month_time_picker {
+  font-size: 15pt;
+  font-weight: 500;
+  margin: 0 5rpx;
+}
+
+.year_time_piker {
+  font-size: 13pt;
+  margin: 0 5rpx;
+  font-weight: 300;
+}
+
+
+.font12 {
+  font-size: 12px;
 }
 
 /*
@@ -213,10 +231,11 @@ from activity/list
   width: 100%;
   left: 0;
   overflow: hidden;
+  border-bottom: 1px solid #d7d7d7;
 }
 
 .activity_list {
-  padding-top: 193px;
+  padding-top: 190px;
 }
 
 .header_body {
