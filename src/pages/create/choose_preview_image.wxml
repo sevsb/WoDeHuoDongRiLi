@@ -1,7 +1,12 @@
 <!--pages/create/choose_preview_image.wxml-->
 <view class=''>
   <view class='intro_info'>选择主题图</view>
-  <view class='preview_view' bindtap='choose_thiz' wx:for='{{image_list}}'>
-    <image data-id='{{item.id}}' data-url='{{item.image}}' class='preview_image_item' src='{{item.image}}'></image>
+  <view class='preview_type_view' wx:key="unique"  wx:for-item="ptype" wx:for='{{image_type_list}}'>
+    <view class='type_title'>{{ptype.title}}</view>
+    <view class='preview_list_view' >
+      <image class='preview_view' wx:key="unique"  bindtap='choose_thiz' wx:if='{{item.type == ptype.id}}' wx:for='{{image_list}}' data-id='{{item.id}}' 
+      data-url='{{item.image}}' class='preview_image_item' src='{{item.image}}'>
+      </image>
+    </view>
   </view>
 </view>

@@ -79,6 +79,18 @@
 					"name": "mine",
 					"pathName": "pages/mine/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "choose_preview_image",
+					"pathName": "pages/create/choose_preview_image",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "activity_create",
+					"pathName": "pages/create/activity_create",
+					"query": ""
 				}
 			]
 		}

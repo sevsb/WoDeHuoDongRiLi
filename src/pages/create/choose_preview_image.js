@@ -11,6 +11,7 @@ Page({
   data: {
     image_id: 0,
     image_list: [],
+    image_type_list: [],
   },
 
   /**
@@ -20,7 +21,8 @@ Page({
     var that = this;
     activity.preview_images_list(function (res) {
       that.setData({
-        image_list: res.data,
+        image_list: res.data.images,
+        image_type_list: res.data.image_types,
       });
     });
   },

@@ -4,12 +4,27 @@
   font-size: 18px;
   border-bottom: 1px solid grey;
   margin: 0 0 10px 0;
+  background-color: white;
 }
 
-.preview_view {
-  padding: 0 8px 8px 8px;
+.type_title {
+  padding-left: 8px;
+  font-size: 16px;
+  color: grey;
+  font-weight: bold;
+}
+
+.preview_list_view {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .preview_image_item {
-  width: 100%;
+  margin-bottom: 8px;
+  display: inline-flex;
+  justify-content: center;
+  width: 30%;
+  height: 60px;
 }
