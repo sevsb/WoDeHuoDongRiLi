@@ -45,7 +45,7 @@ function do_login(from, calendar_session, nick, avatar) {
       }
     }, 
     complete: function () {
-   
+      wx.hideLoading();
     }
   });
 }
@@ -71,7 +71,7 @@ function refresh_token(calendar_session, token){
       }
     }, 
     complete: function () {
-   
+      wx.hideLoading();
     }
   });
 }

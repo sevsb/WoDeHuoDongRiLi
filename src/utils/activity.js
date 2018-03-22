@@ -18,7 +18,7 @@ function preview_images_list(callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -43,7 +43,7 @@ function sign(id, joinsheet, notice, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -66,7 +66,7 @@ function unsign(id, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -89,7 +89,7 @@ function subscribe(id, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -112,7 +112,7 @@ function unsubscribe(id, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -135,7 +135,7 @@ function view(id, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -158,7 +158,7 @@ function all_my_list(choosed_type, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -181,7 +181,7 @@ function share_list(choosed_type, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }

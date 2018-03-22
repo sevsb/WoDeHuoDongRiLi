@@ -5,7 +5,7 @@ function my_activity_types(callback) {
   wx.request({
     url: app.globalData.default_url,
     data: {
-      action: 'api.v1.activity.my_custom_types',
+      action: 'api.v1.activity_type.my_custom_types',
       calendar_session: wx.getStorageSync("calendar_session")
     },
     success: function (res) {
@@ -18,6 +18,7 @@ function my_activity_types(callback) {
       return;
     },
     complete: function () {
+      wx.hideLoading();
     }
   });
 } 
@@ -26,7 +27,7 @@ function custom_type_modify(type_id, title, pub, callback) {
   wx.request({
     url: app.globalData.default_url,
     data: {
-      action: 'api.v1.activity.custom_type_modify',
+      action: 'api.v1.activity_type.custom_type_modify',
       calendar_session: wx.getStorageSync("calendar_session"),
       type_id: type_id,
       title: title,
@@ -42,7 +43,7 @@ function custom_type_modify(type_id, title, pub, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -51,7 +52,7 @@ function custom_type_remove(type_id, callback) {
   wx.request({
     url: app.globalData.default_url,
     data: {
-      action: 'api.v1.activity.custom_type_remove',
+      action: 'api.v1.activity_type.custom_type_remove',
       calendar_session: wx.getStorageSync("calendar_session"),
       type_id: type_id
     },
@@ -65,7 +66,7 @@ function custom_type_remove(type_id, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -74,7 +75,7 @@ function subscribe_type(type_id, callback) {
   wx.request({
     url: app.globalData.default_url,
     data: {
-      action: 'api.v1.activity.subscribe_type',
+      action: 'api.v1.activity_type.subscribe_type',
       calendar_session: wx.getStorageSync("calendar_session"),
       type_id: type_id
     },
@@ -88,7 +89,7 @@ function subscribe_type(type_id, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
@@ -97,7 +98,7 @@ function unsubscribe_type(type_id, callback) {
   wx.request({
     url: app.globalData.default_url,
     data: {
-      action: 'api.v1.activity.unsubscribe_type',
+      action: 'api.v1.activity_type.unsubscribe_type',
       calendar_session: wx.getStorageSync("calendar_session"),
       type_id: type_id
     },
@@ -111,7 +112,7 @@ function unsubscribe_type(type_id, callback) {
       return;
     },
     complete: function () {
-
+      wx.hideLoading();
     }
   });
 }
