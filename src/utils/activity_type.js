@@ -2,119 +2,34 @@ var app = getApp();
 var util = require('util.js');
 
 function my_activity_types(callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity_type.my_custom_types',
-      calendar_session: wx.getStorageSync("calendar_session")
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'my_custom_types') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  util.req('activity_type.my_custom_types', data, 'my_custom_types', callback);
 } 
 
 function custom_type_modify(type_id, title, pub, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity_type.custom_type_modify',
-      calendar_session: wx.getStorageSync("calendar_session"),
-      type_id: type_id,
-      title: title,
-      pub: pub
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'custom_type_modify') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.type_id = type_id;
+  data.title = title;
+  data.pub = pub;
+  util.req('activity_type.custom_type_modify', data, 'custom_type_modify', callback);
 }
 
 function custom_type_remove(type_id, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity_type.custom_type_remove',
-      calendar_session: wx.getStorageSync("calendar_session"),
-      type_id: type_id
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'custom_type_remove') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.type_id = type_id;
+  util.req('activity_type.custom_type_remove', data, 'custom_type_remove', callback);
 }
 
 function subscribe_type(type_id, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity_type.subscribe_type',
-      calendar_session: wx.getStorageSync("calendar_session"),
-      type_id: type_id
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'subscribe_type') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.type_id = type_id;
+  util.req('activity_type.subscribe_type', data, 'subscribe_type', callback);
 }
 
 function unsubscribe_type(type_id, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity_type.unsubscribe_type',
-      calendar_session: wx.getStorageSync("calendar_session"),
-      type_id: type_id
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'unsubscribe_type') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.type_id = type_id;
+  util.req('activity_type.unsubscribe_type', data, 'unsubscribe_type', callback);
 }
 
 module.exports = {

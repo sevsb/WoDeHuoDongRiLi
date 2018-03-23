@@ -2,236 +2,71 @@ var app = getApp();
 var util = require("util.js");
 
 function preview_images_list(callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity.preview_images_list',
-      calendar_session: wx.getStorageSync("calendar_session"),
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'preview_images_list') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  util.req('activity.preview_images_list', data, 'preview_images_list', callback);
 }
 
 function sign(id, joinsheet, notice, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity.sign',
-      id: id,
-      joinsheet: joinsheet,
-      notice: notice,
-      calendar_session: wx.getStorageSync("calendar_session"),
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'activity_sign') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.id = id;
+  data.joinsheet = joinsheet;
+  data.notice = notice;
+  util.req('activity.sign', data, 'activity_sign', callback);
 }
 
 function unsign(id, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity.unsign',
-      id: id,
-      calendar_session: wx.getStorageSync("calendar_session"),
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'activity_unsign') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.id = id;
+  util.req('activity.unsign', data, 'activity_unsign', callback);
 }
 
 function subscribe(id, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity.subscribe',
-      id: id,
-      calendar_session: wx.getStorageSync("calendar_session"),
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'activity_subsrcibe') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.id = id;
+  util.req('activity.subscribe', data, 'activity_subsrcibe', callback);
 }
 
 function unsubscribe(id, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity.unsubscribe',
-      id: id,
-      calendar_session: wx.getStorageSync("calendar_session"),
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'activity_unsubscribe') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.id = id;
+  util.req('activity.unsubscribe', data, 'activity_unsubscribe', callback);
 }
 
 function view(id, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity.view',
-      id: id,
-      calendar_session: wx.getStorageSync("calendar_session"),
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'activity_view') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.id = id;
+  util.req('activity.view', data, 'activity_view', callback);
 }
 
 function all_my_list(choosed_type, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity.all_my_list',
-      choosed_type: choosed_type,
-      calendar_session: wx.getStorageSync("calendar_session"),
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'all_my_list') {
-        callback(res.data)
-      }else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.choosed_type = choosed_type;
+  util.req('activity.all_my_list', data, 'all_my_list', callback);
 }
 
 function share_list(choosed_type, callback) {
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity.share_list',
-      choosed_type: choosed_type,
-      calendar_session: wx.getStorageSync("calendar_session"),
-    },
-    success: function (res) {
-      console.log(res.data);
-      if (res.data.op == 'share_list') {
-        callback(res.data)
-      } else {
-        util.error_modal(res);
-      }
-      return;
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+  var data = new Object();
+  data.share_list = share_list;
+  util.req('activity.share_list', data, 'share_list', callback);
 }
 
-function organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, joinsheet, notice) {
-  console.log('activity organize start...');
-  wx.showLoading();
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: 'api.v1.activity.organize',
-      title: title,
-      content: content,
-      preview_image_id: preview_image_id,
-      type_id: type_id,
-      address: address,
-      starttime: starttime,
-      endtime: endtime,
-      repeattype: repeattype,
-      repeat_end: repeat_end,
-      participants: participants,
-      images: images,
-      joinsheet: joinsheet,
-      calendar_session: wx.getStorageSync("calendar_session"),
-      notice: notice,
-    },
-    success: function (res) {
-      console.log(res);
-      var op = res.data.op;
-      if (op == "fail") {
-        wx.showModal({
-          title: '活动发起失败！请重试',
-          showCancel: false
-        });
-        return false;
-      } else {
-        var data = res.data.data;
-        var aid = data.id;
-        wx.navigateBack({
-        });
-        return;
-        wx.navigateTo({
-          url: '../activity/detail?id=' + aid,
-        })
-      }
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  });
+function organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, joinsheet, notice, callback) {
+  var data = new Object();
+  data.title = title;
+  data.content = content;
+  data.preview_image_id = preview_image_id;
+  data.type_id = type_id;
+  data.address = address;
+  data.starttime = starttime;
+  data.endtime = endtime;
+  data.repeattype = repeattype;
+  data.repeat_end = repeat_end;
+  data.participants = participants;
+  data.images = images;
+  data.joinsheet = joinsheet;
+  data.notice = notice;
+
+  util.req('activity.organize', data, 'activity_organize', callback);
 }
 
 module.exports = {

@@ -349,7 +349,11 @@ Page({
           //return false;
           var images = [];
           that.uploadDIY(upload_pictures, 0, 0, 0, upload_pictures.length, images, function (successUp, failUp, length, images) {
-            activity.organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, join_sheet, notice);
+            activity.organize(title, content, preview_image_id, type_id, address, starttime, endtime, repeattype, repeat_end, participants, images, join_sheet, notice, function (){
+              wx.navigateBack({
+              });
+
+            });
           });
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -417,7 +421,7 @@ Page({
       return false;
     }
     wx.uploadFile({
-      url: app.globalData.default_url + '/?action=api.v1.activity.upload_image',
+      url: app.globalData.default_url + '/?action=api.v1.image.upload_image',
       filePath: filePaths[i],
       name: 'file',
       success: (resp) => {

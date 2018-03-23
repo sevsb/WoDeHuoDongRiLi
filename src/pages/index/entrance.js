@@ -48,6 +48,7 @@ Page({
     wx.showLoading({
       title: '',
     });
+
     activity.all_my_list(0, function (res) {
       var activity_list = res.data.my_list;
       that.setData({
