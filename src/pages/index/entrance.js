@@ -296,5 +296,10 @@ Page({
       choosed_month: date_array[1],
       choosed_day: date_array[2],
     });
-  }
+  },
+  search_navigator: function () {
+    wx.navigateTo({
+      url: '/pages/search/index',
+    })
+  },
 })

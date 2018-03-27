@@ -46,7 +46,7 @@ function all_my_list(choosed_type, callback) {
 
 function share_list(choosed_type, callback) {
   var data = new Object();
-  data.share_list = share_list;
+  data.choosed_type = choosed_type;
   util.req('activity.share_list', data, 'share_list', callback);
 }
 

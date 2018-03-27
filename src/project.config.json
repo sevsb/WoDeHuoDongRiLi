@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -90,6 +90,12 @@
 					"id": -1,
 					"name": "activity_create",
 					"pathName": "pages/create/activity_create",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/search/index",
 					"query": ""
 				}
 			]

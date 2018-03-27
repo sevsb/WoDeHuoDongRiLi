@@ -16,7 +16,8 @@
     "pages/activity/choose_type",
     "pages/activity/type_share",
     "pages/activity/type_list_share",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/search/index"
   ],
   "tabBar": {
     "color": "#7A7E83",

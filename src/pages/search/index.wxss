@@ -1,0 +1,187 @@
+/* pages/index/search/index.wxss */
+
+/*
+搜索页面 搜索框
+  */
+
+.search_box_search_index {
+  margin: 15rpx 0 15rpx 0;
+  height: 68rpx;
+  width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  color: #99a6c4;
+  display: flex;
+  flex-direction: row;
+  font-size: 11pt;
+  align-items: center;
+  background: #fff;
+}
+
+.search_icon_search_box {
+  margin: 0 0 0 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.input_search_box {
+  margin: 0 20rpx;
+  display: flex;
+  flex-grow: 1;
+}
+
+.cancel_icon_search_box {
+  margin: 0 20rpx 0 0;
+}
+
+/*
+搜索页面 便捷搜索部分
+  */
+
+.convenient_search_search_index {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  color: #999;
+  font-size: 11pt;
+}
+
+.item_convenient_search {
+  margin: 20rpx 0 0 0;
+  border-bottom: 1rpx solid #c9c9c9;
+}
+
+.title_convenient_search {
+  color: #333;
+  font-size: 13pt;
+}
+
+.info_convenient_search {
+  margin: 3rpx 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 0 10rpx 0;
+}
+
+.item_info_convenient_search {
+  margin: 10rpx 0;
+  border: 1rpx solid #999;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  padding: 0 30rpx;
+  border-radius: 10rpx;
+  line-height: 1.6;
+}
+
+
+/* activity */
+
+
+.activity_view {
+  display: flex;
+  flex-grow: 1;
+  height: 50px;
+  padding: 8px 15px;
+  background-color: white;
+  margin-bottom: 1px;
+  align-items: center;
+}
+
+.left_view, .center_view, .right_view{
+  display: flex;
+  flex-direction:column;
+}
+
+.left_view {
+  flex-basis: 50px;
+}
+
+.center_view {
+  min-width: 0;
+  flex-grow: 4; 
+  padding: 0px 0px 0px 8px;
+}
+
+.right_view {
+  flex-basis: 120px;
+}
+
+.right_view > view {
+  display: flex;
+  width: 120px;
+  justify-content: space-around;
+  background-color: white;
+}
+
+.text-overflow {
+  word-break:break-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+
+.avatar {
+  width: 50px; 
+  height: 50px;
+}
+
+.right_view {
+  float: right;
+}
+
+/* activity_type */
+
+
+.list_calendar_type_management {
+  width: 100%;
+  margin: 10rpx 0 0 0 ;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 11pt;
+}
+
+.list_calendar_type_management_view {
+  padding-top: 188px;
+}
+
+.title_box_list {
+  width: 100%;
+  height: 90rpx;
+  background-color: #fdfdfd;
+  flex-direction: row;
+  padding: 0px 15px 0px 15px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+
+.activity_view_intro {  
+  display: flex;
+  align-items:center;
+  padding: 0px 15px 0px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  height: 70rpx;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.no_result {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  padding: 0px 15px 0px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  height: 90rpx;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}

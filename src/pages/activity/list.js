@@ -123,5 +123,10 @@ Page({
     wx.navigateTo({
       url: 'type_share',
     })
+  }, 
+  search_navigator: function () {
+    wx.navigateTo({
+      url: '/pages/search/index',
+    })
   },
 })

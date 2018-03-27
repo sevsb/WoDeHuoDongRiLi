@@ -1,0 +1,145 @@
+<!--pages/index/search/index.wxml-->
+<view class='page_mycalendar'>
+  <!--搜索框  -->
+  <view class='search_box_search_index   '>
+    <!--图标  -->
+    <view class='search_icon_search_box'>
+      <image class="tiny_icon align_center" src='/image/index/search-icon.png'>
+      </image>
+    </view>
+    <!--文字  -->
+    <view class='input_search_box'>
+      <input style='width:100%;' type='text' value="{{search_inputTxt}}" placeholder="请输入活动ID、关键字进行查找" name='search_input' confirm-type='search' bindinput="input_search_input_bind" bindconfirm='go_search'>
+      </input>
+    </view>
+    <view wx:if="{{serach_box_focus}}" class='cancel_icon_search_box' bindtap='remove_input_search_input_bind'>
+      <image class="tiny_icon align_center" src='/image/search/cancel-icon.png'>
+      </image>
+    </view>
+  </view>
+
+
+
+  <!--便捷搜索  -->
+  <view wx:if='{{showid == 1}}' class='convenient_search_search_index'>
+    <!-- 历史记录 -->
+    <view class='item_convenient_search'>
+      <!--标题  -->
+      <view class='title_convenient_search'>
+        历史记录
+      </view>
+      <!--详细  -->
+      <view class='info_convenient_search'>
+        <view class='item_info_convenient_search'>
+          hahahaha
+        </view>
+        <view class='item_info_convenient_search'>
+          hahah
+        </view>
+        <view class='item_info_convenient_search'>
+          haha
+        </view>
+          <view class='item_info_convenient_search'>
+          haha
+        </view>
+          <view class='item_info_convenient_search'>
+          haha
+        </view>
+          <view class='item_info_convenient_search'>
+          haha
+        </view>
+      </view>
+    </view>
+    <!--热门活动  -->
+    <view class='item_convenient_search'>
+      <!--标题  -->
+      <view class='title_convenient_search'>
+        热门活动
+      </view>
+      <!--详细  -->
+      <view class='info_convenient_search'>
+        <view class='item_info_convenient_search'>
+          hahahaha
+        </view>
+        <view class='item_info_convenient_search'>
+          hahah
+        </view>
+         <view class='item_info_convenient_search'>
+          hahah
+        </view>
+        <view class='item_info_convenient_search'>
+          hahaasfasfawsaq
+        </view>
+      </view>
+    </view>
+    <!--推荐活动  -->
+    <view class='item_convenient_search'>
+      <!--标题  -->
+      <view class='title_convenient_search'>
+        推荐活动
+      </view>
+      <!--详细  -->
+      <view class='info_convenient_search'>
+        <view class='item_info_convenient_search'>
+          hahahahafasf
+        </view>
+        <view class='item_info_convenient_search'>
+          hahah
+        </view>
+         <view class='item_info_convenient_search'>
+          hahahasdafrqwerq
+        </view>
+        <view class='item_info_convenient_search'>
+          haha
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if='{{activity_list != null && activity_list.length != 0}}' class='result_activity'>
+  <view class='activity_view_intro'>活动</view>
+  <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:key="unique" wx:for='{{activity_list}}'>
+    <view class='left_view'>
+      <image class='avatar' src='{{item.avatar_detail}}'></image>
+    </view>
+    <view class='center_view'>
+      <view class='text-overflow'>{{item.title}}</view>
+      <view class='text-overflow font12 title_content'>{{item.content}}</view>
+    </view>
+    <view class='right_view'>
+      <view class=''>{{item.begindate}}</view>
+      <view class='text-overflow title_content'>{{item.type_title}}</view>
+    </view>
+  </view>
+</view>
+
+
+<view wx:if='{{activity_type_list != null && activity_type_list.length != 0}}'  class='result_activity_type'>
+  <view class='activity_view_intro'>分类</view>
+  <view wx:for="{{activity_type_list}}" wx:key="*this" class='list_calendar_type_management'
+  bindtap='activity_type_view'
+  data-type_id='{{item.id}}' 
+  data-type_title='{{item.title}}'
+  data-type_pub='{{item.pub}}'>
+    <view class='title_box_list'>
+      <view> {{item.title}}</view>
+      <view class='private_flag' wx:if="{{item.pub == 0}}">[ 隐私 ]</view>
+      <view class='' wx:if="{{item.pub != 0}}">
+        <image class='icon' src=''></image>
+      </view>
+      <view class='' wx:if="{{item.pub != 0}}">
+        <button class='share_icon'
+        data-type_id='{{item.id}}'
+        data-type_title='{{item.title}}'
+        open-type="share">
+        </button>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view wx:if='{{searched == 1 && activity_list.length == 0 && activity_type_list.length == 0 }}' class='no_result'>
+  抱歉，没有匹配的搜索结果……
+</view>
