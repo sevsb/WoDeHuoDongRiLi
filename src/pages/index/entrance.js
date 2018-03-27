@@ -16,6 +16,7 @@ Page({
     choosed_month: 0,
     choosed_day: 0,
     choosed_date_stamp : 0,
+    today_stamp: 0,
     week_head: ['日', '一', '二', '三', '四', '五', '六'],
     week_days: [],
     next_week_days: [],
@@ -280,6 +281,7 @@ Page({
     that.setData({
       choosed_date: now_date,
       choosed_date_stamp: stamp,
+      today_stamp: stamp,
     })
 
     that.get_all_week_days();

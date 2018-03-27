@@ -131,7 +131,7 @@
         </view>
       </view>
 
-      <view bindtap='share_btn' class='item_bottom_bar column center align_center'>
+      <view wx:if='{{!editable}}' bindtap='share_btn' class='item_bottom_bar column center align_center'>
         <view>
           <image src='/image/icons/u1041.png' class='medium_icon'>
           </image>
@@ -187,7 +187,7 @@
         已经报名
       </view>
     </view>
-    <view wx:else class='button_bottom_bar_disable column  align_center center'>
+    <view wx:elif="{{activity_detail.type_pub == 1 &&  editable == true}}" class='button_bottom_bar_disable column  align_center center'>
       <view>
         无法报名
       </view>

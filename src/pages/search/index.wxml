@@ -9,7 +9,7 @@
     </view>
     <!--文字  -->
     <view class='input_search_box'>
-      <input style='width:100%;' type='text' value="{{search_inputTxt}}" placeholder="请输入活动ID、关键字进行查找" name='search_input' confirm-type='search' bindinput="input_search_input_bind" bindconfirm='go_search'>
+      <input style='width:100%;' type='text' value="{{search_inputTxt}}" placeholder="搜索活动标题，分类名称进行查找" name='search_input' confirm-type='search' focus="{{focus}}"bindinput="input_search_input_bind" bindconfirm='go_search'>
       </input>
     </view>
     <view wx:if="{{serach_box_focus}}" class='cancel_icon_search_box' bindtap='remove_input_search_input_bind'>

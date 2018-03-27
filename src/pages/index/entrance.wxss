@@ -35,13 +35,22 @@
 
 
 .choosed_date {
-  background-color: black;
-  color: white;
+  background-color: black !important;
+  color: white !important;
 }
 
 .week_group {
   padding-top: 1px;
   display: inline-flex;
+}
+
+.button_view{
+  padding-right: 15px;
+}
+
+.today {
+  background-color: #abc88b; 
+  color: white;
 }
 
 .week_view {

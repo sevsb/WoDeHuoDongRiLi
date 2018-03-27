@@ -16,16 +16,21 @@ Page({
     activity_list: null,
     activity_type_list: null,
     searched: 0,
+    focus: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     /* 导航栏标题 */
     wx.setNavigationBarTitle({
       title: '搜索',
-    })
+    });
+    that.setData({
+      focus: true,
+    });
   },
 
   /**

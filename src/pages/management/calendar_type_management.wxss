@@ -42,7 +42,8 @@
 }
 
 .list_calendar_type_management_view {
-  padding-top: 130rpx;
+  padding-top: 130rpx;  
+  width: 100%;
 }
 
 .title_box_list {
