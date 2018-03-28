@@ -54,10 +54,12 @@ Page({
   verify_code_request : function(e){
     var that = this;
     var phone_number = that.data.phone_number;
-    that.phonenumber_format_check(e);
+    var check_ret = that.phonenumber_format_check(e);
+    if (!check_ret) {
+      return false;
+    }
     that.verify_time();
     verify.request_code(phone_number, function (res){
-
     });
 
   },
@@ -117,7 +119,9 @@ Page({
     var that = this;
     var phone_number = that.data.phone_number;
     var regLowerCase = new RegExp('[0-9]{11}', 'g');
-    if (!regLowerCase.exec(phone_number)) {//格式验证
+    var ret = regLowerCase.exec(phone_number);
+
+    if (ret == null) {//格式验证
       this.setData({
         phonenumber_prompt: true,
       })
@@ -131,12 +135,13 @@ Page({
           }
         }
       })
+      return false;
     }else {
       this.setData({
         phonenumber_prompt: false,
       })
+      return true;
     }
-    return false;
   },
   do_verify: function () {
     var that = this;
