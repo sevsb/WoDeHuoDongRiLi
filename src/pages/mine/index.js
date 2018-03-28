@@ -1,12 +1,13 @@
 // pages/mine/index.js
-var app = getApp()
+var app = getApp();
+var user_js = require('../../utils/user.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    verified: false,
   },
 
   /**
@@ -17,13 +18,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '标题',
     })
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      console.log(userInfo);
-      that.setData({
-        userInfo: userInfo
-      })
-    })
+
   },
 
   /**
@@ -37,7 +32,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    
+    var verified = wx.getStorageSync("verified");
+    if (verified == true) {
+      var userInfo = new Object();
+      userInfo.avatarUrl = wx.getStorageSync("verified_avatar");
+      userInfo.nickName = wx.getStorageSync("verified_name");
+      that.setData({
+        verified: true,
+        userInfo: userInfo,
+      })
+      return false;
+    }
+    app.getUserInfo(function (userInfo) {
+      //更新数据
+      console.log(userInfo);
+      that.setData({
+        userInfo: userInfo
+      })
+    })
+    
+
   },
 
   /**
@@ -85,5 +101,29 @@ Page({
     wx.navigateTo({
       url: '../management/calendar_type_management',
     })
+  },
+  // 
+  logout: function () {
+    var that = this;
+    wx.setStorageSync("verified", false);
+    that.setData({
+      verified: false
+    })
+    app.getUserInfo(function (userInfo) {
+      //更新数据
+      console.log(userInfo);
+      that.setData({
+        userInfo: userInfo
+      })
+    })
+    //登录
+    console.log('Now Do Login...');
+    var nick = that.data.userInfo.nickName;
+    var avatar = that.data.userInfo.avatarUrl;
+    //typeof cb == "function" && cb(that.globalData.userInfo)
+    user_js.do_login('weapp', '', nick, avatar);
+    return;
+      
+    
   },
 })

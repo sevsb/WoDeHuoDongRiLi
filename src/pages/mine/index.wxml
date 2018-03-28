@@ -14,8 +14,11 @@
         {{userInfo.nickName}}
       </view>
       <!--登陆按钮  -->
-      <view class='login_button_info_head' bindtap='login_navigator'>
+      <view wx:if='{{verified == false}}' class='login_button_info_head' bindtap='login_navigator'>
         登录/注册
+      </view>
+      <view wx:if='{{verified == true}}' class='login_button_info_head' bindtap='logout'>
+        点击退出登录
       </view>
 
     </view>

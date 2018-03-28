@@ -97,6 +97,12 @@
 					"name": "search",
 					"pathName": "pages/search/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
 				}
 			]
 		}

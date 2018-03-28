@@ -104,7 +104,7 @@ Page({
     this.setData({
       search_inputTxt: "",
       serach_box_focus: false,
-
+      focus: true,
     })
   }, 
   go_search: function (e){
