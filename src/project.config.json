@@ -21,12 +21,12 @@
 			"current": -1,
 			"list": []
 		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
 		"plugin": {
 			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -102,6 +102,12 @@
 					"id": -1,
 					"name": "login",
 					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "choose_preview_image",
+					"pathName": "pages/create/choose_preview_image",
 					"query": ""
 				}
 			]

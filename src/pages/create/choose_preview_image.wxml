@@ -5,7 +5,7 @@
     <view class='type_title'>{{ptype.title}}</view>
     <view class='preview_list_view' >
       <image class='preview_view' wx:key="unique"  bindtap='choose_thiz' wx:if='{{item.type == ptype.id}}' wx:for='{{image_list}}' data-id='{{item.id}}' 
-      data-url='{{item.image}}' class='preview_image_item' src='{{item.image}}'>
+      data-url='{{item.url}}' class='preview_image_item' src='{{item.thumbnail_url}}'>
       </image>
     </view>
   </view>

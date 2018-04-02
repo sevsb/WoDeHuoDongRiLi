@@ -171,6 +171,7 @@ Page({
       wx.setStorageSync('verified', true);
       wx.setStorageSync('verified_name', name);
       wx.setStorageSync('verified_avatar', avatar);
+      wx.setStorageSync('choosed_type', 0);
       wx.navigateBack({
         
       })

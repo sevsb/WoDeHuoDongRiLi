@@ -106,6 +106,7 @@ Page({
   logout: function () {
     var that = this;
     wx.setStorageSync("verified", false);
+    wx.setStorageSync("choosed_type", 0);
     that.setData({
       verified: false
     })

@@ -53,7 +53,7 @@
 <view class='activity_list'>
   <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:key="unique" wx:for='{{activity_list}}'>
     <view class='left_view'>
-      <image class='avatar' src='{{item.avatar_detail}}'></image>
+      <view style="background-image : url('{{item.avatar_thumbnail_detail}}') !important;" class='avatar' srcc='{{item.avatar_thumbnail_detail}}'></view>
     </view>
     <view class='center_view'>
       <view class='text-overflow'>{{item.title}}</view>
