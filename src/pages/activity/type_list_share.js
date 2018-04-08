@@ -50,7 +50,7 @@ Page({
     var that = this;
     activity.share_list(type_id, function (res) {
       that.setData({
-        activity_list: res.data.my_list.my_list,
+        activity_list: res.data.my_list,
         type_detail: res.data.type,
         subscribe_type: res.data.subscribe_type,
       });

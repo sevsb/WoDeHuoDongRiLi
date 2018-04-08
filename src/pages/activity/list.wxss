@@ -53,13 +53,23 @@
   padding: 0px 0px 0px 8px;
 }
 
+.center_right_view {
+  flex-basis: 40px;
+  justify-content: flex-end;
+  font-size: 11px;
+}
+
+.center_right_view > view{
+  justify-content: flex-end;
+}
+
 .right_view {
-  flex-basis: 120px;
+  flex-basis: 90px;
 }
 
 .right_view > view {
   display: flex;
-  width: 120px;
+  width: 90px;
   justify-content: space-around;
   background-color: white;
 }
@@ -141,4 +151,30 @@
 
 .activity_list {
   padding-top: 89px;
+}
+
+.share_icon {
+  height: 30px;
+  width: 30px;
+  background-image: url('http://www.xiaoningmengkeji.com/xiaoyu/upload/system/share.png');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 30px 30px;
+  border: 1px solid;
+  color: white;
+}
+
+.type_list {
+  flex-basis: 110px !important;
+  flex-grow: 0!important;
+}
+.choosed_type_title_view {
+  flex-grow: 4;
+}
+
+.ctrl_view {
+  flex-basis: 110px !important;
+  flex-grow: 0!important;
+  justify-content: space-around !important;
 }

@@ -44,9 +44,13 @@
   display: flex;
   height: 60px;
 }
+
 .avatar {
-  width: 60px; 
-  height: 60px;
+  width: 50px; 
+  height: 50px;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center center;  
 }
 
 .right_view {

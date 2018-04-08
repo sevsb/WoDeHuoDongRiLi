@@ -18,7 +18,11 @@ Page({
     isIpx: app.globalData.isIpx ? true : false,
     activity_list: [],
     choosed_type: 0,
+    choosed_type_title: '',
     type_list: [],
+    thiz_type: [],
+    subscribe_flag: 0,
+    share_flag: 0,
   },
 
   /**
@@ -40,7 +44,7 @@ Page({
    */
   onShow: function () {
     var that = this;
-    var choosed_type = wx.getStorageSync("choosed_type");
+    var choosed_type = wx.getStorageSync("choosed_type") ? wx.getStorageSync("choosed_type") : 0;
     that.setData({
       choosed_type: choosed_type,
     });
@@ -52,8 +56,34 @@ Page({
       title: '',
     });
     activity.all_my_list(choosed_type, function (res) {
+      switch (choosed_type) {
+        case 0:
+          var share_flag = 0;
+          var choosed_type_title = '全部';
+          var subscribe_flag = -1;
+          break; 
+        case -1:
+          var share_flag = 0;
+          var choosed_type_title = '我加入的';
+          var subscribe_flag = -1;
+          break; 
+        case -2:
+          var share_flag = 0;
+          var choosed_type_title = '我关注的';
+          var subscribe_flag = -1;
+          break;
+        default:
+          var choosed_type_title = res.data.thiz_type.title;
+          var share_flag = res.data.thiz_type.pub;
+          var subscribe_flag = res.data.thiz_type.subscribed;
+          break;
+      }
       that.setData({
         activity_list: res.data.my_list,
+        thiz_type: res.data.thiz_type,
+        choosed_type_title: choosed_type_title,
+        share_flag: share_flag,
+        subscribe_flag: subscribe_flag,
       });
       wx.hideLoading();
     });
@@ -91,7 +121,20 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    var that = this;
+    var type_id = that.data.choosed_type;
+    var choosed_type_title = that.data.choosed_type_title;
+
+    return {
+      title: '分享列表:' + choosed_type_title,
+      path: '/pages/activity/type_list_share?type_id=' + type_id,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
   show_detail: function (e){
     console.log(e);
@@ -128,5 +171,23 @@ Page({
     wx.navigateTo({
       url: '/pages/search/index',
     })
+  }, 
+  subscribe_type: function () {
+    var that = this;
+    var type_id = that.data.choosed_type;
+    activity_type.subscribe_type(type_id, function (res) {
+      that.setData({
+        subscribe_flag: 1,
+      });
+    });
+  },
+  unsubscribe_type: function () {
+    var that = this;
+    var type_id = that.data.choosed_type;
+    activity_type.unsubscribe_type(type_id, function (res) {
+      that.setData({
+        subscribe_flag: 0,
+      });
+    });
   },
 })

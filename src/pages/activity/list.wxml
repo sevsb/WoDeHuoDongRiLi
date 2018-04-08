@@ -21,33 +21,50 @@
   </view>
 </view>
 
-
-
-
-
 <view class='filter_view'>
-  <view bindtap='all_type' class="all_type {{choosed_type == 0 ? 'choosed_filter' : ''}}">
-    <view class='filter_intro'>全部</view>
+  <view bindtap='type_list'  class="type_list choosed_filter">
     <view>
-    <image wx:if='{{choosed_type == 0}}' 
-    class='icon_s' src='/image/icons/u125_selected.png'></image>
-    <image wx:if='{{choosed_type != 0}}' 
-    class='icon_s' src='/image/icons/u125.png'></image>
+      <image class='icon_s' src='/image/icons/u175_selected.png'></image>
+    </view>
+    <view class='filter_intro'>
+      筛选：
     </view>
   </view>
-  <view bindtap='type_list'  class="type_list {{choosed_type != 0 ? 'choosed_filter' : ''}}">
-    <view class='filter_intro'>筛选</view>
-    <view>
-    <image wx:if='{{choosed_type == 0}}' 
-    class='icon_s' src='/image/icons/u175.png'></image>
-    <image wx:if='{{choosed_type != 0}}' 
-    class='icon_s' src='/image/icons/u175_selected.png'></image>
+
+  <view bindtap='type_list'  class='choosed_type_title_view'>
+    {{choosed_type_title}}
+  </view>
+
+  <view class='ctrl_view'>
+
+
+    <view wx:if="{{subscribe_flag != -1}}">
+      <view bindtap='subscribe_type' 
+      wx:if='{{subscribe_flag <= 0 && thiz_type.editable == 0}}'>
+        <view>
+          <image src='/image/icons/u535.png' class='small_icon'>
+          </image>
+        </view>
+      </view>
+
+      <view bindtap='unsubscribe_type' 
+      wx:if='{{subscribe_flag > 0 && thiz_type.editable == 0}}'>
+        <view>
+          <image src='/image/icons/u535_selected.png' class='small_icon'>
+          </image>
+        </view>
+      </view>
     </view>
+
+    <view  wx:if='{{share_flag != 0 }}'>
+      <button class='share_icon'
+        data-type_id='{{choosed_type}}'
+        open-type="share"
+      ></button>
+    </view>
+
   </view>
-  <view bindtap='type_share'  class='type_share'>
-    <view class='filter_intro'>分享</view>
-    <view><image class='icon_s' src='/image/icons/u133.png'></image></view>
-  </view>
+    
 </view>
 </view>
 <view class='activity_list'>
@@ -59,7 +76,10 @@
       <view class='text-overflow'>{{item.title}}</view>
       <view class='text-overflow font12 title_content'>{{item.content}}</view>
     </view>
-    <view class='right_view'>
+    <view class='center_right_view'>
+      <view class=''>参 {{item.now_join}}</view>
+      <view class=''>关 {{item.now_sub}}</view>
+    </view><view class='right_view'>
       <view class=''>{{item.begindate}}</view>
       <view class='text-overflow title_content'>{{item.type_title}}</view>
     </view>

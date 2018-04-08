@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
@@ -109,6 +109,12 @@
 					"name": "choose_preview_image",
 					"pathName": "pages/create/choose_preview_image",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "choose_type type_id=1020",
+					"pathName": "pages/activity/choose_type",
+					"query": "type_id=1020"
 				}
 			]
 		}
