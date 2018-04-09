@@ -189,7 +189,7 @@ Page({
           var image_url = image.image_url;
           wx.previewImage({
             current: image_url, 
-            urls: that.data.activity_detail.image_thumbnail_url_list, 
+            urls: that.data.activity_detail.image_url_list, 
           })
           return false;
         }
