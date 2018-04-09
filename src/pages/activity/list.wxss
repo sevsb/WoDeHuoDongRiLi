@@ -30,11 +30,31 @@
 
 .activity_view {
   display: flex;
+  flex-direction:column;
+  margin-bottom: 1px;
+}
+
+.bottom_view {  
+  display: flex;
+  background-color: #fff;
+  padding: 0 15px 8px 15px;
+  justify-content:flex-end;
+}
+
+.bottom_view > view {  
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+  font-size: 11px;
+  color: grey;
+}
+
+.top_view {
+  display: flex;
   flex-grow: 1;
   height: 50px;
-  padding: 8px 15px;
+  padding: 8px 15px 0 15px;
   background-color: white;
-  margin-bottom: 1px;
   align-items: center;
 }
 
@@ -53,16 +73,6 @@
   padding: 0px 0px 0px 8px;
 }
 
-.center_right_view {
-  flex-basis: 40px;
-  justify-content: flex-end;
-  font-size: 11px;
-}
-
-.center_right_view > view{
-  justify-content: flex-end;
-}
-
 .right_view {
   flex-basis: 90px;
 }
@@ -70,7 +80,7 @@
 .right_view > view {
   display: flex;
   width: 90px;
-  justify-content: space-around;
+  justify-content: flex-end;
   background-color: white;
 }
 
@@ -150,7 +160,7 @@
 }
 
 .activity_list {
-  padding-top: 89px;
+  padding-top: 92px;
 }
 
 .share_icon {
@@ -177,4 +187,9 @@
   flex-basis: 110px !important;
   flex-grow: 0!important;
   justify-content: space-around !important;
+}
+
+.ctrl_view image {
+  display: flex;
+  align-content: center;
 }

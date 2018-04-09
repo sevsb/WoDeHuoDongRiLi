@@ -11,7 +11,7 @@
     </view>
   </view>
   <view class='list_calendar_type_management_view'>
-    <view wx:if='{{item.id != -1 && item.id != -2}}' wx:for="{{my_types}}" wx:key="*this" class='list_calendar_type_management'
+    <view wx:if='{{item.id != -1 && item.id != -2 && item.id != 0}}' wx:for="{{my_types}}" wx:key="*this" class='list_calendar_type_management'
     bindtap='create_calendar_type_navigator'
     data-type_id='{{item.id}}' 
     data-type_title='{{item.title}}'
@@ -19,7 +19,17 @@
     data-type_pub='{{item.pub}}'>
       <view class='title_box_list'>
         <view>{{item.title}}</view>
-        <view class='private_flag' wx:if="{{item.pub == 0}}">[ 隐私 ]</view>
+        <view class='type_detail'>
+          <view class='private_flag' wx:if="{{item.pub == 0}}">[ 隐私 ]</view>
+          <view class='private_flag' wx:elif="{{item.id != -1 && item.id != -2 && item.subscribed != 1 &&item.editable == 1 }}">[ 公开 ]</view>
+          <view stype='z-index: 9999;' wx:if='{{item.editable == 0 &&item.subscribed == 1}}'>
+            <view>
+              <image src='/image/icons/u535_selected.png' class='small_icon'>
+              </image>
+            </view>
+          </view>
+          <view class='type_num'> {{item.num}}</view>
+        </view>
       </view>
     </view>
   </view>

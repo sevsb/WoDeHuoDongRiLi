@@ -24,16 +24,22 @@
 </view>
 <view class='activity_list'>
   <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:key="unique" wx:for='{{activity_list}}'>
-    <view class='left_view'>
-      <view style="background-image : url('{{item.avatar_thumbnail_detail}}') !important;" class='avatar' srcc='{{item.avatar_thumbnail_detail}}'></view>
+    <view class='top_view'>
+      <view class='left_view'>
+        <view style="background-image : url('{{item.avatar_thumbnail_detail}}') !important;" class='avatar' srcc='{{item.avatar_thumbnail_detail}}'></view>
+      </view>
+      <view class='center_view'>
+        <view class='text-overflow'>{{item.title}}</view>
+        <view class='text-overflow font12 title_content'>{{item.content}}</view>
+      </view>
+      <view class='right_view'>
+        <view class=''>{{item.begindate}}</view>
+        <view class='text-overflow title_content'>{{item.type_title}}</view>
+      </view>
     </view>
-    <view class='center_view'>
-      <view class='text-overflow'>{{item.title}}</view>
-      <view class='text-overflow'>{{item.content}}</view>
-    </view>
-    <view class='right_view'>
-      <view class=''>{{item.begindate}}</view>
-      <view class='text-overflow'>{{item.type_title}}</view>
+    <view class='bottom_view'>
+        <view class=''>参加: {{item.now_join}}</view>
+        <view class=''>关注: {{item.now_sub}}</view>
     </view>
   </view>
 </view>

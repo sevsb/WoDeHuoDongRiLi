@@ -65,6 +65,7 @@
 .type_detail {
   display: flex;
   line-height: 30px;
+  align-items: center;
 }
 
 .type_num {
@@ -76,4 +77,3 @@
   justify-content: flex-end;
   margin-left: 15px;
 }
-
