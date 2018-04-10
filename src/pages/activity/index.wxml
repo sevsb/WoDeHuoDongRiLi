@@ -77,7 +77,7 @@
     </view>
     <!--活动内容区域  -->
     <view bindtap='view_image' wx:if='{{activity_detail.images != null}}' wx:key="unique" data-name='{{item.name}}' wx:for='{{activity_detail.images_full_list}}' class='image_activity_content_part center align_center'>
-      <image src='{{item.thumbnail_url}}' class='lagre_image'>
+      <image src='{{item.thumbnail_url}}' class='thumbnail_image' mode='widthFix'>
 
       </image>
     </view>
