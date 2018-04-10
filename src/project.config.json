@@ -115,6 +115,12 @@
 					"name": "choose_type type_id=1020",
 					"pathName": "pages/activity/choose_type",
 					"query": "type_id=1020"
+				},
+				{
+					"id": -1,
+					"name": "calendar_type_management",
+					"pathName": "pages/management/calendar_type_management",
+					"query": ""
 				}
 			]
 		}

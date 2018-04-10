@@ -80,7 +80,7 @@ Page({
 
       for (var i in my_types) {
         var tp = my_types[i];
-        if (tp.id != -1 && tp.id != -2 && tp.editable != 0 ) {
+        if (tp.id != 0 && tp.id != -1 && tp.id != -2 && tp.editable != 0 ) {
           my_types_new.push(tp);
         }
       }

@@ -45,3 +45,8 @@ padding:20rpx 10rpx;
 .submit_calendar_create {
   width: 80%;
 }
+
+.titel_intro {
+  font-size: 11px;
+  color: grey;
+}

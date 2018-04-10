@@ -22,12 +22,8 @@
         <view class='type_detail'>
           <view class='private_flag' wx:if="{{item.pub == 0}}">[ 隐私 ]</view>
           <view class='private_flag' wx:elif="{{item.id != -1 && item.id != -2 && item.subscribed != 1 &&item.editable == 1 }}">[ 公开 ]</view>
-          <view stype='z-index: 9999;' wx:if='{{item.editable == 0 &&item.subscribed == 1}}'>
-            <view>
-              <image src='/image/icons/u535_selected.png' class='small_icon'>
-              </image>
-            </view>
-          </view>
+          <image stype='z-index: 9999;' wx:if='{{item.editable == 0 &&item.subscribed == 1}}' src='/image/icons/u535_selected.png' class='small_icon'>
+          </image>
           <view class='type_num'> {{item.num}}</view>
         </view>
       </view>

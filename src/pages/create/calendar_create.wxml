@@ -14,9 +14,9 @@
     </view>
     <!--输入  -->
     <view class='input_box_head'>
-      <input style='width:100%;' name='title' value='{{type_title}}' bindblur="calendar_name_bind" type='text' placeholder="为您的日历创建一个新的类型名称。"></input>
+      <input style='width:100%;' name='title' value='{{type_title}}' bindblur="calendar_name_bind" type='text' placeholder="请输入类型名称" maxlength='10'></input>
     </view>
-
+    <view class='titel_intro'>名称最多输入10个字符</view>
   </view>
 
   <view class='privacy_calendar_create'>

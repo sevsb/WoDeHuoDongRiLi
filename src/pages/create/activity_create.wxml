@@ -12,13 +12,17 @@
     <!--抬头部分  -->
     <view class='head_enter_part'>
       <!--标题输入框  -->
-      <view class='input_box_head_enter_part'>
-        <input name='title' style='width:100%;' type='text' placeholder="主题，并且选个题图"></input>
+      <view  class='head_enter_part_top'>
+        <view class='input_box_head_enter_part'>
+          <input name='title' style='width:100%;' maxlength='10' type='text' placeholder="主题，并且选个题图"></input>
+        </view>
+        <view class='align_center' wx:if='{{!preview_image_id || preview_image_id == 0}}'>
+          <button bindtap='add_preview_image' class='add_preview_image'>+</button>
+        </view>
       </view>
-      <view class='align_center' wx:if='{{!preview_image_id || preview_image_id == 0}}'>
-        <button bindtap='add_preview_image' class='add_preview_image'>+</button>
-      </view>
+      <view class='titel_intro'>名称最多输入10个字符</view>
     </view>
+    
     <!--详细信息部分  -->
     <view class='detail_enter_part'>
       <!--详细信息输入  -->
@@ -35,7 +39,7 @@
           <image class='small_image' src='{{pic}}'></image>
         </view>
         <view wx:if='{{upload_pictures.length < 9}}' bindtap='upload_image' class='add_picture_buttone_detail_enter_part'>
-          <image class='small_image' src='../../image/create/add-icon.png'></image>
+          <image class='small_image' src='/image/icons/u685.png'></image>
         </view>
         <view class='tip_mycalendar align_center center'>
           为丰富您的内容，可添加9张图片

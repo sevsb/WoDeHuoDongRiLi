@@ -17,7 +17,6 @@ App({
 
     wx.getSystemInfo({
       success: function (res) {
-        console.log(res)
         var isIpx = false;
         if (res.model.indexOf("iphone x") > -1) {
           isIpx = true;
@@ -45,8 +44,9 @@ App({
     //登录
     console.log('Now Do Login...');
     wx.getUserInfo({
-      withCredentials: false,
+      withCredentials: true,
       success: function (res) {
+        console.error(res);
         that.globalData.userInfo = res.userInfo
         console.log(that.globalData.userInfo);
         var nick = that.globalData.userInfo.nickName;

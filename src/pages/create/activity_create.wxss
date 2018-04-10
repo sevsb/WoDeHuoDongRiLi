@@ -23,23 +23,28 @@
   align-items: center;
 }
 
-.head_enter_part {
+.head_enter_part_top {
   width: 100%;
-  padding: 20rpx 0;
+  padding: 8px 0 0px 0;
   display: flex;
-  border-bottom: 1rpx solid #999;
   flex-direction: row;
 }
 
+.head_enter_part {
+  width: 100%;
+  border-bottom: 1rpx solid #999;
+}
+
 .input_box_head_enter_part {
-  margin: 0 10rpx;
+  margin-right: 10rpx;
   border: 1rpx solid #999;
   display: flex;
   flex-grow: 1;
   border-radius: 10rpx;
   padding: 10rpx 20rpx;
   color: #9999a6;
-  width: 100%;
+  width: 100%;  
+  align-items: center;
 }
 
 .detail_enter_part {
@@ -78,8 +83,6 @@
   margin: 10rpx 20rpx;
   width: 100rpx;
   height: 100rpx;
-  border: 10rpx solid #ccc;
-  border-radius: 20rpx;
 }
 
 /*
@@ -194,4 +197,10 @@
   height: 200px;
   margin-top:5px;
   border-radius: 5px;
+}
+
+.titel_intro {
+  margin: 4px 0 4px 0;
+  font-size: 11px;
+  color: grey;
 }
