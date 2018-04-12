@@ -49,7 +49,7 @@
 <view class='week_group_view'>
   <view class="week_group  {{move_direction < 0 ? 'week_view_left' : ''}}  {{move_direction > 0 ? 'week_view_right' : ''}}"  bindtouchstart="touchStart" bindtouchend='touchEnd'>
     <view class="week_view last_week">
-      <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{last_week_days}}' class="week_day">
+      <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:key="unique"  wx:for='{{last_week_days}}' class="week_day">
         <view class='week_head'>
           {{week_head[index]}}
         </view>
@@ -62,7 +62,7 @@
       </view>
     </view>
     <view class="week_view now_week">
-      <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{week_days}}' class="week_day">
+      <view bindtap='choose_date' data-stamp='{{item.stamp}}'wx:key="unique"  wx:for='{{week_days}}' class="week_day">
         <view class='week_head'>
           {{week_head[index]}}
         </view>
@@ -75,7 +75,7 @@
       </view>
     </view>
     <view class="week_view next_week">
-      <view bindtap='choose_date' data-stamp='{{item.stamp}}' wx:for='{{next_week_days}}' class="week_day">
+      <view bindtap='choose_date' data-stamp='{{item.stamp}}'wx:key="unique"  wx:for='{{next_week_days}}' class="week_day">
         <view class='week_head'>
           {{week_head[index]}}
         </view>

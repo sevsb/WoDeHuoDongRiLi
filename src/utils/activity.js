@@ -38,6 +38,12 @@ function view(id, callback) {
   util.req('activity.view', data, 'activity_view', callback);
 }
 
+function remove(id, callback) {
+  var data = new Object();
+  data.id = id;
+  util.req('activity.remove', data, 'activity_remove', callback);
+}
+
 function all_my_list(choosed_type, callback) {
   var data = new Object();
   data.choosed_type = choosed_type;
@@ -79,5 +85,6 @@ module.exports = {
   share_list: share_list,
   subscribe: subscribe,
   unsubscribe: unsubscribe,
+  remove: remove,
 }
 

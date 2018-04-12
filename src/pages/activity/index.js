@@ -214,4 +214,23 @@ Page({
       });
     });
   },
+  cancel_btn: function () {
+    var that = this;
+    var id = that.data.id;
+    wx.showModal({
+      title: '提示',
+      content: '是否要删除此活动？',
+      success: function (res) {
+        if (res.confirm) {
+          activity.remove(id, function (res) {
+            wx.navigateBack({});
+          });
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
+  },
 })

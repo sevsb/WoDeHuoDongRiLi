@@ -3,6 +3,7 @@ var touch_start_x = 0;
 var move_direction = 0;
 
 var activity = require('../../utils/activity.js');
+var user = require('../../utils/user.js');
 var activity_type = require('../../utils/activity_type.js');
 
 Page({
@@ -32,6 +33,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     that.go_today();
+
   },
 
   /**
@@ -46,6 +48,13 @@ Page({
    */
   onShow: function () {
     var that = this;
+    var is_union = wx.getStorageSync("is_union");
+    console.log(is_union);
+    if (is_union == false) {
+     
+    }
+
+
     wx.showLoading({
       title: '',
     });

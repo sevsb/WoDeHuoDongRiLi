@@ -1,4 +1,5 @@
 var app = getApp();
+var user = require('user.js');
 
 function formatDatetime(date) {
   var year = date.getFullYear()
@@ -64,55 +65,7 @@ function neterror_Modal(callback) {
   })
 }
 
-//服务器
-//从服务器获取组织信息
-/*
-function organizations_request(callBack) {
-  wx.showLoading();
-  var calendar_session = wx.getStorageSync('calendar_session');
-  wx.request({
-    url: app.globalData.default_url,
-    data: {
-      action: "api.v1.user.organizations",
-      calendar_session: calendar_session,
-    },
-    success: function (res) {
-      console.log(res);
-      if (res.data.op != "fail") {
-        callBack(res.data.data);
-      } else {
-        wx.showModal({
-          title: '系统错误',
-          //content: '',
-          showCancel: true,
-          cancelText: '返回',
-          // cancelColor: '',
-          confirmText: '重试',
-          //confirmColor: '',
-          success: function (res) {
-            if (res.confirm) {
-              that.organizations_request(callBack);
-            } else {
-              wx.navigateBack({
-              })
-            }
-          },
-          fail: function (res) {
 
-          },
-          complete: function (res) { },
-        })
-      }
-    }
-    , fail: function (res) {
-      console.log("fail ", res);
-    },
-    complete: function () {
-      wx.hideLoading();
-    }
-  })
-}
-*/
 function error_modal(res, redo) {
   console.log(res);
   var code = res.data.code;
@@ -132,14 +85,38 @@ function error_modal(res, redo) {
   })
 }
 
+
 function req(action, req_data, res_data_op, success_cb) {
   var that = this;
-  wx.showLoading({})
+  var i = 0;
 
+  //首次登陆的时候需要user.login反应会延迟，提供16次150ms的延迟判断
+  var interval = setInterval(function () {  
+    var calendar_session = wx.getStorageSync("calendar_session");
+    console.log("setInterval i = " + i + ", session = " + calendar_session);
+    if ((calendar_session != 'undefined' && calendar_session != '')  || (i == 16)) {
+      clearInterval(interval);
+
+      if (that.check_timeout() == false) {
+        user.refresh_session(function (res){
+          that.real_req(action, req_data, res_data_op, success_cb);
+        });
+      }else {
+        that.real_req(action, req_data, res_data_op, success_cb);
+      }
+
+    } 
+    i++;
+  }, 150) 
+}
+
+function real_req(action, req_data, res_data_op, success_cb) {
+  var that = this;
+  wx.showLoading({});
   var data = req_data;
   data.action = 'api.v1.' + action;
   data.calendar_session = wx.getStorageSync("calendar_session");
-
+  console.log(action + " started.");
   wx.request({
     url: app.globalData.default_url,
     data: data,
@@ -148,8 +125,8 @@ function req(action, req_data, res_data_op, success_cb) {
       if (res.data.op == res_data_op) {
         success_cb(res.data)
       } else {
-        that.error_modal(res, function (){
-          that.req(action, req_data, res_data_op, success_cb);
+        that.error_modal(res, function () {
+          that.real_req(action, req_data, res_data_op, success_cb);
         });
       }
       return;
@@ -158,8 +135,18 @@ function req(action, req_data, res_data_op, success_cb) {
       wx.hideLoading();
     }
   });
-  
+
 }
+
+function check_timeout() {
+  var now_stamp = Date.parse(new Date()) / 1000;
+  if (wx.getStorageSync("timeout") < now_stamp) {
+    console.log('Now session is expired.');
+    return false;
+  }
+  return true;
+}
+
 
 module.exports = {
   formatTime: formatTime,
@@ -171,5 +158,7 @@ module.exports = {
   neterror_Modal: neterror_Modal,
   error_modal: error_modal,
   req: req,
+  real_req: real_req,
+  check_timeout: check_timeout,
 }
 

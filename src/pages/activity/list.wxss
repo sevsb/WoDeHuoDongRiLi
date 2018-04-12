@@ -166,7 +166,7 @@
 .share_icon {
   height: 30px;
   width: 30px;
-  background-image: url('http://www.xiaoningmengkeji.com/xiaoyu/upload/system/share.png');
+  background-image: url('http://xiaoningmengkeji.com/xiaoyu/upload/system/share.png');
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
