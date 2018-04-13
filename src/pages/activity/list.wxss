@@ -143,6 +143,10 @@
   margin-bottom: 0px;
 }
 
+.ctrl_view_del > view > button {
+  width: 90%;
+}
+
 .all_type, .type_list {
   margin-right: 1px;
 }
