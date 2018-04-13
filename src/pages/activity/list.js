@@ -23,6 +23,8 @@ Page({
     thiz_type: [],
     subscribe_flag: 0,
     share_flag: 0,
+    del_mode: 0,
+    del_array: [],
   },
 
   /**
@@ -137,7 +139,11 @@ Page({
     }
   },
   show_detail: function (e){
-    console.log(e);
+    //console.log(e);
+    var that = this;
+    if (that.data.del_mode == 1) {
+      return false;
+    }
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: 'index?id=' + id,
@@ -190,4 +196,58 @@ Page({
       });
     });
   },
+  activity_create_navigator: function () {
+    wx.setStorageSync('preview_image_id', 0);
+    wx.setStorageSync('preview_image_url', '');
+    wx.navigateTo({
+      url: '../create/activity_create',
+    })
+  }, 
+  change_del_mode: function() {
+    var that = this;
+    that.setData({
+      del_mode: 1,
+    });
+  },
+  quit_del_mode: function () {
+    var that = this;
+    that.setData({
+      del_mode: 0,
+    });
+  },
+  choose_del_activity: function (e){
+    //console.log(e);
+    var that = this;
+    var arr = e.detail.value;
+    that.setData({
+      del_array: arr,
+    })
+  },
+  del_those: function () {
+    var that = this;
+    var del_array = that.data.del_array;
+    var choosed_type = that.data.choosed_type;
+    console.log(del_array);
+    if (del_array == []) {
+      return false;
+    }
+    wx.showModal({
+      title: '提示',
+      content: '是否要删除选中的活动？',
+      success: function (res) {
+        if (res.confirm) {
+          activity.remove_group(del_array, function () {
+            that.setData({
+              del_mode: 0,
+            })
+            that.get_list_by_type(choosed_type);
+          });
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
+  }
 })

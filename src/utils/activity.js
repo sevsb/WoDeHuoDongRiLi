@@ -42,6 +42,11 @@ function remove(id, callback) {
   var data = new Object();
   data.id = id;
   util.req('activity.remove', data, 'activity_remove', callback);
+} 
+function remove_group(del_array, callback) {
+  var data = new Object();
+  data.del_array = del_array;
+  util.req('activity.remove_group', data, 'activity_remove_group', callback);
 }
 
 function all_my_list(choosed_type, callback) {
@@ -86,5 +91,6 @@ module.exports = {
   subscribe: subscribe,
   unsubscribe: unsubscribe,
   remove: remove,
+  remove_group: remove_group,
 }
 

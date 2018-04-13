@@ -9,7 +9,7 @@
     </view>
     <!--框内文字  -->
     <view class="align_center" style='margin-left:10rpx;'>
-      搜索活动标题，分类名称进行查找
+      点击搜索
     </view>
   </view>
   <!--站内信  -->

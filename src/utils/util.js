@@ -90,25 +90,38 @@ function req(action, req_data, res_data_op, success_cb) {
   var that = this;
   var i = 0;
 
-  //首次登陆的时候需要user.login反应会延迟，提供16次150ms的延迟判断
+  var ret = that.run_req(action, req_data, res_data_op, success_cb, null, -1);
+  if (ret == true) {
+    return false;
+  }
+  //首次登陆的时候需要user.login反应会延迟，提供30次100ms的延迟判断
   var interval = setInterval(function () {  
-    var calendar_session = wx.getStorageSync("calendar_session");
-    console.log("setInterval i = " + i + ", session = " + calendar_session);
-    if ((calendar_session != 'undefined' && calendar_session != '')  || (i == 16)) {
-      clearInterval(interval);
-
-      if (that.check_timeout() == false) {
-        user.refresh_session(function (res){
-          that.real_req(action, req_data, res_data_op, success_cb);
-        });
-      }else {
-        that.real_req(action, req_data, res_data_op, success_cb);
-      }
-
-    } 
+    that.run_req(action, req_data, res_data_op, success_cb, interval, i);
     i++;
-  }, 150) 
+  }, 100) 
 }
+
+function run_req(action, req_data, res_data_op, success_cb, interval, i) {
+  var that = this;
+  var calendar_session = wx.getStorageSync("calendar_session");
+  console.log("setInterval i = " + i + ", session = " + calendar_session);
+
+  if ((calendar_session != 'undefined' && calendar_session != '') || (i == 30)) {
+    if (interval != null) {
+      clearInterval(interval);
+    }
+    if (that.check_timeout() == false) {
+      user.refresh_session(function (res) {
+        that.real_req(action, req_data, res_data_op, success_cb);
+      });
+    } else {
+      that.real_req(action, req_data, res_data_op, success_cb);
+    }
+    return true;
+  } 
+  return false;
+}
+
 
 function real_req(action, req_data, res_data_op, success_cb) {
   var that = this;
@@ -158,6 +171,7 @@ module.exports = {
   neterror_Modal: neterror_Modal,
   error_modal: error_modal,
   req: req,
+  run_req: run_req,
   real_req: real_req,
   check_timeout: check_timeout,
 }

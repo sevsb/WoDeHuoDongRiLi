@@ -63,6 +63,11 @@
   flex-direction:column;
 }
 
+.right_view > checkbox {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .left_view {
   flex-basis: 50px;
 }
@@ -101,28 +106,41 @@
 }
 
 .right_view {
+  justify-content: flex-end;
   float: right;
 }
 
 .filter_view {
   display: flex;
   height: 45px;
+  border-bottom: 1px #d7d7d7 solid;
+  box-shadow:0px 2px 0px #eee;
 }
 
 .search_view, .filter_view {
   background-color: #eee;
 }
 
-.filter_view > view {
+.ctrl_view_common, .ctrl_view_del  {
+  display: flex;
+  flex-grow: 1;
+}
+
+.ctrl_view > view {
+  display: flex;
+}
+
+
+.ctrl_view_common > view , .ctrl_view_del > view {
   background-color: white;
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 1px;
-  margin-bottom: 2px;
+  margin-bottom: 0px;
 }
 
 .all_type, .type_list {
@@ -157,6 +175,7 @@
   width: 100%;
   position: fixed;
   left: 0;
+  z-index: 2;
 }
 
 .activity_list {
@@ -176,7 +195,7 @@
 }
 
 .type_list {
-  flex-basis: 110px !important;
+  flex-basis: 90px !important;
   flex-grow: 0!important;
 }
 .choosed_type_title_view {
@@ -192,4 +211,20 @@
 .ctrl_view image {
   display: flex;
   align-content: center;
+}
+
+
+.add_activity_home_index {
+  position: fixed;
+  z-index: 1000;
+  border-radius: 310rpx;
+  bottom: 30rpx;
+  right: 25rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  width: 110rpx;
+  height: 110rpx;
 }
