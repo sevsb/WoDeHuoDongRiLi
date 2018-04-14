@@ -1,12 +1,13 @@
 var default_url = "https://xiaoningmengkeji.com/xiaoyu";
 //var default_url = "http://127.0.0.1/xiaoyu";
 
-
+// 初始化登录
 function init_login() {
   var that = this;
   that.do_login();
 }
 
+// 登陆函数
 function do_login() {
   var that = this;
   console.log('do_login start..');
@@ -44,6 +45,7 @@ function do_login() {
   });
 }
 
+// 刷新session(token)
 function refresh_session(callback) {
   var that = this;
   var req_data = new Object();
@@ -54,6 +56,7 @@ function refresh_session(callback) {
   });
 }
 
+// 获取用户信息,login的前置调用
 function get_userinfo(callback) {
   var that = this;
   wx.getUserInfo({
@@ -70,7 +73,7 @@ function get_userinfo(callback) {
   })
 }
 
-
+// 请求函数
 function req(action, req_data, res_data_op, success_cb) {
   var that = this;
   console.log(action + " started.");

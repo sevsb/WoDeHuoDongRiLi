@@ -85,7 +85,7 @@ function error_modal(res, redo) {
   })
 }
 
-
+// 最外层请求，添加3s的延迟判断
 function req(action, req_data, res_data_op, success_cb) {
   var that = this;
   var i = 0;
@@ -101,6 +101,7 @@ function req(action, req_data, res_data_op, success_cb) {
   }, 100) 
 }
 
+//中间层请求，处理延迟和逻辑判断
 function run_req(action, req_data, res_data_op, success_cb, interval, i) {
   var that = this;
   var calendar_session = wx.getStorageSync("calendar_session");
@@ -122,7 +123,7 @@ function run_req(action, req_data, res_data_op, success_cb, interval, i) {
   return false;
 }
 
-
+// 真实请求
 function real_req(action, req_data, res_data_op, success_cb) {
   var that = this;
   wx.showLoading({});
