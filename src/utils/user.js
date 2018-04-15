@@ -4,6 +4,10 @@ var default_url = "https://xiaoningmengkeji.com/xiaoyu";
 // 初始化登录
 function init_login() {
   var that = this;
+  var calendar_session = wx.getStorageSync("calendar_session");
+  if (calendar_session != '' && calendar_session != undefined) {
+    return false;
+  }
   that.do_login();
 }
 
