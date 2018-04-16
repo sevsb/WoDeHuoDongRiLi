@@ -137,12 +137,15 @@
 
 .list_calendar_type_management {
   width: 100%;
-  margin: 10rpx 0 0 0 ;
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
   font-size: 11pt;
+}
+
+.result_activity_type {
+  margin-top: 10rpx; 
 }
 
 .list_calendar_type_management_view {

@@ -51,10 +51,10 @@
 					"query": "id=43"
 				},
 				{
-					"id": -1,
-					"name": "share_list type_id=1020",
+					"id": 3,
+					"name": "share_list type_id=551210",
 					"pathName": "pages/activity/type_list_share",
-					"query": "type_id=1020"
+					"query": "type_id=551210"
 				},
 				{
 					"id": 4,

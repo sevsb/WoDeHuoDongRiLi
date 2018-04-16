@@ -139,5 +139,11 @@ Page({
         subscribe_type: false,
       });
     });
+  },  
+  // 返回首页跳转
+  back_home_navigator: function () {
+    wx.switchTab({
+      url: '/pages/index/entrance',
+    })
   },
 })

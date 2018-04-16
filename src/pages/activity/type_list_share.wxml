@@ -45,3 +45,7 @@
 </view>
 
 <view class=''></view>
+  <!--悬浮按钮  -->
+  <view class="back_home_button_activity_index" >
+    <image bindtap='back_home_navigator' src='/image/icons/u1063.png'></image>
+  </view>

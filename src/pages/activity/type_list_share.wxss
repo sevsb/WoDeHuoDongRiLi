@@ -126,3 +126,34 @@
   background-color: white;
   border-bottom: 1px solid grey;
 }
+
+
+/*
+活动页面 返回首页按钮样式
+  */
+
+.back_home_button_activity_index {
+  position: fixed;
+  z-index: 1000;
+  border-radius: 50%;
+  bottom: 170rpx;
+  color: #fff;
+  right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 11pt;
+  line-height: 1;
+  border: 1rpx solid #eee;
+  box-shadow: 1px 1px 2px #888888;
+}
+
+.back_home_button_activity_index > image {
+  width: 30px;
+  height: 30px;
+}

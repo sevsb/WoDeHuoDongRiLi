@@ -6,6 +6,7 @@ var activity_type = require('../../utils/activity_type.js');
 const date = new Date();
 const time = util.formatTime(date);
 const nowadays = util.formatDate(date);
+var now_stamp = (new Date()).getTime() / 1000;
 
 
 
@@ -25,6 +26,7 @@ Page({
     share_flag: 0,
     del_mode: 0,
     del_array: [],
+    now_stamp: now_stamp,
   },
 
   /**
