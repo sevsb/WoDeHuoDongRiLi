@@ -3,21 +3,29 @@
   <view class='type_intro'>分享日历列表</view>
   <view class='type_title'>
     <view>{{type_detail.title}}</view>
-    <view bindtap='subscribe_type' wx:if='{{subscribe_type == false && type_detail.editable == 0}}'>
-      <view>
-        <image src='/image/icons/u535.png' class='medium_icon'>
-        </image>
+    <view class='type_right'>
+      <view bindtap='subscribe_type' 
+      wx:if='{{subscribe_type == false && type_detail.editable == 0}}'>
+        <view>
+          <image src='/image/icons/u535.png' class='medium_icon'>
+          </image>
+        </view>
       </view>
-    </view>
-    <view bindtap='unsubscribe_type' wx:if='{{subscribe_type == true && type_detail.editable == 0}}'>
-      <view>
-        <image src='/image/icons/u535_selected.png' class='medium_icon'>
-        </image>
+      <view bindtap='unsubscribe_type' 
+      wx:if='{{subscribe_type == true && type_detail.editable == 0}}'>
+        <view>
+          <image src='/image/icons/u535_selected.png' class='medium_icon'>
+          </image>
+        </view>
       </view>
-    </view>
-    <view wx:if='{{type_detail.editable == 1}}'>
+      <view wx:if='{{type_detail.editable == 1}}'>
+        <view>
+          <view>[ 自身分类 ]</view>
+        </view>
+      </view>
       <view>
-        <view>[ 自身分类 ]</view>
+        <image src='{{type_detail.owner_avatar}}' class='medium_icon owner_avatar'>
+        </image>
       </view>
     </view>
   </view>
@@ -38,6 +46,7 @@
       </view>
     </view>
     <view class='bottom_view'>
+        <view  wx:if='{{item.endtime < now_stamp}}' class='expire_bottom_intro'>已过期</view>
         <view class=''>参加: {{item.now_join}}</view>
         <view class=''>关注: {{item.now_sub}}</view>
     </view>
