@@ -100,17 +100,26 @@
 <view wx:if='{{activity_list != null && activity_list.length != 0}}' class='result_activity'>
   <view class='activity_view_intro'>活动</view>
   <view class='activity_view' bindtap='show_detail' data-id='{{item.id}}' wx:key="unique" wx:for='{{activity_list}}'>
-    <view class='left_view'>
-      <image class='avatar' src='{{item.avatar_thumbnail_detail}}'></image>
-    </view>
-    <view class='center_view'>
-      <view class='text-overflow'>{{item.title}}</view>
-      <view class='text-overflow font12 title_content'>{{item.content}}</view>
-    </view>
-    <view class='right_view'>
-      <view class=''>{{item.begindate}}</view>
-      <view class='text-overflow title_content'>{{item.type_title}}</view>
-    </view>
+    <label class="checkbox" >
+      <view class='top_view'>
+        <view class='left_view'>
+          <view style="background-image : url('{{item.avatar_thumbnail_detail}}') !important;" class='avatar'></view>
+        </view>
+        <view class='center_view'>
+          <view class='text-overflow'>{{item.title}}</view>
+          <view class='text-overflow font12 title_content'>{{item.content}}</view>
+        </view>
+        <view class='right_view'>
+          <view class=''>{{item.begindate}}</view>
+          <view class='text-overflow title_content'>{{item.type_title}}</view>
+        </view>
+      </view>
+      <view class='bottom_view'>
+          <view  wx:if='{{item.endtime < now_stamp}}' class='expire_bottom_intro'>已过期</view>
+          <view class=''>参加: {{item.now_join}}</view>
+          <view class=''>关注: {{item.now_sub}}</view>
+      </view> 
+    </label>
   </view>
 </view>
 
@@ -124,16 +133,8 @@
   data-type_pub='{{item.pub}}'>
     <view class='title_box_list'>
       <view> {{item.title}}</view>
-      <view class='private_flag' wx:if="{{item.pub == 0}}">[ 隐私 ]</view>
-      <view class='' wx:if="{{item.pub != 0}}">
-        <image class='icon' src=''></image>
-      </view>
-      <view class='' wx:if="{{item.pub != 0}}">
-        <button class='share_icon'
-        data-type_id='{{item.id}}'
-        data-type_title='{{item.title}}'
-        open-type="share">
-        </button>
+      <view>
+        <image class='mini_icon'src='{{item.owner_avatar}}'></image>
       </view>
     </view>
   </view>

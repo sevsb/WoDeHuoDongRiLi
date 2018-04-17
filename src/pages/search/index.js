@@ -3,7 +3,7 @@
 var activity = require('../../utils/activity.js');
 var activity_type = require('../../utils/activity_type.js');
 var search = require('../../utils/search.js');
-
+var now_stamp = (new Date()).getTime() / 1000;
 
 Page({
 
@@ -17,6 +17,7 @@ Page({
     activity_type_list: null,
     searched: 0,
     focus: false,
+    now_stamp: now_stamp,
   },
 
   /**
