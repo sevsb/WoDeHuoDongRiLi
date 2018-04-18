@@ -230,7 +230,12 @@ Page({
     var del_array = that.data.del_array;
     var choosed_type = that.data.choosed_type;
     console.log(del_array);
-    if (del_array == []) {
+    if (del_array.length == 0) {
+      wx.showToast({
+        title: '请选择要删除的活动',
+        icon: 'none',
+        duration: 2000
+      })
       return false;
     }
     wx.showModal({

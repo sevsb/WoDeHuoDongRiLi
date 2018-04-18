@@ -3,9 +3,15 @@ var app = getApp()
 var util = require('../../utils/util.js');
 var activity = require('../../utils/activity.js');
 var activity_type = require('../../utils/activity_type.js');
-const date = new Date();
-const time = util.formatTime(date);
-const nowadays = util.formatDate(date);
+
+var date = new Date(); 
+var time = util.formatTime(date);
+var nowadays = util.formatDate(date);
+
+var hour_date = new Date(); 
+hour_date.setHours(hour_date.getHours()+ 1);
+var one_hour_time = util.formatTime(hour_date);
+var one_hour_nowadays = util.formatDate(hour_date);
 
 Page({
 
@@ -18,12 +24,12 @@ Page({
     bindAddress: true,//绑定地址标识
     starttime: time,//开始时间
     startdate: nowadays,//开始日期
-    endtime: time,//结束时间
-    enddate: nowadays,//结束日期
+    endtime: one_hour_time,//结束时间
+    enddate: one_hour_nowadays,//结束日期
     repeat_type_index: 0,//重复周期角标
     is_repeat: false,//是否重复
-    repeat_end_date: nowadays,//重复结束日期
-    repeat_end_time: time,//重复结束时间
+    repeat_end_date: one_hour_nowadays,//重复结束日期
+    repeat_end_time: one_hour_time,//重复结束时间
     repeat_types: ["仅一次", "每天", "每周", "隔周", "每月"],//重复选项
     repeat_counts: ["once", "daily", "weekly", "fortnightly", "monthly"],//重复指令
     remind: false,//是否提醒
