@@ -2,17 +2,17 @@ var default_url = "https://xiaoningmengkeji.com/xiaoyu";
 //var default_url = "http://127.0.0.1/xiaoyu";
 
 // 初始化登录
-function init_login() {
+function init_login(login_cb) {
   var that = this;
   var calendar_session = wx.getStorageSync("calendar_session");
   if (calendar_session != '' && calendar_session != undefined) {
     return false;
   }
-  that.do_login();
+  that.do_login(login_cb);
 }
 
 // 登陆函数
-function do_login() {
+function do_login(login_cb) {
   var that = this;
   console.log('do_login start..');
 
@@ -31,6 +31,7 @@ function do_login() {
           req_data.iv = ret.iv;
 
         that.req('user.login', req_data, "login", function (res) {
+            login_cb(res);
             wx.setStorageSync('uid', res.data.uid);
             wx.setStorageSync('calendar_session', res.data.calendar_session);
             wx.setStorageSync('timeout', res.data.timeout);

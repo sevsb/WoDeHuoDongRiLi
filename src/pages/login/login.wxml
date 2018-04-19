@@ -9,7 +9,6 @@
         <view class="tip_mycalendar tip_login">
           使用手机号登陆注册，用于绑定微信账号
         </view>
-
         <!--手机号  -->
         <view class='input_mycalendar row'>
           <view class='align_center' style='margin-right:5px;color:#1c2023;'>+86</view>

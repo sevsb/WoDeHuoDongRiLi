@@ -159,14 +159,15 @@ Page({
     console.log(verify_code);
 
     verify.verify(phone_number, verify_code, function (res){
-      var calendar_session = res.data.calendar_session;
-      var token = res.data.token;
-      var timeout = res.data.timeout;
-      var name = res.data.name;
-      var avatar = res.data.avatar;
-      wx.setStorageSync('uid', res.data.id);
+      var session = res.data.session;
+      var user_detail = res.data.tempuser;
+
+      var calendar_session = session.calendar_session;
+      var timeout = session.expired;
+      var name = user_detail.name;
+      var avatar = user_detail.avatar;
+      wx.setStorageSync('uid', user_detail.uid);
       wx.setStorageSync('calendar_session', calendar_session);
-      wx.setStorageSync('token', token);
       wx.setStorageSync('timeout', timeout);
       wx.setStorageSync('verified', true);
       wx.setStorageSync('verified_name', name);

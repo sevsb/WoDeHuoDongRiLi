@@ -1,6 +1,7 @@
 // pages/mine/index.js
 var app = getApp();
 var user_js = require('../../utils/user.js')
+var verify = require('../../utils/verify.js')
 Page({
 
   /**
@@ -105,26 +106,21 @@ Page({
   // 
   logout: function () {
     var that = this;
-    wx.setStorageSync("verified", false);
-    wx.setStorageSync("choosed_type", 0);
-    that.setData({
-      verified: false
-    })
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      console.log(userInfo);
-      that.setData({
-        userInfo: userInfo
-      })
-    })
-    //登录
-    console.log('Now Do Login...');
-    var nick = that.data.userInfo.nickName;
-    var avatar = that.data.userInfo.avatarUrl;
-    //typeof cb == "function" && cb(that.globalData.userInfo)
-    user_js.do_login('weapp', '', nick, avatar);
-    return;
+    verify.exit_verify(function (res){
+      wx.setStorageSync("verified", false);
+      wx.setStorageSync("choosed_type", 0);
+      wx.setStorageSync("calendar_session", '');
       
+      user_js.init_login(function (res) {
+        var userInfo = wx.getStorageSync("userinfo");
+        that.setData({
+          userInfo: userInfo,
+          verified: false
+        })
+      });
+    });
+    return false;
+    
     
   },
 })

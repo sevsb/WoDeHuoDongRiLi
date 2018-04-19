@@ -25,7 +25,9 @@ App({
 
     //登录
     console.log('Now Do Login...');
-    user.init_login();
+    user.init_login(function () {
+
+    });
     
   },
 
