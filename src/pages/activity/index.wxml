@@ -118,6 +118,15 @@
       </view>
     </view>
   </view>
+  <view class='focus_account_view'>
+    <button class='unbutton' open-type="contact" >
+    <view>
+      小提示：请关注
+      <span class='go_account'>“小柠檬科技”</span>
+      服务号，可随时获得活动更新信息 
+    </view>
+    </button>
+  </view>
   <!--底边栏  -->
   <view class='bottom_bar_activity_index space_between '>
     <view class='list_bottom_bar row space_between'>

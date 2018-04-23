@@ -171,3 +171,13 @@
 .thumbnail_image {
   width: 320px;
 }
+
+.focus_account_view view {
+  font-size: 12px;
+  color: grey;
+}
+
+.go_account {
+  color: #199ed8;
+  text-decoration: underline;
+}
