@@ -6,7 +6,6 @@ var activity_type = require('../../utils/activity_type.js');
 const date = new Date();
 const time = util.formatTime(date);
 const nowadays = util.formatDate(date);
-var now_stamp = (new Date()).getTime() / 1000;
 
 
 
@@ -26,7 +25,7 @@ Page({
     share_flag: 0,
     del_mode: 0,
     del_array: [],
-    now_stamp: now_stamp,
+    now_stamp: 0,
   },
 
   /**
@@ -47,14 +46,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    var now_stamp = (new Date()).getTime() / 1000;
+   
     var that = this;
     var choosed_type = wx.getStorageSync("choosed_type") ? wx.getStorageSync("choosed_type") : 0;
     that.setData({
       choosed_type: choosed_type,
+      now_stamp: now_stamp,
     });
     that.get_list_by_type(choosed_type);
   },
   get_list_by_type: function (choosed_type){
+    var now_stamp = (new Date()).getTime() / 1000;
     var that = this;
     wx.showLoading({
       title: '',
@@ -82,8 +86,20 @@ Page({
           var subscribe_flag = res.data.thiz_type.subscribed;
           break;
       }
+
+      var activity_list = res.data.my_list;
+      var activity_list_array = [];
+
+      for (var i in activity_list) {
+        if (activity_list[i].begintime >= now_stamp) {
+          activity_list_array.unshift(activity_list[i]);
+        }else  {
+          activity_list_array.push(activity_list[i])
+        }
+      }
+
       that.setData({
-        activity_list: res.data.my_list,
+        activity_list: activity_list_array,
         thiz_type: res.data.thiz_type,
         choosed_type_title: choosed_type_title,
         share_flag: share_flag,
