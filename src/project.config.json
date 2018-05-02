@@ -121,6 +121,12 @@
 					"name": "calendar_type_management",
 					"pathName": "pages/management/calendar_type_management",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "register_info",
+					"pathName": "pages/activity/register_info",
+					"query": ""
 				}
 			]
 		}

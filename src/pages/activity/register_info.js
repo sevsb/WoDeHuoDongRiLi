@@ -5,14 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    signed_user_list: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    var signed_user_list = wx.getStorageSync("signed_user_list");
+    var joinsheet = wx.getStorageSync("joinsheet");
+    var name_need = joinsheet.name_need ? true : false;
+    var phone_need = joinsheet.phone_need ? true : false;
+    var comment_need = joinsheet.comment_need ? true : false;
+    var signed_user_list_arr = [];
+    for (var i in signed_user_list) {
+      signed_user_list[i].sheet = JSON.parse(signed_user_list[i].sheet);
+    }
+    that.setData({
+      signed_user_list: signed_user_list,
+      name_need: name_need,
+      phone_need: phone_need,
+      comment_need: comment_need,
+    })
   },
 
   /**

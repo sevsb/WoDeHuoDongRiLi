@@ -90,7 +90,7 @@
           已报名（{{activity_detail.now_participants}}）
         </view>
 
-        <view class='row' bindtap='register_info_navigator'>
+        <view class='row' wx:if='{{editable == 1}}' bindtap='register_info_navigator'>
           <view style='color:#0a9d0a; margin:0 10rpx;'>
             更多报名
           </view>

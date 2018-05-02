@@ -69,6 +69,7 @@ Page({
       wx.setStorageSync("joined", res.data.joined);
       wx.setStorageSync("my_joined_sheet", res.data.join_sheet);
       wx.setStorageSync("notice", res.data.notice);
+      wx.setStorageSync("signed_user_list", res.data.info.signed_user_list);
       wx.hideLoading();
     });
   },

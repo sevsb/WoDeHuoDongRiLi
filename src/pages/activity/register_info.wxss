@@ -11,11 +11,19 @@
 
 .item_list {
   width: 100%;
-  height: 90rpx;
+  min-height: 90rpx;
   background: #fff;
   margin: 1rpx 0 10rpx 0;
 }
 
 .item_list >view {
   width: 90%;
+}
+
+.top_line, .bottom_line {
+  display: flex;
+}
+
+.top_line > view ,.bottom_line> view  {
+  display: flex;
 }
