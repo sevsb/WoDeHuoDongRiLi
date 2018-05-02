@@ -103,6 +103,32 @@ Page({
     var comment = e.detail.value.comment ? e.detail.value.comment : '';
     var id = that.data.id;
 
+    var name_need = that.data.name_need;
+    var phone_need = that.data.phone_need;
+    var comment_need = that.data.comment_need;
+
+    if (name_need == true && name == '') {
+      wx.showToast({
+        title: '请填写姓名',
+        icon: 'none',
+      })
+      return false;
+    }
+    if (phone_need == true && phone == '') {
+      wx.showToast({
+        title: '请填写电话',
+        icon: 'none',
+      })
+      return false;
+    }
+    if (comment_need == true && comment == '') {
+      wx.showToast({
+        title: '请填写备注',
+        icon: 'none',
+      })
+      return false;
+    }
+
     var joinsheet = new Object;
     joinsheet.name = name;
     joinsheet.phone = phone;
