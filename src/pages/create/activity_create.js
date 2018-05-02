@@ -34,7 +34,7 @@ Page({
     repeat_counts: ["once", "daily", "weekly", "fortnightly", "monthly"],//重复指令
     remind: false,//是否提醒
     calendar_types: ["个人", "工作","活动", "新类型"],//类型项
-    calendar_type_index: 0,//日历类型角标
+    calendar_type_index: 1,//日历类型角标
     input_number_of_people:false,//输入人数限制
 
     preview_image_url: '',
@@ -84,14 +84,19 @@ Page({
       var my_types = res.data.my_types;
       var my_types_new = [];
 
+      var tp = new Object();
+      tp.id = -3;
+      tp.title = '[新增分类]';
+      tp.pub = 0;
+      my_types_new.push(tp);
       for (var i in my_types) {
         var tp = my_types[i];
         if (tp.id != 0 && tp.id != -1 && tp.id != -2 && tp.editable != 0 ) {
           my_types_new.push(tp);
         }
       }
-
-      var default_type_id = my_types_new[0].id;
+      var calendar_type_index = that.data.calendar_type_index;
+      var default_type_id = my_types_new[calendar_type_index].id;
       that.setData({
         my_types: my_types_new,
         choosed_type_id: default_type_id,
@@ -261,6 +266,12 @@ Page({
     var pub = this.data.my_types[e.detail.value].pub;
     console.log(choosed_type_id);
     console.log(pub);
+    if (choosed_type_id == -3) {
+      wx.navigateTo({
+        url: '/pages/create/calendar_create',
+      })
+      return false;
+    }
     that.setData({
       calendar_type_index: e.detail.value,
       choosed_type_id: choosed_type_id,
