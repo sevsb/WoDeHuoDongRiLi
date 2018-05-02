@@ -4,7 +4,7 @@ var util = require('util.js');
 function search(input, callback) {
   var data = new Object();
   data.input = input;
-  util.req('search.search', data, 'search', callback);
+  util.req('正在搜索','search.search', data, 'search', callback);
 }
 
 

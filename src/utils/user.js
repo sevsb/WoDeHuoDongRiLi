@@ -30,7 +30,7 @@ function do_login(login_cb) {
           req_data.encrypted_data = ret.encryptedData;
           req_data.iv = ret.iv;
 
-        that.req('user.login', req_data, "login", function (res) {
+          that.req('正在登陆', 'user.login', req_data, "login", function (res) {
             login_cb(res);
             wx.setStorageSync('uid', res.data.uid);
             wx.setStorageSync('calendar_session', res.data.calendar_session);
@@ -54,7 +54,7 @@ function do_login(login_cb) {
 function refresh_session(callback) {
   var that = this;
   var req_data = new Object();
-  that.req('user.refresh_session', req_data, "refresh_session", function (res) {
+  that.req('正在刷新', 'user.refresh_session', req_data, "refresh_session", function (res) {
     wx.setStorageSync('calendar_session', res.data.calendar_session);
     wx.setStorageSync('timeout', res.data.timeout);
     callback(res);
@@ -79,10 +79,12 @@ function get_userinfo(callback) {
 }
 
 // 请求函数
-function req(action, req_data, res_data_op, success_cb) {
+function req(title, action, req_data, res_data_op, success_cb) {
   var that = this;
   console.log(action + " started.");
-  wx.showLoading({})
+  wx.showLoading({
+    title: title,
+  })
 
   var data = req_data;
   data.action = 'api.v1.' + action;

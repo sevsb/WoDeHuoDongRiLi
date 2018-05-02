@@ -86,23 +86,23 @@ function error_modal(res, redo) {
 }
 
 // 最外层请求，添加3s的延迟判断
-function req(action, req_data, res_data_op, success_cb) {
+function req(title, action, req_data, res_data_op, success_cb) {
   var that = this;
   var i = 0;
 
-  var ret = that.run_req(action, req_data, res_data_op, success_cb, null, -1);
+  var ret = that.run_req(title, action, req_data, res_data_op, success_cb, null, -1);
   if (ret == true) {
     return false;
   }
   //首次登陆的时候需要user.login反应会延迟，提供30次100ms的延迟判断
   var interval = setInterval(function () {  
-    that.run_req(action, req_data, res_data_op, success_cb, interval, i);
+    that.run_req(title, action, req_data, res_data_op, success_cb, interval, i);
     i++;
   }, 100) 
 }
 
 //中间层请求，处理延迟和逻辑判断
-function run_req(action, req_data, res_data_op, success_cb, interval, i) {
+function run_req(title, action, req_data, res_data_op, success_cb, interval, i) {
   var that = this;
   var calendar_session = wx.getStorageSync("calendar_session");
   console.log("setInterval i = " + i + ", session = " + calendar_session);
@@ -113,10 +113,10 @@ function run_req(action, req_data, res_data_op, success_cb, interval, i) {
     }
     if (that.check_timeout() == false) {
       user.refresh_session(function (res) {
-        that.real_req(action, req_data, res_data_op, success_cb);
+        that.real_req(title, action, req_data, res_data_op, success_cb);
       });
     } else {
-      that.real_req(action, req_data, res_data_op, success_cb);
+      that.real_req(title, action, req_data, res_data_op, success_cb);
     }
     return true;
   } 
@@ -124,9 +124,11 @@ function run_req(action, req_data, res_data_op, success_cb, interval, i) {
 }
 
 // 真实请求
-function real_req(action, req_data, res_data_op, success_cb) {
+function real_req(title, action, req_data, res_data_op, success_cb) {
   var that = this;
-  wx.showLoading({});
+  wx.showLoading({
+    title: title
+  });
   var data = req_data;
   data.action = 'api.v1.' + action;
   data.calendar_session = wx.getStorageSync("calendar_session");

@@ -437,6 +437,9 @@ Page({
       callback(0, 0, 0, []);
       return false;
     }
+    wx.showLoading({
+      title: '上传图片中',
+    })
     wx.uploadFile({
       url: app.globalData.default_url + '/?action=api.v1.image.upload_image',
       filePath: filePaths[i],
@@ -451,6 +454,7 @@ Page({
         var str = res.data;
         var json = JSON.parse(str);
         i++;
+        wx.hideLoading();
         if (json.op == "upload_image") {
           images.push(json.data);
         }
