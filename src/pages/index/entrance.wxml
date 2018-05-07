@@ -102,7 +102,7 @@
         <view class='text-overflow font12 title_content'>{{item.content}}</view>
       </view>
       <view class='right_view'>
-        <view class=''>{{item.begindate}}</view>
+        <view class=''>{{item.begintime_detail}}</view>
         <view class='text-overflow title_content'>{{item.type_title}}</view>
       </view>
     </view>

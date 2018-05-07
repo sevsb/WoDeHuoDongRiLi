@@ -24,6 +24,9 @@
           <view class='private_flag' wx:elif="{{item.id != -1 && item.id != -2 && item.subscribed != 1 &&item.editable == 1 }}">[ 公开 ]</view>
           <image stype='z-index: 9999;' wx:if='{{item.editable == 0 &&item.subscribed == 1}}' src='/image/icons/u535_selected.png' class='small_icon'>
           </image>
+          
+          <image style='margin-left: 5px;' wx:if='{{item.editable == 0 &&item.subscribed == 1}}' src='{{item.owner_avatar}}' class='small_icon'>
+          </image>
           <view class='type_num'> {{item.num}}</view>
         </view>
       </view>

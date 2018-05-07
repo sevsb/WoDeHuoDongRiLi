@@ -139,7 +139,7 @@ Page({
     console.log(phone);
     console.log(comment);
     console.log(id);
-
+    
     activity.sign(id, joinsheet, remind_sign_up, function (res){
       wx.navigateBack({});
     });

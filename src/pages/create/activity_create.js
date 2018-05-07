@@ -75,9 +75,25 @@ Page({
    */
   onShow: function () {
     var that = this;
+
+
+    var date = new Date();
+    var time = util.formatTime(date);
+    var nowadays = util.formatDate(date);
+    var hour_date = new Date();
+    hour_date.setHours(hour_date.getHours() + 1);
+    var one_hour_time = util.formatTime(hour_date);
+    var one_hour_nowadays = util.formatDate(hour_date);
+
     that.setData({
       preview_image_id: wx.getStorageSync('preview_image_id'),
-      preview_image_url: wx.getStorageSync('preview_image_url'),
+      preview_image_url: wx.getStorageSync('preview_image_url'), 
+      starttime: time,//开始时间
+      startdate: nowadays,//开始日期
+      endtime: one_hour_time,//结束时间
+      enddate: one_hour_nowadays,//结束日期
+      repeat_end_date: one_hour_nowadays,//重复结束日期
+      repeat_end_time: one_hour_time,//重复结束时间
     });
 
     activity_type.my_activity_types(function (res) {
@@ -177,9 +193,20 @@ Page({
   },
   //开始时间绑定
   StartTime_bind: function (e) {
+    console.log(e);
+    var time = e.detail.value;
+    var ar = time.split(':');
+    var hour = parseInt(ar[0]) + 1;
+    if (hour == 24) {
+      hour--;
+    }
+    if (hour < 10) {
+      hour = '0' + hour;
+    }
+    var time = hour + ":" + ar[1];
     this.setData({
       starttime: e.detail.value,
-      //endtime: e.detail.value
+      endtime: time
     })
   },
   //结束日期绑定

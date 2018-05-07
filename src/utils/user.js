@@ -99,7 +99,7 @@ function req(title, action, req_data, res_data_op, success_cb) {
         success_cb(res.data)
       } else {
         that.error_modal(res, function () {
-          that.req(action, req_data, res_data_op, success_cb);
+          that.req(title, action, req_data, res_data_op, success_cb);
         });
       }
       return;

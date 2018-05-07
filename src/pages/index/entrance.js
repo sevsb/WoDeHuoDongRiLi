@@ -59,8 +59,13 @@ Page({
       title: '',
     });
 
-    activity.all_my_list(0, function (res) {
+    activity.all_my_list(0, 1, function (res) {
       var activity_list = res.data.my_list;
+      for (var i in activity_list) {
+        var begintime_detail = activity_list[i]["begintime_detail"];
+        var ar = begintime_detail.split(" ");
+        activity_list[i]["begintime_detail"] = ar[1];
+      }
       that.setData({
         activity_list: activity_list,
       });

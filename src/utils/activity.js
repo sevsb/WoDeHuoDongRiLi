@@ -49,9 +49,10 @@ function remove_group(del_array, callback) {
   util.req('移除多个活动', 'activity.remove_group', data, 'activity_remove_group', callback);
 }
 
-function all_my_list(choosed_type, callback) {
+function all_my_list(choosed_type, entrance, callback) {
   var data = new Object();
   data.choosed_type = choosed_type;
+  data.entrance = entrance;
   util.req('获取活动列表', 'activity.all_my_list', data, 'all_my_list', callback);
 }
 

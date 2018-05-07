@@ -63,7 +63,7 @@ Page({
     wx.showLoading({
       title: '',
     });
-    activity.all_my_list(choosed_type, function (res) {
+    activity.all_my_list(choosed_type, 0, function (res) {
       switch (choosed_type) {
         case 0:
           var share_flag = 0;
