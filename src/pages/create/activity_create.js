@@ -373,6 +373,8 @@ Page({
       error_reason = '描述不完整';
     } else if (preview_image_id == 0) {
       error_reason = '题图未选择';
+    } else if (starttime > endtime) {
+      error_reason = '结束时间异常';
     }
     if (error_reason != '') {
       wx.showToast({
@@ -416,6 +418,7 @@ Page({
     var upload_pictures = that.data.upload_pictures;
     var count = upload_pictures.length;
     wx.chooseImage({
+      count: 9 - count,
       success: function (res) {
         console.log(res);
         var imgs = res.tempFilePaths;

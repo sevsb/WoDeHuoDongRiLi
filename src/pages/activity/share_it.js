@@ -117,6 +117,28 @@ Page({
 
   },
   save_me: function () {
+    var that = this;
+    wx.downloadFile({
+      url: that.data.qrcode, //仅为示例，并非真实的资源
+      success: function (res) {
+        console.log(res);
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success: function (data) {
+            console.log(data);
+            wx.showToast({
+              title: '保存成功',
+              icon: 'none',
+            })
+          },
+          fail: function (err) {
+            console.log(err);
+          }
+        });
+
+      }
+    })
+    
     return false;
     wx.canvasToTempFilePath({
       x: 0,

@@ -28,7 +28,7 @@ Page({
   onLoad: function (options) {
     console.log(options);
     var that = this;
-    var id = options.id;
+    var id = decodeURIComponent(options.id);
     that.setData({
       id: id,
     });

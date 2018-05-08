@@ -16,10 +16,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.setNavigationBarTitle({
-      title: '标题',
-    })
-
   },
 
   /**
