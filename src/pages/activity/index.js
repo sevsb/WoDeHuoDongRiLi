@@ -26,6 +26,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     var that = this;
     var id = options.id;
     that.setData({
@@ -45,6 +46,7 @@ Page({
    */
   onShow: function () {
     var that = this;
+    console.log(that.data.id);
     var id = that.data.id;
     wx.showLoading({
       title: '',
@@ -63,6 +65,7 @@ Page({
         join_sheet: res.data.join_sheet,
         subscribed: subscribed,
       });
+
       var joinsheet = res.data.info.joinsheet;
       console.log(joinsheet);
       wx.setStorageSync("joinsheet", joinsheet);
@@ -104,10 +107,10 @@ Page({
 
   /**
    * 用户点击右上角分享
-   */
+  
   onShareAppMessage: function () {
 
-  },
+  }, */
   // 创建活动跳转
   create_activity_navigator: function () {
     wx.navigateTo({
@@ -155,6 +158,17 @@ Page({
   },
   share_btn: function (e){
     var that = this;
+    var share_detail = new Object;
+    var owner_nickname = that.data.activity_detail.owner.owner_nickname;
+    var owner_avatar = that.data.activity_detail.owner.owner_avatar;
+    var title = that.data.activity_detail.title;
+    var topic = that.data.activity_detail.avatar_thumbnail_detail;
+    var qrcode = that.data.activity_detail.detail_qcode;
+   
+    wx.navigateTo({
+      url: 'share_it?' + "owner_nickname=" + owner_nickname + "&title=" + title + "&topic=" + topic + "&qrcode=" + qrcode + "&owner_avatar=" + owner_avatar,
+    })
+    return false;
     wx.showActionSheet({
       itemList: ['分享此页面', '查看二维码图片'],
       success: function (res) {

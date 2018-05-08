@@ -1,0 +1,104 @@
+/* pages/activity/share_it.wxss */
+page {
+  display: flex;
+  background-color: #181d4b;
+}
+.big_view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.share_view {
+  width:90% !important;
+  margin: 15px;
+  border-radius: 5px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  background-color: #d3d7d4;
+}
+
+.share_inner_view {
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #f2eada;
+}
+
+.share_inner_view > view {
+  display: flex;
+  justify-content: center;
+}
+
+.owner_avatar image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
+
+.owner_nickname {
+  font-size: 16px;
+}
+
+.title {
+  font-size: 22px;
+  color:#426ab3;
+}
+
+.intro {
+  color: grey;
+}
+
+.topic image {
+  height: 120px;
+  width: 180px;
+}
+
+.qrcode image {
+  height: 60px;
+  width: 60px;
+}
+
+.middle_icons {
+  flex-basis: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.middle_icons > view {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.save_it {
+  margin-left: 8px;
+}
+
+.middle_icons image {
+  width: 35px;
+  height: 35px;
+}
+
+.bottom_intro {
+  flex-basis: 50px;
+  background-color: white;
+  padding: 15px;
+  font-size: 12px;
+}
+
+.share_me {
+  width: 35px;
+  height: 35px;
+  background-image: url(https://xiaoningmengkeji.com/xiaoyu/upload/system/share.png);
+  background-size:35px 35px;
+  background-position:center;
+  background-color: transparent !important;
+}

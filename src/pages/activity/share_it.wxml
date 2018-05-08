@@ -1,0 +1,40 @@
+<!--pages/activity/share_it.wxml-->
+<view class='big_view'>
+  <view class='share_view'>
+  <!--<canvas canvas-id="myCanvas" class='share_view' style="border: 1px solid;">
+   </canvas> -->
+    <view class='share_inner_view'>
+      <view class='owner_avatar'>
+        <image src='{{owner_avatar}}'></image>  
+      </view>
+      <view class='owner_nickname'>{{owner_nickname}}</view>
+      <view class='intro'>邀请你参加一个很棒的活动 </view>
+      <view class='title'>{{title}}</view>
+      <view class='topic'>
+        <image src='{{topic}}'></image> 
+      </view>
+      <view class='qrcode'>
+       <image bindtap='view_qrcode' src='{{qrcode}}'></image> 
+      </view>
+      <view class='intro'>
+      小柠檬科技
+      </view>
+    </view>
+  </view>
+ 
+
+
+  <view class='middle_icons'>
+    <view>
+      <button open-type='share' class='unbuttun share_me' style=''></button>
+      <view>微信好友</view>
+    </view>
+    <view class='save_it'>
+      <image bindtap='save_me' src='/image/icons/u30_selected.png'></image>
+      <view>保存相册</view>
+    </view>
+  </view>
+  <view class='bottom_intro'>
+   小提示： 如果您需要分享到朋友圈，则需点击“保存到相册”可将此页面保存到手机，然后通过添加微信朋友圈分享此活动图片
+  </view>
+</view>
