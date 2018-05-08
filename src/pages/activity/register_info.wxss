@@ -16,14 +16,20 @@
   margin: 1rpx 0 10rpx 0;
 }
 
-.item_list >view {
-  width: 90%;
+.top_line{
+  margin: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.top_line, .bottom_line {
-  display: flex;
+.bottom_line  {
+  margin: 8px;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
-.top_line > view ,.bottom_line> view  {
+.bottom_line_view {
   display: flex;
+  justify-content: space-between;
 }

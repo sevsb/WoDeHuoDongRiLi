@@ -127,6 +127,12 @@
 					"name": "register_info",
 					"pathName": "pages/activity/register_info",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "报名信息",
+					"pathName": "pages/activity/register_info",
+					"query": ""
 				}
 			]
 		}

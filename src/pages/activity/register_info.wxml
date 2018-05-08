@@ -15,18 +15,21 @@
         </view>
         <!--时间  -->
         <view>
-          {{item.modify_time}}
+          {{item.signtime}}
         </view>
       </view>
       <view class='bottom_line'>
-        <view class=''>
-          {{item.sheet.name}}
+        <view class='bottom_line_view' wx:if='{{name_need == true}}'>
+          <view>姓名</view>
+          <view>{{item.sheet.name}}</view>
         </view>
-        <view style='flex-grow:1;margin: 0 20rpx; display:flex;'>
-          {{item.sheet.phone}}
+        <view class='bottom_line_view' wx:if='{{phone_need == true}}'>
+          <view>电话</view>
+          <view>{{item.sheet.phone}}</view>
         </view>
-        <view>
-          {{item.sheet.comment}}
+        <view class='bottom_line_view' wx:if='{{comment_need == true}}'>
+          <view>备注</view>
+          <view>{{item.sheet.comment}}</view>
         </view>
       </view>
     </view>
