@@ -1,0 +1,31 @@
+<!--help/pages/detail/term6.wxml-->
+<view class='container' style=''>
+  <view class='help-part'>
+    <view class='help-title'>
+      筛选/分享分类活动
+    </view>
+    <view class=' help-context'>
+
+      <!--段落  -->
+      <view class='help_paragraph'>
+        <!--标题  -->
+        <text class='paragraph_title'>　　进入【列表】页面中，默认状态下，所有的活动是全部显示的；可以根据需要对活动进行分类筛选，以及分享。
+        </text>
+
+        <!--内容  -->
+        <text class='paragraph_content'>• 筛选分类，点击左上角“筛选”按钮后，打开分类列表，可以根据需要选择一个分类进行筛选。自动返回列表页面，此时显示筛选分类下的所有活动。
+• 分享分类，当筛选分类后；点击分类名称的最右边的分享图标，就可以将此分类以及包含的所有活动分享至微信用户，或者微信群。
+</text>
+<text class='paragraph_content help_comments'>注：在筛选中标注是私密分类。固定分类不可以分享。
+</text>
+        <text class='paragraph_content'>• 删除分类活动，当分类筛选后，点击分类名称旁边的“编辑”，进入删除选中动作，选中之后，点击删除，即可删除活动。
+</text>
+        <text class='paragraph_content help_comments'>注：删除活动后将无法找回，请慎用此功能。
+</text>
+      </view>
+
+
+
+    </view>
+  </view>
+</view>

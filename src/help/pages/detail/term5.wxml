@@ -1,0 +1,31 @@
+<!--help/pages/detail/term5.wxml-->
+<view class='container' style=''>
+  <view class='help-part'>
+    <view class='help-title'>
+      管理分类
+    </view>
+    <view class=' help-context'>
+
+      <!--段落  -->
+      <view class='help_paragraph'>
+        <!--标题  -->
+        <text class='paragraph_title'>　　在【我的】页面中，点击【日历类型管理】，进入日历类型管理界面；在此页面中可以查看，编辑，删除分类
+        </text>
+
+        <!--内容  -->
+        <text class='paragraph_content'>• 添加分类，点击右上角的加号，进入创建日历类型页面；输入日历类型的名称，选择隐私属性（公开/私密），点击确认即可添加。
+</text>
+        <text class='paragraph_content help_comments'>注：另外可以再创建活动时，在日历类别选择“新增类别”也可以进入添加分类页面
+</text>
+        <text class='paragraph_content'>• 分类查看，在日历类型管理首页面可以查看拿到个人创建的分类，关注到的分类；以及分类的属性和分类下的活动数量。
+• 点击个人创建的分类名称，将进入到分类的编辑页面，可以修改名称以及分类的属性。
+</text>
+        <text class='paragraph_content help_comments'>注：关注到的分类不可以修改。
+</text>
+      </view>
+
+
+
+    </view>
+  </view>
+</view>

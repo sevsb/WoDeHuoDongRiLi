@@ -20,6 +20,22 @@
     "pages/search/index",
     "pages/activity/share_it"
   ],
+  "subPackages": [
+    {
+      "root": "help",
+      "pages": [
+        "pages/index",
+        "pages/contact",
+        "pages/detail/term1",
+        "pages/detail/term2",
+        "pages/detail/term3",
+        "pages/detail/term4",
+        "pages/detail/term5",
+        "pages/detail/term6",
+        "pages/detail/term7"
+      ]
+    }
+  ],
   "tabBar": {
     "color": "#7A7E83",
     "selectedColor": "#3cc51f",

@@ -1,0 +1,4 @@
+/* help/pages/detail/term1.wxss */
+.nav{
+  color: blue;
+}

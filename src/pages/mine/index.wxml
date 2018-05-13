@@ -52,7 +52,7 @@
 
 
     <!--帮助 -->
-    <view class='item_navigator_list'>
+    <view class='item_navigator_list' bindtap='help_navigator'>
       <!--图标  -->
       <image class='small_icon' src='/image/icons/u207.png'> </image>
       <!--标题  -->

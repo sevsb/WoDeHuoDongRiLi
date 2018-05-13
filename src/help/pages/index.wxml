@@ -1,0 +1,78 @@
+<!--pages/help/index.wxml-->
+<view class='container'>
+  <view class='menus-title'>热点问题</view>
+  <view class='menus'>
+    <navigator url='detail/term1'>
+      <view class='menu row'>
+
+        <view style='flex-grow:1;'>适用场景</view>
+        <view>
+          <image src='../image/navigate-right.png' class="end-icon ">
+
+          </image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='detail/term2'>
+      <view class='menu row'>
+        <view style='flex-grow:1;'>登陆/注册</view>
+        <view>
+          <image src='../image/navigate-right.png' class="end-icon ">
+
+          </image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='detail/term3'>
+      <view class='menu row'>
+        <view style='flex-grow:1;'>创建活动</view>
+        <view>
+          <image src='../image/navigate-right.png' class="end-icon ">
+
+          </image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='detail/term4'>
+      <view class='menu row'>
+        <view style='flex-grow:1;'>分享/关注活动</view>
+        <view>
+          <image src='../image/navigate-right.png' class="end-icon ">
+
+          </image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='detail/term5'>
+      <view class='menu row'>
+        <view style='flex-grow:1;'>管理分类</view>
+        <view>
+          <image src='../image/navigate-right.png' class="end-icon ">
+
+          </image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='detail/term6'>
+      <view class='menu row'>
+        <view style='flex-grow:1;'>筛选/分享分类活动</view>
+        <view>
+          <image src='../image/navigate-right.png' class="end-icon ">
+
+          </image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='detail/term7'>
+      <view class='menu row' style='border-bottom:0;'>
+        <view style='flex-grow:1;'>关注分类</view>
+        <view>
+          <image src='../image/navigate-right.png' class="end-icon ">
+
+          </image>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+</view>

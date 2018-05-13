@@ -1,0 +1,11 @@
+/* pages/help/contact.wxss */
+.item {
+
+    display: flex;
+    flex-flow: column;
+    
+    
+}
+.font{
+    font-size: 14pt;
+}

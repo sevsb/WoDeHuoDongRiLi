@@ -1,0 +1,31 @@
+/* pages/help/index.wxss */
+
+.menus-title{
+   margin: 10px 0 0px 20px;
+   font-size: 11pt;
+   color: #aaa;
+}
+.menus{
+ background-color: white;
+ margin: 5px 0 15px 0;
+
+}
+.menu{
+  margin: 0 0 0  20px;
+  height: 40px;
+  line-height:40px;
+  font-size: 11pt;
+ border-bottom:1px #ccc solid;
+
+}
+.end-icon {
+    height:18px; 
+    width:18px;
+
+    margin-top:11px;
+    margin-right:10px;
+    text-align: center;
+}
+
+
+

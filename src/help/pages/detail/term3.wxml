@@ -1,0 +1,39 @@
+<!--help/pages/detail/term3.wxml-->
+<view class='container' style=''>
+  <view class='help-part'>
+    <view class='help-title'>
+      创建活动
+    </view>
+    <view class=' help-context'>
+
+      <!--段落  -->
+      <view class='help_paragraph'>
+        <!--标题  -->
+        <text class='paragraph_title'>点击首页绿色加号区域，进入创建活动页面。
+        </text>
+        <!--内容  -->
+        <text class='paragraph_content'>• 填入主题内容，字数限制10字以内【必选项】
+• 点击主题内容右边的加号区域，选择您喜欢的图片做为主题图。【必选项】
+• 填入内容描述，此处不限制字数。【必选项】
+• 加入活动相关的图片，最多只能添加9张图片
+• 点击选择地址，进入地址选择页面，选择活动的地址
+• 开始时间，分别点击日期，时间进行选择 【必选项】
+• 结束时间，分别点击日期，时间进行选择 【必选项】
+</text>
+        <text class='paragraph_content help_comments'>注：结束时间默认比开始时间晚一小时，可根据需要自行调整
+</text>
+        <text class='paragraph_content'>• 重复周期，默认在【仅一次】，当选择其他重复周期后，将多出重复结束日期选择 【必选项】
+• 重复结束，只有在重复周期为非“仅一次“的情况下出现，选择的日期将做为重复周期结束的时间
+• 日历类别，默认选项：个人（私密），工作（公开），娱乐（公开）；新增分类；【必选项】
+　　1）当选择属性为公开的类别后，将多出，姓名，手机号，备注几个选项。
+　　2）选择”新增分类“，将弹出新增分类的的页面
+• 公开类别的新增选项，姓名、手机号，备注；根据活动的性质可以选择是否让报名活动者填写。
+</text>
+      </view>
+
+
+
+
+    </view>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+<!--help/pages/detail/term3.wxml-->
+<view class='container' style=''>
+  <view class='help-part'>
+    <view class='help-title'>
+    分享/关注活动
+    </view>
+    <view class=' help-context'>
+    
+        <!--段落  -->
+      <view class='help_paragraph'>
+      <!--标题  -->
+        <text class='paragraph_title'> 1、分享  打开一个公开的活动，点击底边栏分享图标，将进入分享页面，在此可以看到分享者、活动相关内容
+        </text>
+        <!--内容  -->
+        <text class='paragraph_content'>• 点击”微信好友“的分享图标，则将活动分享至微信好友。
+• 点击”保存相册“的图标，则将此页面做为图片保存到相册中，您可以通过发布朋友圈。让更多人进行关注
+</text>
+      </view>
+
+ 
+  <!--段落  -->
+      <view class='help_paragraph'>
+      <!--标题  -->
+        <text class='paragraph_title'> 2、关注  打开一个公开的活动，点击底边栏心形的关注图标，可以将此活动进行关注；再次点击可取消关注。
+        </text>
+        <!--内容  -->
+        <text class='paragraph_content'>• 已经关注的活动在，列表活动页筛选分类中可以找到。“已关注的活动”
+</text>
+      </view>
+
+
+     
+    </view>
+  </view>
+</view>

@@ -119,4 +119,9 @@ Page({
     
     
   },
+  help_navigator: function () {
+    wx.navigateTo({
+      url: '../../help/pages/index',
+    })
+  },
 })

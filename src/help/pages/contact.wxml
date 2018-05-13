@@ -1,0 +1,29 @@
+<!--pages/help/contact.wxml-->
+<view class="container">
+
+
+
+    <view class="page-body">
+        <view class=" item "  style="margin-top:350rpx">
+         <view style="margin-left:40rpx;font-size: 20pt;" class="">
+            
+                <text class="">联系我们:
+
+                </text>
+            </view>
+            <view style="margin-left:50rpx" class="classname">
+                <image style="width: 44rpx; height:44rpx;" mode='aspectFit' src="../../image/phone.png"></image>
+                <text class="font">联系电话：13581786121</text>
+            </view>
+            <view style="margin-left:50rpx" class="classname">
+                <image style="width: 44rpx; height:44rpx;" mode='aspectFit' src="../../image/wechat.png"></image>
+               
+                <text class="font">微信号：13581786121</text></view>
+            <view style="margin-left:50rpx" class="classname">
+                <image style="width: 44rpx; height: 44rpx;" mode='aspectFit' src="../../image/mailBox.png"></image>
+                <text class="font">邮箱：240461723@qq.com</text></view>
+
+           
+        </view>
+    </view>
+</view>

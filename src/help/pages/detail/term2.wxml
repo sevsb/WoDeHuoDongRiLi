@@ -1,0 +1,25 @@
+<!--help/pages/detail/term2.wxml-->
+<view class='container' style=''>
+  <view class='help-part'>
+    <view class='help-title'>
+     登陆/注册
+    </view>
+    <view class=' help-context'>
+    
+        <!--段落  -->
+      <view class='help_paragraph'>
+      <!--标题  -->
+        <text class='paragraph_title'>　　用户进入小程序默认获取微信的账户信息。这里的登陆/注册 是与手机号进行绑定；绑定后用途如下：
+        </text>
+        <!--内容  -->
+        <text class='paragraph_content'>•  与手机号绑定后，您可以在不同的手机设备上用手机号登陆，登陆成功后将在此设备显示您的账号信息。便于查看您用户下的活动。
+•  与手机号绑定后，对于深度用户，可以通过登陆后台管理，上传活动。
+</text>
+<text class='paragraph_content help_comments'>注：普通用户您可能用不到此功能，但同样不影响您使用本小程序所有功能。</text>
+
+      </view>
+
+
+    </view>
+  </view>
+</view>

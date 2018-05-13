@@ -1,0 +1,25 @@
+<!--help/pages/detail/term7.wxml-->
+<view class='container' style=''>
+  <view class='help-part'>
+    <view class='help-title'>
+    关注分类
+    </view>
+    <view class=' help-context'>
+    
+        <!--段落  -->
+      <view class='help_paragraph'>
+      <!--标题  -->
+        <text class='paragraph_title'>　　当用户A将一个分类分享到微信用户，或者群里，用户B 打开这个分享，则可以关注这个分类，或者分类下的个别活动。
+        </text>
+
+        <!--内容  -->
+        <text class='paragraph_content'>• 已经关注分类，将在 类别管理页面查看到。
+• 已经关注分类，在列表活动筛选中可以查看，并且可以通过筛选查看此分类下的所有活动。
+</text>
+      </view>
+
+
+    </view>
+  </view>
+</view>
+

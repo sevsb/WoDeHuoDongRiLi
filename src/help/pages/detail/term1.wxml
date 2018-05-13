@@ -1,0 +1,108 @@
+<!--help/pages/detail/term1.wxml-->
+<view class='container' style=''>
+  <view class='help-part'>
+    <view class='help-title'>
+      适用场景
+    </view>
+    <view class=' help-context'>
+      <!--段落  -->
+      <view class='help_paragraph'>
+        <!--标题  -->
+        <view class='paragraph_title'>
+          1、组织单个活动，供用户报名参加
+        </view>
+        <!--内容  -->
+        <view class='paragraph_content'>
+          <rich-text> •
+            <a class='nav' bindtap='term3_nav'>
+              创建一个公开类别的活动</a>，设置报名人数限制，以及是否需要报名者填写信息。 </rich-text>
+          <rich-text>• 创建完毕后将此
+            <a class='nav' bindtap='term4_nav'>活动分享</a>微信用户或者群。</rich-text>
+          <rich-text> • 用户通过获取分享，查看活动并且报名参加。
+          </rich-text>
+        </view>
+      </view>
+      <!--段落  -->
+      <view class='help_paragraph'>
+        <!--标题  -->
+        <view class='paragraph_title'>
+          2、创建通知公告，让关注者掌握最新动态
+        </view>
+        <!--内容  -->
+        <view class='paragraph_content'>
+          <rich-text>•
+            <a class='nav' bindtap='term5_nav'>创建一个公开活动分类</a>。</rich-text>
+          <rich-text> • 在此分类下，创建通知公告活动。 </rich-text>
+          <rich-text>• 将此
+            <a class='nav' bindtap='term6_nav'>分类分享</a>至微信用户或者群。 </rich-text>
+          <rich-text>• 用户
+            <a class='nav' bindtap='term7_nav'>关注分类</a>后，您在此分类下创建，删除通知公告活动；关注的用户均可以查看到
+
+          </rich-text>
+        </view>
+      </view>
+      <!--段落  -->
+      <view class='help_paragraph'>
+        <!--标题  -->
+        <view class='paragraph_title'>
+          3、将日程安排添加到日历中
+        </view>
+        <!--内容  -->
+        <view class='paragraph_content'>
+          <rich-text>•
+            <a class='nav' bindtap='term3_nav'>创建一个私密活动</a>，可以将您重要的事件、个人安排添加到里面。 </rich-text>
+          <rich-text>• 并且设置重复周期，
+            <a class='nav' bindtap='term3_nav'>设置提醒</a>。</rich-text>
+        </view>
+      </view>
+
+      <!--段落  -->
+      <view class='help_paragraph'>
+        <!--标题  -->
+        <view class='paragraph_title'>
+          4、创建课程表，方便日程管理
+        </view>
+
+        <!--内容  -->
+        <view class='paragraph_content'>
+          <rich-text>•
+            <a class='nav' bindtap='term6_nav'>创建一个公开活动分类</a>。</rich-text>
+          <rich-text>• 在此分类下，
+            <a class='nav' bindtap='term3_nav'>创建每个学科课程的活动</a>。一个活动代表一个课程；每个课程可以设置重复周期，以及开始结束时间。</rich-text>
+          <rich-text>• 将课程表的
+            <a class='nav' bindtap='term6_nav'>分类分享</a>至微信用户或者群。</rich-text>
+          <rich-text>•
+            <a class='nav' bindtap='term4_nav'>用户关注</a>课程表的分类后，您再此分类下创建，删除课程活动，关注的用户均可以查看到。</rich-text>
+        </view>
+      </view>
+
+      <!--段落  -->
+      <view class='help_paragraph'>
+        <!--标题  -->
+        <view class='paragraph_title'>
+          5、创建专属活动，方便记录分享
+        </view>
+
+        <!--内容  -->
+        <view class='paragraph_content'>
+          <rich-text>•
+            <a class='nav' bindtap='term6_nav'>创建一个公开活动分类</a>,并为您专属活动的分类创建个性名称。 </rich-text>
+          <rich-text>• 在此分类下，
+            <a class='nav' bindtap='term3_nav'>创建专属的活动</a>。日期可以是过去，也可以是未来的某一天或某一段。 </rich-text>
+          <rich-text>• 创建完毕后可以根据您的需要，分享或者不分享此类别或者活动
+          </rich-text>
+        </view>
+      </view>
+      <!-- 图片  
+      <view style='margin:10px 0;'>
+
+        <image class='help-picture' mode='widthFix' style="width:100%;height:auto;" src="../../../image/help/association1.jpg"></image>
+        <view class='help-line'></view>
+        <image class='help-picture' mode='widthFix' style="width:100%;height:auto;" src="../../../image/help/association2.jpg"></image>
+        <view class='help-line'></view>
+        <image class='help-picture' mode='widthFix' style="width:100%;height:auto;" src="../../../image/help/association3.jpg"></image>
+
+      </view> -->
+    </view>
+  </view>
+</view>
