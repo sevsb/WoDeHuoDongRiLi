@@ -31,10 +31,10 @@ function do_login(login_cb) {
           req_data.iv = ret.iv;
 
           that.req('正在登陆', 'user.login', req_data, "login", function (res) {
-            login_cb(res);
             wx.setStorageSync('uid', res.data.uid);
             wx.setStorageSync('calendar_session', res.data.calendar_session);
-            wx.setStorageSync('timeout', res.data.timeout);
+            wx.setStorageSync('timeout', res.data.timeout); 
+            login_cb(res);
         });
         });
 
@@ -82,6 +82,7 @@ function get_userinfo(callback) {
 function req(title, action, req_data, res_data_op, success_cb) {
   var that = this;
   console.log(action + " started.");
+  console.log(req_data);
   wx.showLoading({
     title: title,
   })
@@ -111,9 +112,28 @@ function req(title, action, req_data, res_data_op, success_cb) {
 }
 
 function error_modal(res, redo) {
+  var that = this;
   console.log(res);
   var code = res.data.code;
   var reason = res.data.reason;
+  if (code == '000002' && reason == '无此用户') {
+
+    console.log('重新登录');
+    wx.showModal({
+      title: '错误',
+      content: 'code：' + code + ". 提示：" + reason,
+      confirmText: "重新登录",
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          that.do_login(redo);
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    return false;
+  }
   wx.showModal({
     title: '错误',
     content: 'code：' + code + ". 提示：" + reason,

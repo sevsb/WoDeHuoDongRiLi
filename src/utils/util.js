@@ -68,8 +68,27 @@ function neterror_Modal(callback) {
 
 function error_modal(res, redo) {
   console.log(res);
+  console.log("rrrrr");
   var code = res.data.code;
   var reason = res.data.reason;
+  if (code == '000002' && reason == '无此用户') {
+
+    console.log('重新登录');
+    wx.showModal({
+      title: '错误',
+      content: 'code：' + code + ". 提示：" + reason,
+      confirmText: "重新登录",
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          user.do_login(redo);
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    return false;
+  }
   wx.showModal({
     title: '错误',
     content: 'code：' + code + ". 提示：" + reason,
