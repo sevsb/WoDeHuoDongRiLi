@@ -203,7 +203,7 @@
 
   <!--创建活动  -->
   <view class="" id="">
-    <button formType="submit" class="{{ ipX ?  'submit_button_activity_create_ipx' : 'submit_button_activity_create' }}" bindtap='create_activity_request'>创建</button>
+    <button formType="submit" class="{{ ipX ?  'submit_button_activity_create_ipx' : 'submit_button_activity_create' }}" bindtap='create_activity_request' style='border-radius: 0px !important;'>创建</button>
   </view>
 
 

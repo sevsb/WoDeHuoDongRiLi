@@ -1,5 +1,9 @@
 /* pages/create/activity_create.wxss */
 
+page {
+  background: #fff;
+}
+
 /*
 创建活动页面 页面样式
   */
@@ -7,7 +11,7 @@
 .page_activity_create {
   background: #fff;
   width: 100%;
-  margin-bottom: 300rpx;
+  padding-bottom:80px;
   display: flex;
 }
 
