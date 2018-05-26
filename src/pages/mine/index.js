@@ -124,4 +124,9 @@ Page({
       url: '../../help/pages/index',
     })
   },
+  donation_navigator:function(){
+    wx.navigateTo({
+      url: '/Donation/pages/index',
+    })
+  }
 })

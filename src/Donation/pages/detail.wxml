@@ -1,0 +1,34 @@
+<!--pages/mine/support/detail.wxml-->
+
+<view class='container'>
+  <form bindsubmit="unifiedorder">
+    <!--头  -->
+    <view class='center column' style='margin:50px 0 ;'>
+      <view>
+        <image class=" profile" src="{{userInfo.avatarUrl}}" style=' height:{{windowWidth/5}}px;width:{{windowWidth/5}}px'></image>
+      </view>
+      <view style='margin:20px 0; font-size:14pt;'>点赞是美意，打赏是鼓励</view>
+      <view wx:if="{{havanum}}" style='color:#fa7d23; margin:5px 0 ; font-size:19pt;'>￥{{total_fee}}</view>
+      <view wx:elif="{{!havanum}}" class='center' style='flex-grow:0;'>
+        <view class='row ' style='color:#fa7d23;align-items: center; margin:5px 0 0 0; font-size:19pt;'>￥
+          <input type='digit' maxlength="4" cursor="0" name="number" style='min-height:40px;text-align: left; margin-left:0;margin-right:auto;font-size:17pt;width:170rpx;' placeholder-style='font-size:17pt;' placeholder='请输入'></input>
+        </view>
+      </view>
+    </view>
+    <!--按钮  -->
+    <view class='center column' style='  '>
+      <view style=' margin:0 0 10px 0; '>
+        <button wx:if="{{!havanum}}"   form-type="submit" bindtap='unifiedorder' style="color: white; background-color: #fa7d23; width:120px;" >打赏</button>
+      <button wx:elif="{{havanum}}"  bindtap='unifiedorder' style="color: white; background-color: #fa7d23; width:120px;" >打 赏</button>
+      </view>
+      <button bindtap='back' style='width:120px; border:1px #aaa solid; border-radius:10px; color:#888;'>返 回</button>
+ <label class='row center' bindtap='incognito'style='align-items: center;'>
+    <checkbox  class="checkbox"/>
+    <view style='font-size: 11pt;'>匿名打赏
+     </view>
+ </label>
+
+    </view>
+    
+  </form>
+</view>

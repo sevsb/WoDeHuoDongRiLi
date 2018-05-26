@@ -1,0 +1,66 @@
+<view class="container" style="padding:0 20px; background-color:#fff;">
+  <!--抬头  -->
+  <view class='center ' style='font-size:15pt; color:#6699ff; padding:50px 0; border-bottom:1px #ccc solid;'>
+    让我们的努力更有意义
+  </view>
+  <!--打赏按钮部分  -->
+  <view>
+    <view class='row' style='border-bottom:1px #ccc solid;'>
+      <view data-total_fee="2" class='supportbutton center ' bindtap="navdetail">
+        2
+      </view>
+      <view data-total_fee="5" class='supportbutton center ' bindtap="navdetail">
+        5
+      </view>
+      <view data-total_fee="10" class='supportbutton center ' bindtap="navdetail">
+        10 
+      </view>
+    </view>
+    <view class='row' style='border-bottom:1px #ccc solid;'>
+      <view data-total_fee="20" class='supportbutton center ' bindtap="navdetail">
+        20
+      </view>
+      <view data-total_fee="50" class='supportbutton center ' bindtap="navdetail">
+        50
+      </view>
+      <view data-total_fee="0" class='supportbutton center ' bindtap="navdetail">
+        自定义
+      </view>
+    </view>
+  </view>
+
+  <!--支持用户  -->
+  <view class='center column' style='margin:0 30px; '>
+    <view style='border-bottom:1px #ccc solid; font-size:11pt; flex-grow:1; line-height:3;'>感谢以下用户的支持</view>
+    <!--for循环获取-->
+    <view wx:for="{{paylog}}" wx:for-item="payment" wx:key="{{payment.id}}">
+      <!--判断支付成功与否  -->
+      <view  class='column-center ' style='border-bottom:1px #ccc solid;  font-size:11pt; flex-grow:1;'>
+         <view wx:if="{{payment.display=='false'}}" class='row' style='line-height:40px;'>
+          <view class='' style='height:30px;width:30px;margin:5PX 10PX;'>
+            <image style='height:30px;width:30px; border-radius:50%;' src="../image/incognito.png"></image>
+          </view>
+          <view>匿名</view>
+          <view style='flex-grow:1;'></view>
+          <view style='margin-right:10px; color:#aaa;'>￥{{payment.money/100}}</view>
+        </view>
+        <view wx:if="{{payment.display=='true'}}" class='row' style='line-height:40px;'>
+          <view class='' style='height:30px;width:30px;margin:5PX 10PX;'>
+            <image style='height:30px;width:30px; border-radius:50%;' src="{{payment.avatar}}"></image>
+          </view>
+          <view>{{payment.nickname}}</view>
+          <view style='flex-grow:1;'></view>
+          <view style='margin-right:10px; color:#aaa;'>￥{{payment.money/100}}</view>
+        </view>
+      </view>
+
+    </view>
+
+
+  </view>
+  <view wx:if="{{isListEnd}}">
+  <view class="page-foot">
+  ——已经没有数据了！——
+  </view>
+  </view>
+</view>

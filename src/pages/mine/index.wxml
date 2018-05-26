@@ -88,7 +88,7 @@
     </view>
 
     <!--打赏 -->
-    <view class='item_navigator_list'>
+    <view class='item_navigator_list' bindtap='donation_navigator'>
       <!--图标  -->
       <image class='small_icon' src='/image/icons/u221.png'> </image>
       <!--标题  -->

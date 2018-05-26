@@ -1,0 +1,33 @@
+/* pages/mine/support/detail.wxss */
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.checkbox{
+transform: scale(0.7);
+
+}
+
+.checkbox::after{
+  margin:0;
+}
+
+.profile {
+  width: 150rpx;
+  height: 150rpx;
+  border: 1px solid #ccc;
+  border-radius: 150rpx;
+  background-color: #fff;
+}
+page {
+  background-color: #f8f8f8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}

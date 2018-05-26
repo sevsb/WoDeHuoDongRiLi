@@ -34,6 +34,13 @@
         "pages/detail/term6",
         "pages/detail/term7"
       ]
+    },
+    {
+      "root": "Donation",
+      "pages": [
+        "pages/index",
+        "pages/detail"
+      ]
     }
   ],
   "tabBar": {
