@@ -11,8 +11,8 @@ page {
 .page_activity_create {
   background: #fff;
   width: 100%;
-  padding-bottom:80px;
   display: flex;
+  padding-bottom:60px;
 }
 
 /*
