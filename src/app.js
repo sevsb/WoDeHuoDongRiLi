@@ -12,11 +12,10 @@ App({
     console.log("timeout:" + timeout);
     console.log("calendar_session:" + calendar_session);
 
-
     wx.getSystemInfo({
       success: function (res) {
         var isIpx = false;
-        if (res.model.indexOf("iphone x") > -1) {
+        if (res.model.search(/iphone x/i) > -1) {
           isIpx = true;
         }
         that.globalData.isIpx = isIpx;
