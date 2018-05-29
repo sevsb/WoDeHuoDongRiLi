@@ -106,7 +106,6 @@
 </view>
 
 <view class=''></view>
-<view class="button-group {{isIpx ? 'fix-iphonex-button':''}}"></view>
 
   <!--添加活动按钮  -->
 <image class='add_activity_home_index' wx:if='{{del_mode == 0}}'

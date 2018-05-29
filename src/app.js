@@ -14,11 +14,11 @@ App({
 
     wx.getSystemInfo({
       success: function (res) {
-        var isIpx = false;
+        var isIPX = false;
         if (res.model.search(/iphone x/i) > -1) {
-          isIpx = true;
+          isIPX = true;
         }
-        that.globalData.isIpx = isIpx;
+        that.globalData.isIPX = isIPX;
       }
     })
 

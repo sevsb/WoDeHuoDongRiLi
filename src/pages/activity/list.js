@@ -15,7 +15,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isIpx: app.globalData.isIpx ? true : false,
     activity_list: [],
     choosed_type: 0,
     choosed_type_title: '',

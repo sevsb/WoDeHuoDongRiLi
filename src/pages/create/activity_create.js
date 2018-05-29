@@ -19,7 +19,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isIpx: app.globalData.isIpx ? true : false,
+    isIPX: app.globalData.isIPX ? true : false,
     address: "选择地址",//地址
     bindAddress: true,//绑定地址标识
     starttime: time,//开始时间

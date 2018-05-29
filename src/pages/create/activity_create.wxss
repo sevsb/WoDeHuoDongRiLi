@@ -149,17 +149,6 @@ page {
   z-index: 10000;
 }
 
-.submit_button_activity_create_ipx {
-  position: fixed;
-  bottom: 68rpx;
-  width: 750rpx;
-  left: 0;
-  line-height: 2.6666;
-  color: white;
-  background-color: #09bb07;
-  z-index: 10000;
-}
-
 /*
 创建活动页面 附加信息部分样式
   */
