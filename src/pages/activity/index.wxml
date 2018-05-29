@@ -107,7 +107,7 @@
         <view bindtap='show_sign_detail'  wx:key="unique" wx:for='{{activity_detail.signed_user_list}}' class='acatar_registration_part' data-item_detail='{{item}}'>
           <view wx:if="{{true}}">
             <view>
-              <image class='medium_icon portrait' src='{{item.avatar}}'>
+              <image class='small_icon portrait' src='{{item.avatar}}'>
               </image>
             </view>
             <view>
@@ -129,78 +129,56 @@
     </button>
   </view>
   <!--底边栏  -->
-  <view class='bottom_bar_activity_index space_between '>
+  <view class='bottom_bar_activity_index space_between  {{ isIPX ? ".fix-iphonex-portrait-orientation-bottom" : "" }}'>
     <view class='list_bottom_bar row space_between'>
       <view class='item_bottom_bar column center align_center' bindtap='create_activity_navigator'>
         <view>
-          <image src='/image/icons/u1038.png' class='medium_icon'>
+          <image src='/image/icons/u1038.png' class='small_icon'>
           </image>
         </view>
-        <view>
-          创建
-        </view>
+        <view>创建</view>
       </view>
 
       <view wx:if='{{activity_detail.type_pub == 1}}' bindtap='share_btn' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/image/icons/u1041.png' class='medium_icon'>
+          <image src='/image/icons/u1041.png' class='small_icon'>
           </image>
         </view>
-        <view>
-          分享
-        </view>
+        <view>分享</view>
       </view>
       <view wx:if='{{editable}}' bindtap='modify_btn' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/image/icons/u1089.png' class='medium_icon'>
+          <image src='/image/icons/u1089.png' class='small_icon'>
           </image>
         </view>
-        <view>
-          编辑
-        </view>
+        <view>编辑</view>
       </view>
       <view wx:if='{{editable}}' bindtap='cancel_btn' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/image/icons/u1084.png' class='medium_icon'>
+          <image src='/image/icons/u1084.png' class='small_icon'>
           </image>
         </view>
-        <view>
-          撤消
-        </view>
+        <view>撤消</view>
       </view>
       <view bindtap='subscribe_it' wx:if='{{editable == false && subscribed == false}}' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/image/icons/u1046.png' class='medium_icon'>
+          <image src='/image/icons/u1046.png' class='small_icon'>
           </image>
         </view>
-        <view>
-          关注
-        </view>
+        <view>关注</view>
       </view>
       <view bindtap='unsubscribe_it' wx:if='{{editable == false && subscribed == true}}' class='item_bottom_bar column center align_center'>
         <view>
-          <image src='/image/icons/u1046_selected.png' class='medium_icon'>
+          <image src='/image/icons/u1046_selected.png' class='small_icon'>
           </image>
         </view>
-        <view>
-          已关注
-        </view>
+        <view>已关注</view>
       </view>
     </view>
-    <view wx:if="{{activity_detail.type_pub == 1 && joined == false && editable == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
-      <view>
-        我要报名
-      </view>
-    </view>
-    <view wx:elif="{{activity_detail.type_pub == 1 && joined == true && editable == false}}" class='button_bottom_bar column  align_center center ' bindtap='sign_up_activity_navigator'>
-      <view>
-        已经报名
-      </view>
-    </view>
-    <view wx:elif="{{activity_detail.type_pub == 1 &&  editable == true}}" class='button_bottom_bar_disable column  align_center center'>
-      <view>
-        无法报名
-      </view>
+    <view class='button_bottom_bar column align_center center' bindtap='sign_up_activity_navigator'>
+      <view wx:if="{{activity_detail.type_pub == 1 && joined == false && editable == false}}" class='button_bottom_bar_enable' bindtap='sign_up_activity_navigator'>我要报名</view>
+      <view wx:elif="{{activity_detail.type_pub == 1 && joined == true && editable == false}}" class='button_bottom_bar_enable' bindtap='sign_up_activity_navigator'>已经报名</view>
+      <view wx:elif="{{activity_detail.type_pub == 1 &&  editable == true}}" class='button_bottom_bar_disable'>无法报名</view>
     </view>
   </view>
   <!--悬浮按钮  -->

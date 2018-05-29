@@ -14,6 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isIPX: app.globalData.isIPX ? true : false,
     id: 0,
     activity_detail: null,
     editable: false,

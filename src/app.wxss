@@ -201,8 +201,8 @@ page {
 }
 
 .small_icon {
-  height: 50rpx;
-  width: 50rpx;
+  height: 45rpx;
+  width: 45rpx;
 }
 
 .small_icon_h {
